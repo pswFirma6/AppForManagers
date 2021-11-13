@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
-import { FeedbackModel } from "../shared/feedback.model";
-import { FeedbackService } from "../shared/feedback.service";
+import { FeedbackModel } from "src/app/shared/feedback.model";
+import { FeedbackService } from "src/app/shared/feedback.service";
 
 @Component({
     selector: 'pharmacyFeedbackForm',

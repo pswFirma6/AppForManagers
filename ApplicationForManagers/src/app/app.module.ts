@@ -7,48 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home/homePage.component';
-import { PharmacyFeedbackComponent } from './pharmacyFeedback/pharmacyFeedback.component';
-import { PharmacyFeedbackFormComponent } from './pharmacyFeedbackForm/pharmacyFeedbackForm.component';
-import { PharmacyFeedbacksComponent } from './pharmacyFeedbacks/pharmacyFeedbacks.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import {HttpClientModule} from '@angular/common/http';
-import { HospitalMapComponent } from './hospital-map/hospital-map.component';
-import { FirstfloorComponent } from './firstfloor/firstfloor.component';
-import { PatientFeedbacksComponent } from './patient-feedbacks/patient-feedbacks.component';
-import { SecondfloorComponent } from './secondfloor/secondfloor.component';
+import { HomePageLayoutComponent } from './homePage/home-page-layout/home-page-layout.component';
+import { HomePageLayoutModule } from './homePage/home-page-layout/home-page-layout.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    PharmacyFeedbackComponent,
-    SidebarComponent,
-    PharmacyFeedbackFormComponent,
-    PharmacyFeedbacksComponent,
-    HospitalMapComponent,
-    FirstfloorComponent,
-    PatientFeedbacksComponent,
-    SecondfloorComponent
+    HomePageLayoutComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
-      { path: 'home', component: HomePageComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'app-hospital-map',component : HospitalMapComponent},
-      { path: 'app-firstfloor',component : FirstfloorComponent},
-      { path: 'app-secondfloor',component : SecondfloorComponent},
-      { path: 'patient-feedbacks', component: PatientFeedbacksComponent },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' }
-    ]),
+    RouterModule.forRoot([]),
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomePageLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

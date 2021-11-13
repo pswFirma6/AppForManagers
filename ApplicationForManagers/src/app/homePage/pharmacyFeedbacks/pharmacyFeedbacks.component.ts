@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FeedbackModel } from "../shared/feedback.model";
-import { FeedbackService } from "../shared/feedback.service";
-import { FeedbackResponseModel } from "../shared/feedbackResponse.model";
+import { FeedbackModel } from "src/app/shared/feedback.model";
+import { FeedbackService } from "src/app/shared/feedback.service";
+import { FeedbackResponseModel } from "src/app/shared/feedbackResponse.model";
 
 @Component({
     selector: 'pharmacyFeedbacks',
