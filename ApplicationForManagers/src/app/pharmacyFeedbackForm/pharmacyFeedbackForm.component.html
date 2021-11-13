@@ -1,0 +1,26 @@
+<div class="card text-center">
+    <div class="card-header">
+        <b>{{title}}</b>
+    </div>
+    <div class="card-body">
+        <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+          <input type="hidden" name="Id" [value]="service.formFeedback.id">
+            <div class="form-group">
+                <label>Pharmacy:</label>
+                <select class="form-control" id="pharmacyName"  name="pharmacyName" #Name="ngModel" [(ngModel)] = "service.formFeedback.pharmacyName" required >
+                  <option *ngFor='let pharmacy of pharmacies' >
+                    {{pharmacy}}
+                  </option>
+                </select>
+                
+              </div><br/>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Feedback content:</label>
+                <textarea minlength="1" class="form-control" id="feedbackText" rows="5" placeholder="Feedback content..." name="content" #Name="ngModel" [(ngModel)] = "service.formFeedback.content" required></textarea>
+              </div><br/>
+            <button type="submit" class="btn">
+                Submit
+            </button>
+          </form>
+    </div>
+</div>  
