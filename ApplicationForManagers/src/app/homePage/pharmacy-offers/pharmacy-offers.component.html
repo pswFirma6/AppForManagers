@@ -1,0 +1,17 @@
+<div class="cards">
+
+    <div class="card text-center" *ngFor='let offer of offers'>
+        <div class="card-header">
+            <b>{{offer.pharmacyName}}: {{offer.title}}</b>
+        </div>
+        <div class="card-body">
+            <label><b>Content:</b></label><br/>
+            {{offer.content}}<br/><br/>
+            <label><b> Start date:</b></label><br/>
+            {{offer.startDate}}<br/><br/>
+            <label><b> End date:</b></label><br/>
+            {{offer.endDate}}<br/><br/>
+        </div> 
+    </div>
+    
+</div>
