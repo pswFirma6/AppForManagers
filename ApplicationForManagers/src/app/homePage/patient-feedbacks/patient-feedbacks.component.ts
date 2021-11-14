@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { PatientFeedbackService } from '../service/patient-feedbacks.service';
-import { PatientFeedbacks, FeedbackState } from '../shared/patient-feedback';
+import { PatientFeedbackService } from 'src/app/service/patient-feedbacks.service';
+import { FeedbackState, PatientFeedbacks } from 'src/app/shared/patient-feedback';
 
 
 

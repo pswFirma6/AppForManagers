@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FeedbackService } from "../shared/feedback.service";
 
 @Component({
     selector: 'pharmacyFeedback',
