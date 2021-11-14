@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MedicationSpecificationService } from 'src/app/service/medicationSpecification.service';
 
 @Component({
   selector: 'app-medication-specification-form',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicationSpecificationFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: MedicationSpecificationService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(form: NgForm){
   }
 
 }

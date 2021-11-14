@@ -1,13 +1,13 @@
 <div class="card text-center">
     <div class="card-header">
-        <b></b>
+        <b>Medication specification request</b>
     </div>
     <div class="card-body">
-        <form ngNativeValidate>
+        <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
           <input type="hidden" name="Id">
             <div class="form-group">
                 <label>Pharmacy:</label>
-                <select class="form-control" id="pharmacyName"  name="pharmacyName" required >
+                <select class="form-control" id="pharmacyName"  name="pharmacyName" #Name="ngModel" [(ngModel)] = "service.formFeedback.pharmacyName" required >
                   <option>
                   </option>
                 </select>
@@ -15,7 +15,7 @@
               </div><br/>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Medication name:</label>
-                <select class="form-control" id="medicationName"  name="medicationName" required >
+                <select class="form-control" id="medicationName"  name="medicationName" #Name="ngModel" [(ngModel)] = "service.formFeedback.medicationName" required >
                     <option>
                     </option>
                   </select>
