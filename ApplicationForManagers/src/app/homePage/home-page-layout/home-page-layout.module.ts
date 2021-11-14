@@ -35,7 +35,8 @@ import { HomePageLayoutRoutes } from "./home-page-layout.routing";
         PatientFeedbacksComponent,
         SecondfloorComponent,
         MedicationSpecificationFormComponent,
-        PharmacyOffersComponent
+        PharmacyOffersComponent,
+        MedicationSpecificationFormComponent
     ],
     exports: [
         SidebarComponent
