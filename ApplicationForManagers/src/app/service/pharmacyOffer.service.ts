@@ -16,7 +16,8 @@ export class PharmacyOfferService{
         pharmacyName: 'Pharmacy1',
         content: 'New offer',
         startDate: '04.11.2021.',
-        endDate: '10.11.2021.'
+        endDate: '10.11.2021.',
+        posted: false
       }
   ];
   

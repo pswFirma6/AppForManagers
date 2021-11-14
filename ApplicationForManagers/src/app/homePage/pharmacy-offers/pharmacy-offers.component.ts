@@ -17,4 +17,8 @@ export class PharmacyOffersComponent implements OnInit {
     this.offers = this.service.pharmacyOffers;
   }
 
+  postOffer(offerId: number): void {
+    
+  }
+
 }

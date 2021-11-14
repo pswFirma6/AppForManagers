@@ -5,4 +5,5 @@ export class PharmacyOfferModel{
     content: string = '';
     startDate: string = '';
     endDate: string = '';
+    posted: boolean = false;
 }

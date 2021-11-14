@@ -35,3 +35,13 @@ h1{
 label{
     font-size: large;
 }
+
+.btn{
+    background-color: white; 
+    border-color: lightgray;
+    color: red;
+    font-size: x-large;
+    font-weight: bold;
+    opacity: 70%;
+    margin-left: 780px;
+}
