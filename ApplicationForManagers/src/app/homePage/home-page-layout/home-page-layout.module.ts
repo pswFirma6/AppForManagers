@@ -7,6 +7,7 @@ import { SidebarComponent } from "../component/sidebar/sidebar.component";
 import { FirstfloorComponent } from "../firstfloor/firstfloor.component";
 import { HomePageComponent } from "../home/homePage.component";
 import { HospitalMapComponent } from "../hospital-map/hospital-map.component";
+import { MedicationSpecificationFormComponent } from "../medication-specification-form/medication-specification-form.component";
 import { PatientFeedbacksComponent } from "../patient-feedbacks/patient-feedbacks.component";
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { PharmacyFeedbackFormComponent } from "../pharmacyFeedbackForm/pharmacyFeedbackForm.component";
@@ -31,7 +32,8 @@ import { HomePageLayoutRoutes } from "./home-page-layout.routing";
         HospitalMapComponent,
         FirstfloorComponent,
         PatientFeedbacksComponent,
-        SecondfloorComponent
+        SecondfloorComponent,
+        MedicationSpecificationFormComponent
     ],
     exports: [
         SidebarComponent
