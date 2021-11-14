@@ -15,7 +15,7 @@ import { HomePageLayoutModule } from './homePage/home-page-layout/home-page-layo
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageLayoutComponent
+    HomePageLayoutComponent,
   ],
   imports: [
     BrowserModule,

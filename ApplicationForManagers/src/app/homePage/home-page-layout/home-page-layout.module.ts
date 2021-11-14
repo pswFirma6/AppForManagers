@@ -9,6 +9,7 @@ import { HomePageComponent } from "../home/homePage.component";
 import { HospitalMapComponent } from "../hospital-map/hospital-map.component";
 import { MedicationSpecificationFormComponent } from "../medication-specification-form/medication-specification-form.component";
 import { PatientFeedbacksComponent } from "../patient-feedbacks/patient-feedbacks.component";
+import { PharmacyOffersComponent } from "../pharmacy-offers/pharmacy-offers.component";
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { PharmacyFeedbackFormComponent } from "../pharmacyFeedbackForm/pharmacyFeedbackForm.component";
 import { PharmacyFeedbacksComponent } from "../pharmacyFeedbacks/pharmacyFeedbacks.component";
@@ -33,7 +34,8 @@ import { HomePageLayoutRoutes } from "./home-page-layout.routing";
         FirstfloorComponent,
         PatientFeedbacksComponent,
         SecondfloorComponent,
-        MedicationSpecificationFormComponent
+        MedicationSpecificationFormComponent,
+        PharmacyOffersComponent
     ],
     exports: [
         SidebarComponent
