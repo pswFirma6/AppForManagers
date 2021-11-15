@@ -1,22 +1,28 @@
-<div class="cards">
-
+<div class="registration">
+  
     <div class="card text-center">
         <div class="card-header">
-            <b>Medication Consumption</b>
+            <b>Medication Consumption Report</b>
         </div>
-        <div class="card-body">
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Start date:</label>
-                <input class="form-control" type="date" name="start" />
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">End date:</label>
-                <input class="form-control" type="date" name="end" />
-            </div>
-            <button class="btn">
-                Submit
-            </button>
-        </div> 
-    </div>
-    
+        <div class="card-body"><br/>
+            <form #form = "ngForm">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Start date:</label>
+                    <input class="form-control" type="date" name="start" #Name="ngModel" [(ngModel)]="service.formReport.startDate" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">End date:</label>
+                    <input class="form-control" type="date" name="end" #Name="ngModel" [(ngModel)]="service.formReport.endDate"/>
+                </div>
+                <br/><br/>
+                <button type="submit" class="btn">
+                    Submit
+                </button>
+              </form>
+        </div>
+    </div>  
+  
 </div>
+  
+  
+

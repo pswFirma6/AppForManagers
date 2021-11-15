@@ -9,12 +9,8 @@ import { MedicationConsumptionReportModel } from '../shared/medicationConsumptio
 })
 export class MedicationConsumptionService{
 
-  formReport: MedicationConsumptionReportModel= new MedicationConsumptionReportModel();
+  formReport: MedicationConsumptionReportModel = new MedicationConsumptionReportModel();
   
   constructor(private http: HttpClient) { }
-
-  validate(feedbackValid: MedicationSpecificationModel): string{
-     return 'Successfull!'
-  }
 
 }
