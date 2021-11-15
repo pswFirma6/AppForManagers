@@ -8,6 +8,7 @@ export class PatientFeedbacks
 {
     id: string;
     personId: string;
+    username: string;
     text: string;
     date: Date;
     state: FeedbackState = FeedbackState.pending;
