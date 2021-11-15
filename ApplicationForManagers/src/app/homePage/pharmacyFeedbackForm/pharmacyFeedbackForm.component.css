@@ -1,6 +1,6 @@
 .btnCreate{
-    background-color: red; 
-    color: lightgray;
+    background-color: lightskyblue; 
+    color: black;
     font-size: x-large;
     font-weight: bold;
     opacity: 70%;
@@ -18,8 +18,8 @@
 }
 
 .card-header{
-    background-color: red; 
-    color: lightgray;
+    background-color: lightskyblue; 
+    color: black;
     font-size: x-large;
     opacity: 70%;
 }
@@ -34,8 +34,8 @@
 }
 
 .btn{
-    background-color: red; 
-    color: lightgray;
+    background-color: lightskyblue; 
+    color: black;
     font-size: x-large;
     font-weight: bold;
     opacity: 70%;

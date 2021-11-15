@@ -1,15 +1,15 @@
 .feedback{
-    margin-left: 350px;
+    margin-left: 300px;
 }
 
 .btnCreate{
-    background-color: red; 
-    color: lightgray;
+    background-color: lightskyblue; 
+    color: black;
     font-size: x-large;
     font-weight: bold;
     opacity: 70%;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: -50px;
     border: 0px;
     width: 300px;
     height: 50px;
