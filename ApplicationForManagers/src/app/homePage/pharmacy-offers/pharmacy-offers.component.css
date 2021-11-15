@@ -17,8 +17,8 @@ h1{
 }
 
 .card-header{
-    background-color: red; 
-    color: lightgray;
+    background-color: lightskyblue; 
+    color: black;
     font-size: x-large;
     opacity: 70%;
 }
@@ -39,7 +39,7 @@ label{
 .btn{
     background-color: white; 
     border-color: lightgray;
-    color: red;
+    color: skyblue;
     font-size: x-large;
     font-weight: bold;
     opacity: 70%;
