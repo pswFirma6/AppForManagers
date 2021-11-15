@@ -8,5 +8,6 @@ import { IPharmacy } from './pharmacy';
 })
 
 export class AppComponent {
+  [x: string]: any;
 
 }

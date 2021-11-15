@@ -11,7 +11,6 @@ import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
-    { path: 'home', component: HomePageComponent },
     { path: 'app-hospital-map',component : HospitalMapComponent},
     { path: 'app-firstfloor',component : FirstfloorComponent},
     { path: 'app-secondfloor',component : SecondfloorComponent},

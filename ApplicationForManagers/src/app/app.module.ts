@@ -10,22 +10,26 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomePageLayoutComponent } from './homePage/home-page-layout/home-page-layout.component';
 import { HomePageLayoutModule } from './homePage/home-page-layout/home-page-layout.module';
-
+import { LandingpageLayoutComponent } from './landingpage/landingpage-layout/landingpage-layout.component';
+import { LandingpageLayoutModule } from './landingpage/landingpage-layout/landingpage-layout.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageLayoutComponent,
+    LandingpageLayoutComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-    HomePageLayoutModule
+    HomePageLayoutModule,
+    LandingpageLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

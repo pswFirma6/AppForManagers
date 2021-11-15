@@ -1,41 +1,40 @@
-<div class="feedback-table">
-    <div>
-        <h2>Feedback requests</h2>
-    </div>
-    <div>
-        <table>
-            <tr>
-              <th>User</th>
-              <th>Date</th>
-              <th>Comment</th>
-              <th>Comment's state</th>
-              <th></th>
-            </tr>
+<div class="feedback-table content table-responsive table-full-width">
+  <div>
+      <h2>Feedback requests</h2>
+  </div>
+  <div class="table-responsive table-full-width">
+      <table class="table">
+          <tr>
+            <th class="text-center">User</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Comment</th>
+            <th class="text-center">Comment's state</th>
+            <th></th>
+          </tr>
+          <tbody>
             <ng-container *ngFor="let feedback of feedbacks">
             <tr>
-                <div *ngIf="!feedback.anonymous">
-                  <td>{{feedback.personId}}</td>
-                </div>
-                <div *ngIf="feedback.anonymous">
-                  <td>Anonymous</td>
-                </div>
-                <td>{{feedback.date}}</td>
-                <td>{{feedback.text}}</td>
-                <td>{{GetFeedbackState(feedback)}}</td>
+                
+                <td *ngIf="!feedback.anonymous" class="text-center">{{feedback.personId}}</td>
+                <td *ngIf="feedback.anonymous" class="text-center">Anonymous</td>
+                <td class="text-center">{{feedback.date}}</td>
+                <td class="text-center"><b>{{feedback.text}}</b></td>
+                <td *ngIf="feedback.publish" class="text-center">{{GetFeedbackState(feedback)}}</td>
+                <td *ngIf="!feedback.publish" class="text-center unpublishable">Unpublishable</td>
                 <div *ngIf="feedback.publish">
                   <div *ngIf="GetFeedbackState(feedback) == 'pending'">
-                    <button (click) = "approveRequest(feedback)">Approve</button>
-                    <button (click) = "rejectRequest(feedback)">Reject</button>
+                    <td class="text-center"><button class="btn btn-success btn-sm" (click) = "approveRequest(feedback)">Approve</button></td>
+                    <td class="text-center"><button class="btn btn-danger btn-sm" (click) = "rejectRequest(feedback)">Reject</button></td>
                   </div>
-                  <div *ngIf="GetFeedbackState(feedback) != 'pending'">
-                    <button (click) = "withdrawAction(feedback)">Withdraw action</button>
-                  </div>
+                  
+                  <td class="text-center"><button *ngIf="GetFeedbackState(feedback) != 'pending'" class="btn btn-warning btn btn-primary btn-simple btn-sm" (click) = "withdrawAction(feedback)">Withdraw action</button></td>
                 </div>
-                <div *ngIf="!feedback.publish">
-                  <td>Unpublishable</td>
-                </div>
+                
+                <td class="text-center" *ngIf="!feedback.publish"></td>
+                
               </tr>
             </ng-container>
-          </table>
-    </div>
+          </tbody>
+        </table>
+  </div>
 </div>
