@@ -13,12 +13,16 @@ import { HomePageLayoutModule } from './homePage/home-page-layout/home-page-layo
 import { LandingpageLayoutComponent } from './landingpage/landingpage-layout/landingpage-layout.component';
 import { LandingpageLayoutModule } from './landingpage/landingpage-layout/landingpage-layout.module';
 import { AppRoutingModule } from './app-routing.module';
+import { MedicationAvailabilityComponent } from './homePage/medication-availability/medication-availability.component';
+import { MedicationsNavbarComponent } from './homepage/medications-navbar/medications-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageLayoutComponent,
-    LandingpageLayoutComponent
+    LandingpageLayoutComponent,
+    MedicationAvailabilityComponent,
+    MedicationsNavbarComponent
   ],
   imports: [
     BrowserModule,
