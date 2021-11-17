@@ -20,7 +20,12 @@ export class PharmacyOfferService{
         posted: false
       }
   ];
+  readonly offerBase = "https://https://localhost:44317/notifications";
   
   constructor(private http: HttpClient) { }
+
+  getOffers(): Observable<string[]> {
+    return this.http.get<string[]>(this.offerBase);
+  }
 
 }

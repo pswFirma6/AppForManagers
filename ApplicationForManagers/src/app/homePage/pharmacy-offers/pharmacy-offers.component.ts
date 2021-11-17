@@ -15,10 +15,10 @@ export class PharmacyOffersComponent implements OnInit {
 
   ngOnInit(): void {
     this.offers = this.service.pharmacyOffers;
+    this.service.getOffers();
   }
 
   postOffer(offerId: number): void {
-    
   }
 
 }
