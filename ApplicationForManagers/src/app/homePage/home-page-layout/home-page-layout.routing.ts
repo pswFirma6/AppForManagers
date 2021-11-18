@@ -8,6 +8,7 @@ import { PatientFeedbacksComponent } from "../patient-feedbacks/patient-feedback
 import { PharmacyOffersComponent } from "../pharmacy-offers/pharmacy-offers.component";
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
+import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -17,5 +18,7 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'patient-feedbacks', component: PatientFeedbacksComponent },
     { path: 'medicationSpecification', component: MedicationSpecificationFormComponent },
     { path: 'pharmacyOffers', component: PharmacyOffersComponent },
-    { path: 'medicationConsumptionReport', component: MedicationConsumptionReportComponent }
+    { path: 'medicationConsumptionReport', component: MedicationConsumptionReportComponent },
+
+    { path: 'urgentProcurement', component: UrgentProcurementComponent }
 ]

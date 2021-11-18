@@ -13,6 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/home/medicationSpecification', title: 'MEDICATION SPECIFICATIONS', icon:'pe-7s-note2', class: '' },
     { path: '/home/pharmacyOffers', title: 'PHARMACY OFFERS', icon:'pe-7s-note2', class: '' },
     { path: '/home/app-hospital-map', title: 'HOSPITAL MAP', icon:'pe-7s-note2', class: '' },
+
+    { path: '/home/urgentProcurement', title: 'URGENT PROCUREMENT', icon:'pe-7s-note2', class: '' }
   
 ];
 
