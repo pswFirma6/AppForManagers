@@ -1,0 +1,33 @@
+<div>
+    <app-medications-navbar></app-medications-navbar> <br/>
+    <div>
+        <div class="card text-center">
+            <div class="card-header">
+                <b>Check medication availability</b>
+            </div>
+            <div class="card-body">
+                <form #form="ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+                    <div class="form-group">
+                        <label>Pharmacy:</label>
+                        <select class="form-control" id="pharmacyName" required >
+                            <option>
+                            </option>
+                        </select>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label>Medication name:</label><br/>
+                        <input type="text" class="form-control-second" name="MedicationName">
+                    </div><br/>
+                    <div class="form-group">
+                        <label>Medication amount:</label><br/>
+                        <input type="text" class="form-control-second" name="MedicationAmount">
+                    </div><br/>
+                    <button type="submit" class="btn">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
