@@ -1,0 +1,39 @@
+<div class="cards">
+
+    <div class="card text-center" *ngFor='let feedback of feedbacks; let i = index'>
+        <div class="card-header">
+            <b>{{feedback.pharmacyName}}</b>
+        </div>
+        <div class="card-body">
+            <div class="form-control">
+                <label><b>Date:</b></label><br/>
+                {{feedback.feedbackDate}}<br/><br/>
+                <label><b>Content:</b></label><br/>
+                {{feedback.content}}
+            </div>
+                <div *ngFor='let response of responses'>
+                    <a class="text-muted" *ngIf="response.feedbackId==feedback.id" (click)="changeVisibility(feedback.id+1, response.id)">See response</a>
+                </div>
+
+        </div> 
+        <div>
+
+        </div>
+        <div *ngIf="responseVisibility[feedback.id]==true">
+            <div class="card-header1">
+                <b>Response</b>
+            </div>
+            <div class="card-body">
+                <div class="form-control">
+                    <label><b>Date:</b></label><br/>
+                    {{response.feedbackResponseDate}}<br/><br/>
+                    <label><b>Content:</b></label><br/>
+                    {{response.content}}
+                </div>
+            </div>
+        </div> 
+
+    </div>
+    
+
+</div>

@@ -1,0 +1,18 @@
+.sidebar{
+    background-size: cover;
+    background-image: url(../../../assets/images/sidebar-5.jpg);
+    height: 100%;
+    position: absolute;
+    width: 20%;
+    margin-top: -50px;
+}
+
+.sidebar-background{
+    background-color: lightskyblue;
+    height: 100%;
+    opacity: 60%;
+}
+
+.main-panel{
+    margin-top: 50px;
+}
