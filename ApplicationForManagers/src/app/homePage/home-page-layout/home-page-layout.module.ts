@@ -19,6 +19,9 @@ import { PharmacyFeedbacksComponent } from "../pharmacyFeedbacks/pharmacyFeedbac
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
 
+import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+
+
 @NgModule ({
     imports: [
         CommonModule,
@@ -40,11 +43,14 @@ import { HomePageLayoutRoutes } from "./home-page-layout.routing";
         MedicationSpecificationFormComponent,
         PharmacyOffersComponent,
         MedicationConsumptionReportComponent,
+        UrgentProcurementComponent,
         MedicationsNavbarComponent,
         MedicationAvailabilityComponent
+
     ],
     exports: [
-        SidebarComponent
+        SidebarComponent,
+        UrgentProcurementComponent
     ]
 })
 
