@@ -4,7 +4,7 @@
             <b>Urgent procurement</b>
         </div>
         <div class="card-body">
-            <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+            <form ngNativeValidate>
             <input type="hidden" name="Id">
                 <div class="form-group">
                     <label>Choose medication:</label>
@@ -27,6 +27,17 @@
             </form>
         </div>
     </div> 
+    <div class="card">
+        <div class="card-body">
+            <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+                <div class="form-group">
+                    <label>Enter city name or address:</label> &nbsp;
+                    <input type="text"> &nbsp;
+                    <button class="btnSearch">search</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div  class="card text-center" *ngFor='let pharmacy of pharmacies; let i = index'>
         <div class="card-header2">
             <b>Pharmacy "{{pharmacy.name}}"</b>
