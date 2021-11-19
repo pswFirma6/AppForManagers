@@ -40,5 +40,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/pswFirma6/AppForManagers.git"
+  },
+  "release":{
+    "branches": ["master", "develop"]
   }
 }
