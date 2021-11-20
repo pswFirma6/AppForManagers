@@ -1,0 +1,43 @@
+<div class="surveyStats">
+    <div>
+        <h1>Survey Statistics</h1>
+    </div>
+
+    <div>
+        <div *ngFor="let surveyStat of surveyStats">
+            <h2>{{surveyStat.category}}</h2>
+            <h3>Average: </h3>
+            <div>
+                <table class="table">
+                    <tr>
+                      <th class="text-center">Question</th>
+                      <th class="text-center">Average rating</th>
+                    </tr>
+                    <tbody>
+                        <tr *ngFor="let question of surveyStat.surveyQuestions">
+                            <td>{{question.question}}</td>
+                            <td>{{question.rate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <h2>Category 1</h2>
+        <h3>Average: 3.5</h3>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+              <th class="text-center">Question</th>
+              <th class="text-center">Number of answers</th>
+              <th class="text-center">Average rating</th>
+            </tr>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div> -->
+</div>
