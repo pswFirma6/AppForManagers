@@ -1,5 +1,6 @@
 export class Pharmacy {
-    id: number = 0;
-    name: string = '';
+    pharmacyName: string = '';
     address: string = '';
+    city: string = '';
+    apiKey: string = ''
 }

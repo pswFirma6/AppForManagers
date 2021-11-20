@@ -31,19 +31,24 @@
         <div class="card-body">
             <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
                 <div class="form-group">
-                    <label>Enter city name or address:</label> &nbsp;
-                    <input type="text"> &nbsp;
-                    <button class="btnSearch">search</button>
+                    <label>Enter city name:</label> &nbsp;
+                    <input type="text" [(ngModel)] = "_cityFilter" name="_cityFilter"/> &nbsp;
                 </div>
+                <div class="form-group">
+                    <label>Enter address:</label> &nbsp;
+                    <input type="text" [(ngModel)] = "_addressFilter" name="_addressFilter"/> &nbsp;
+                </div>
+                <button class="btnSearch">search</button>
             </form>
         </div>
     </div>
-    <div  class="card text-center" *ngFor='let pharmacy of pharmacies; let i = index'>
+    <div  class="card text-center" *ngFor='let pharmacy of filteredPharmacies; let i = index'>
         <div class="card-header2">
-            <b>Pharmacy "{{pharmacy.name}}"</b>
+            <b>Pharmacy "{{pharmacy.pharmacyName}}"</b>
         </div>
         <div class="card-body">
             <label><b>Address:</b> {{pharmacy.address}}</label> <br/>
+            <label><b>City:</b> {{pharmacy.city}}</label> <br/>
             <button class="btnCheck">Check if available</button>
         </div>
     </div>
