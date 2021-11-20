@@ -1,4 +1,4 @@
 export class MedicationSpecificationModel{
-    pharmacyName: string = '';
     medicationName: string = '';
+    pharmacyName: string = '';
 }

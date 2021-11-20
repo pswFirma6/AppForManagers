@@ -8,18 +8,29 @@ import { MedicationSpecificationModel } from '../shared/medicationSpecification.
 })
 export class MedicationSpecificationService{
 
-  formFeedback: MedicationSpecificationModel= new MedicationSpecificationModel();
+  formMedicineSpecification: MedicationSpecificationModel= new MedicationSpecificationModel();
+  readonly basePharmacyNames = "https://localhost:44317/pharmacyNames";
+  readonly baseMedicationNames = "https://localhost:44317/medicationNames";
+  readonly baseRequestReport = "https://localhost:44317/requestReport";
   pharmacyNames: string[] = [];
   medicationNames: string[] = [];
   
   
   constructor(private http: HttpClient) { }
 
-  postLogin(){
-  }
-
   validate(feedbackValid: MedicationSpecificationModel): string{
      return 'Successfull!'
   }
 
+  getPharmacyNames(): Observable<string[]>{
+    return this.http.get<string[]>(this.basePharmacyNames);
+  }
+
+  getMedicationNames(pharmacyName: string): Observable<string[]>{
+    return this.http.post<string[]>(this.baseMedicationNames,pharmacyName);
+  }
+
+  requestReport(){
+    return this.http.post(this.baseRequestReport,this.formMedicineSpecification);
+  }
 }
