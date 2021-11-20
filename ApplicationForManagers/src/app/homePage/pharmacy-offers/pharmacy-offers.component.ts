@@ -14,7 +14,8 @@ export class PharmacyOffersComponent implements OnInit {
   constructor(public service: PharmacyOfferService) { }
 
   ngOnInit(): void {
-    this.offers = this.service.pharmacyOffers;
+    this.service.getOffers()
+      .subscribe( res => this.offers = res);
   }
 
   postOffer(offerId: number): void {

@@ -20,7 +20,12 @@ export class PharmacyOfferService{
         posted: false
       }
   ];
+  readonly getOffersUrl = "https://localhost:44317/getOffers";
   
   constructor(private http: HttpClient) { }
+
+  getOffers() : Observable<PharmacyOfferModel[]>{
+    return this.http.get<PharmacyOfferModel[]>(this.getOffersUrl);
+  }
 
 }
