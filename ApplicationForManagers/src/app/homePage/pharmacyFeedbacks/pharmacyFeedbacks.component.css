@@ -6,8 +6,13 @@ h1{
     color: gray;
 }
 
-.card{
+.cards{
     width: 80%;
+    height: 100%;
+}
+
+.card{
+    width: 100%;
     margin-top: 50px;
 }
 
@@ -32,6 +37,7 @@ h1{
 
 .form-control{
     font-size: large;
+    height: 100%;
 }
 
 label{

@@ -5,7 +5,7 @@
             <b>{{offer.pharmacyName}} : {{offer.title}}</b>
         </div>
         <div class="card-body">
-            <button (click)="postOffer(offer.id)" class="btn" *ngIf='offer.posted==false'>
+            <button (click)="postOffer(offer)" class="btn" *ngIf='offer.posted==false'>
                 POST
             </button><br/>
             <label><b>Content:</b></label><br/>
