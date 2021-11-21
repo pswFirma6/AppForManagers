@@ -28,10 +28,10 @@
     color: black;
     opacity: 70%;
     border-radius: 10px;
-    margin-top: 20px;
     border: 0px;
-    width: 70px;
-    height: 30px;
+    width: 130px;
+    height: 35px;
+    margin-left: 40px;
 }
 
 .card{
@@ -71,6 +71,21 @@
 .form-control{
     width: 40rem; 
     margin: 0 auto;
+}
+
+.form-group{
+    margin-left: 80px;
+}
+
+.card-body-filter{
+    display: inline-flex;
+}
+
+.form-control-filter{
+    width: 10rem; 
+    border-radius: 5px;
+    border-color: lightgray;
+    border-width: 1px;
 }
 
 .btn{

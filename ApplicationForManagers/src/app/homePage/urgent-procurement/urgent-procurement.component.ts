@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CheckAvailabilityModel } from 'src/app/shared/checkAvailability.model';
 import { Pharmacy } from 'src/app/shared/pharmacy';
 import { UrgentProcurementService } from 'src/app/shared/urgent-procurement.service';
 
@@ -28,7 +29,8 @@ export class UrgentProcurementComponent implements OnInit {
   
   filteredPharmacies: Pharmacy[];
   pharmacies: Pharmacy[] = [];
-
+  availability: CheckAvailabilityModel = new CheckAvailabilityModel;
+  hasMedicine: boolean = false;
 
   medicationName: string = "";
   medicationAmount: string = "";
@@ -70,7 +72,22 @@ export class UrgentProcurementComponent implements OnInit {
     else{
       this.filteredPharmacies = this.performFilter(this._cityFilter, this._addressFilter);
     }
+  }
 
+  checkAvailability(pharmacy: string){
+    this.availability.pharmacyName = pharmacy
+    return this.service.checkMedicine(this.availability).subscribe(
+      (res:any) => {this.hasMedicine = res; 
+      if(!this.hasMedicine){
+        window.alert("This pharmacy does not have enough medicine for your needs!");
+      }}
+    );
+  }
+  orderMedicine(){
+    console.log(this.availability)
+    this.service.orderMedicine(this.availability).subscribe(
+      (res) => {window.alert("Successfully ordered!")}
+    );
   }
  
 }

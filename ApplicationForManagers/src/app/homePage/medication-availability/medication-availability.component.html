@@ -7,27 +7,31 @@
             </div>
             <div class="card-body">
                 <form #form="ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
-                    <div class="form-group">
-                        <label>Pharmacy:</label>
-                        <select class="form-control" id="pharmacyName" required >
-                            <option>
-                            </option>
-                        </select>
-                    </div>
                     <br/>
                     <div class="form-group">
                         <label>Medication name:</label><br/>
-                        <input type="text" class="form-control-second" name="MedicationName">
+                        <input type="text" class="form-control" [(ngModel)] = "medicine.name" name="MedicationName">
                     </div><br/>
                     <div class="form-group">
                         <label>Medication amount:</label><br/>
-                        <input type="text" class="form-control-second" name="MedicationAmount">
+                        <input type="number" min="0" step="1" class="form-control" [(ngModel)] = "medicine.quantity" name="MedicationAmount">
                     </div><br/>
                     <button type="submit" class="btn">
                         Submit
                     </button>
                 </form>
             </div>
+            
+            
+        </div>
+        <div class="card" *ngIf="checked">
+
+            <div *ngFor='let pharmacy of pharmacies'>
+                <div class="card-header" *ngIf='pharmacy.isAvailable'>
+                    {{pharmacy.pharmacyName}}
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
