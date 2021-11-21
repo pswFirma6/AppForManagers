@@ -21,15 +21,17 @@
                     </button>
                 </form>
             </div>
-            <div *ngIf="checked">
-                <div *ngIf="exists" class="form-group">
-                    <label>Postoji dati lek za datu kolicinu!</label>
-                </div>
-                <div *ngIf="!exists" class="form-group">
-                    <label>Ne postoji dati lek u odredjenoj kolicini!</label>
+            
+            
+        </div>
+        <div class="card" *ngIf="checked">
+
+            <div *ngFor='let pharmacy of pharmacies'>
+                <div class="card-header" *ngIf='pharmacy.isAvailable'>
+                    {{pharmacy.pharmacyName}}
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

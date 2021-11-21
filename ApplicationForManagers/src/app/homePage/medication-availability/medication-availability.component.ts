@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Medicine } from 'src/app/shared/medicine.model';
 import { MedicineService } from 'src/app/shared/medicine.service';
+import { PharmacyMedicineAvailabilityModel } from 'src/app/shared/pharmacyMedicineAvailability.model';
 
 @Component({
   selector: 'app-medication-availability',
@@ -13,6 +14,8 @@ export class MedicationAvailabilityComponent implements OnInit {
   exists: boolean = false;
   checked: boolean;
   medicine: Medicine = new Medicine;
+  pharmacies: PharmacyMedicineAvailabilityModel[] = [];
+
   constructor(public service: MedicineService) { }
 
   ngOnInit(): void {
@@ -21,7 +24,7 @@ export class MedicationAvailabilityComponent implements OnInit {
 
   onSubmit(form: NgForm){
     this.service.checkMedicine(this.medicine)
-      .subscribe((res:any) => {this.exists = res}
+      .subscribe((res:any) => {this.pharmacies = res}
       );
     this.checked = true;
   }
