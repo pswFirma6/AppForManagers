@@ -18,8 +18,12 @@ export class PharmacyOffersComponent implements OnInit {
       .subscribe( res => this.offers = res);
   }
 
-  postOffer(offerId: number): void {
-    
+  postOffer(offer: PharmacyOfferModel): void {
+    this.service.postOffer(offer).subscribe(
+      (res) => {
+        window.location.reload();
+      }
+    )
   }
 
 }
