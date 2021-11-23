@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from 'src/app/service/survey-stats.service';
 import { SurveyQuestion, SurveyStats } from 'src/app/shared/survey-stats.model';
 
 @Component({
@@ -7,53 +8,25 @@ import { SurveyQuestion, SurveyStats } from 'src/app/shared/survey-stats.model';
   styleUrls: ['./survey-stats.component.css']
 })
 export class SurveyStatsComponent implements OnInit {
-  surveyStats: SurveyStats[] = []
+  public surveyStats: SurveyStats[] = []
 
-  constructor() { }
+  public surveyQuestions: SurveyQuestion[] = []
+
+  constructor(private surveyService: SurveyService) { }
 
   ngOnInit(): void {
-    const question1: SurveyQuestion = {
-      question: 'First question',
-      rate: 3
-    }
-    const question2: SurveyQuestion = {
-      question: 'Second question',
-      rate: 5
-    }
-    const question3: SurveyQuestion = {
-      question: 'Third question',
-      rate: 4
-    }
-    const surveyStats1: SurveyStats = {
-      category: 'Hospital',
-      surveyQuestions: [question1, question2, question3]
-    }
-    
-    const surveyStats2: SurveyStats = {
-      category: 'Staff',
-      surveyQuestions: [question1, question2, question3]
-    }
-
-    this.surveyStats.push(surveyStats1)
-    this.surveyStats.push(surveyStats2)
-    console.log(this.surveyStats)
+    this.surveyService.getMethod().subscribe(res =>{
+      this.surveyQuestions = res;
+      console.log(this.surveyQuestions)
+    })
   
+    const surveyStats: SurveyStats = {
+      category: 'Hospital',
+      surveyQuestions: this.surveyQuestions
+    }
+
+    this.surveyStats.push(surveyStats)
+    console.log(this.surveyStats)
   }
 
-  public getAverage(category: string){
-    let average: number = 0
-    console.log(this.surveyStats)
-    
-    for(let surveyStat of this.surveyStats){
-      if(surveyStat.category == category){
-        let counter: number = 0
-        for(let question of surveyStat.surveyQuestions){
-          counter = counter + 1
-          average = (average + question.rate) / counter
-        }
-        return average
-      }
-    }
-    return average
-  }
 }

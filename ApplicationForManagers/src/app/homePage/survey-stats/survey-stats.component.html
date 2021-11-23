@@ -2,10 +2,7 @@
     <div>
         <h1>Survey Statistics</h1>
     </div>
-
-    <div>
-        <div *ngFor="let surveyStat of surveyStats">
-            <h2>{{surveyStat.category}}</h2>
+    <div>    
             <h3>Average: </h3>
             <div>
                 <table class="table">
@@ -14,14 +11,13 @@
                       <th class="text-center">Average rating</th>
                     </tr>
                     <tbody>
-                        <tr *ngFor="let question of surveyStat.surveyQuestions">
-                            <td>{{question.question}}</td>
+                        <tr *ngFor="let question of surveyQuestions">
+                            <td>{{question.questionText}}</td>
                             <td>{{question.rate}}</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
+            </div> 
     </div>
 
     <!-- <div>

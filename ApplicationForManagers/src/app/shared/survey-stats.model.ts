@@ -4,6 +4,6 @@ export class SurveyStats{
 }
 
 export class SurveyQuestion{
-    question: string
+    questionText: string
     rate: number
 }
