@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { faThumbtack } from '@fortawesome/free-solid-svg-icons';
 import { SurveyService } from 'src/app/service/survey-stats.service';
-import { SurveyQuestion, SurveyStats, SurveyQuestionRate } from 'src/app/shared/survey-stats.model';
+import { SurveyQuestion, SurveyStats, SurveyQuestionRate, SurveryCategoryDTO } from 'src/app/shared/survey-stats.model';
 
 @Component({
   selector: 'app-survey-stats',
@@ -9,6 +10,7 @@ import { SurveyQuestion, SurveyStats, SurveyQuestionRate } from 'src/app/shared/
 })
 export class SurveyStatsComponent implements OnInit {
   public surveyQuestionsRate: SurveyQuestionRate[] = []
+  public surveryCategoryDTO: SurveryCategoryDTO[] = []
 
   constructor(private surveyService: SurveyService) { }
 
@@ -17,7 +19,16 @@ export class SurveyStatsComponent implements OnInit {
       console.log(res)
       this.surveyQuestionsRate = res;
       console.log(this.surveyQuestionsRate)
-    })
+    });
+
+    this.surveyService.getCategory().subscribe(res =>{
+      console.log(res)
+      this.surveryCategoryDTO = res;
+      this.surveryCategoryDTO.map(sur => {
+        sur.categoryName=this.surveyService.getCategoryNameByEnum(sur.category);
+      })
+      console.log(this.surveryCategoryDTO)
+    });
   
    
   }
