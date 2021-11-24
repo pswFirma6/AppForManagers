@@ -3,19 +3,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { GlobalSettings } from '../global';
-import { SurveyQuestion } from '../shared/survey-stats.model';
+import { SurveyQuestion, SurveyQuestionRate } from '../shared/survey-stats.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SurveyService {
     
-    surveyUrl = GlobalSettings.baseUrl + "/api/survey";
+    surveyUrl = GlobalSettings.baseUrl + "/api/Survey";
 
     constructor(private http: HttpClient) { }
 
-    getMethod(): Observable<SurveyQuestion[]> {      
-        return this.http.get<SurveyQuestion[]>(this.surveyUrl)
+    getMethod(): Observable<any[]> {      
+        return this.http.get<SurveyQuestion[]>(this.surveyUrl+ "/GetAllSurveys")
           .pipe(
             catchError(this.handleError)
           );

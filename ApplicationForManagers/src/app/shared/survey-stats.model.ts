@@ -7,3 +7,8 @@ export class SurveyQuestion{
     questionText: string
     rate: number
 }
+
+export class SurveyQuestionRate{
+    questionText: string
+    rate: number
+}
