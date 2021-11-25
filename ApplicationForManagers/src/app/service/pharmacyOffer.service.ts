@@ -20,7 +20,17 @@ export class PharmacyOfferService{
         posted: false
       }
   ];
+  readonly getOffersUrl = "https://localhost:44317/getOffers";
+  readonly postOfferUrl = "https://localhost:44317/postOffer";
   
   constructor(private http: HttpClient) { }
+
+  getOffers() : Observable<PharmacyOfferModel[]>{
+    return this.http.get<PharmacyOfferModel[]>(this.getOffersUrl);
+  }
+
+  postOffer(offer: PharmacyOfferModel){
+    return this.http.post(this.postOfferUrl, offer);
+  }
 
 }

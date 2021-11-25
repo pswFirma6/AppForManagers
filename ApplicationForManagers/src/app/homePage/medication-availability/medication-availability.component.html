@@ -1,0 +1,37 @@
+<div>
+    <app-medications-navbar></app-medications-navbar> <br/>
+    <div>
+        <div class="card text-center">
+            <div class="card-header">
+                <b>Check medication availability</b>
+            </div>
+            <div class="card-body">
+                <form #form="ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+                    <br/>
+                    <div class="form-group">
+                        <label>Medication name:</label><br/>
+                        <input type="text" class="form-control" [(ngModel)] = "medicine.name" name="MedicationName">
+                    </div><br/>
+                    <div class="form-group">
+                        <label>Medication amount:</label><br/>
+                        <input type="number" min="0" step="1" class="form-control" [(ngModel)] = "medicine.quantity" name="MedicationAmount">
+                    </div><br/>
+                    <button type="submit" class="btn">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            
+            
+        </div>
+        <div class="card" *ngIf="checked">
+
+            <div *ngFor='let pharmacy of pharmacies'>
+                <div class="card-header" *ngIf='pharmacy.isAvailable'>
+                    {{pharmacy.pharmacyName}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
