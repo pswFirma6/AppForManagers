@@ -1,0 +1,43 @@
+<div class="surveyStats">
+    <div>
+        <h1>Survey Statistics</h1>
+    </div>
+    <div>
+        <table>
+            <div *ngFor="let aa of surveryCategoryDTO">
+                <table class="table">
+                    <tr style="font-size: 20px;"><strong>Average by category {{aa.categoryName}}: {{aa.rate}}</strong></tr>
+                    <tr>
+                        <th class="text-center">Question</th>
+                        <th class="text-center">Average rating</th>
+                    </tr>
+                    <tbody>
+                        <tr *ngFor="let question of surveyQuestionsRate">
+                            <ng-container *ngIf="aa.category == question.category">
+                                <td>{{question.questionText}}</td>
+                                <td>{{question.rate}}</td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </table>
+    </div>
+
+    <!-- <div>
+        <h2>Category 1</h2>
+        <h3>Average: 3.5</h3>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+              <th class="text-center">Question</th>
+              <th class="text-center">Number of answers</th>
+              <th class="text-center">Average rating</th>
+            </tr>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div> -->
+</div>
