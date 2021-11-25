@@ -61,64 +61,107 @@
       
     </div>
 
-        <div *ngIf="isShown1"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    <div *ngIf="isShown1"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
         
-          {{getRoomById(1).name}}
-          <br>
-          <br>
-         Description: {{getRoomById(1).description}}
-         <br>
-         Doctor:{{getRoomById(1).doctor}}
-         <br>
-         Working Hours: {{getRoomById(1).workHour}}
-        </div>
-        <div *ngIf="isShown2"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+      {{getRoomById(1).name}}
+      <br>
+      <br>
+     Description: {{getRoomById(1).description}}
+     <br>
+     Doctor:{{getRoomById(1).doctor.name + ' ' + getRoomById(1).doctor.surname}} 
+     <br>
+     Working Hours: {{getRoomById(1).workHour}}
+     <br>
+     <br>
+     Equipments:
+     <table *ngFor='let equipment of getEquipmentByRoomId(1)' >
+
+      
+        <tr>
+          <td>{{equipment.name}}</td>
+          <td>{{equipment.amount}}</td>
+          <td><button>Change</button></td>
+        </tr>
+    
         
-          {{getRoomById(2).name}}
-          <br>
-          <br>
-         Description: {{getRoomById(2).description}}
-         <br>
-         Doctor:{{getRoomById(2).doctor}}
-         <br>
-         Working Hours: {{getRoomById(2).workHour}}
-        </div>
-        <div *ngIf="isShown3"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
-        
-          {{getRoomById(3).name}}
-          <br>
-          <br>
-         Description: {{getRoomById(3).description}}
-         <br>
-         Doctor:{{getRoomById(3).doctor}}
-         <br>
-         Working Hours: {{getRoomById(3).workHour}}
-        </div>
-        <div *ngIf="isShown4"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
-        
-          {{getRoomById(4).name}}
-          <br>
-          <br>
-         Description: {{getRoomById(4).description}}
-        
-        </div>
-        <div *ngIf="isShown5"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
-        
-          {{getRoomById(5).name}}
-         
-        </div>
-        <div *ngIf="isShown6"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
-        
-          {{getRoomById(6).name}}
-          
-        
-        </div>
-        <div *ngIf="isShown7"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
-        
-          {{getRoomById(7).name}}
-          
-        
-        </div>
+      </table>
+      <p *ngFor='let equipment of getEquipmentByRoomId(1)'>{{equipment.name}} - {{equipment.amount}}</p>
+    
     </div>
+    <div *ngIf="isShown2"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(2).name}}
+      <br>
+      <br>
+     Description: {{getRoomById(2).description}}
+     <br>
+     Doctor:{{getRoomById(2).doctor.name + ' ' + getRoomById(2).doctor.surname}} 
+     <br>
+     Working Hours: {{getRoomById(2).workHour}}
+     <br>
+     <br>
+     Equipments:
+     <table *ngFor='let equipment of getEquipmentByRoomId(2)' >
+     
+      <tr>
+        <td>{{equipment.name}}</td>
+        <td>{{equipment.amount}}</td>
+        <td><button>Change</button></td>
+      </tr>
+  
+      
+    </table>
+    
+  
+    </div>
+    <div *ngIf="isShown3"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(3).name}}
+      <br>
+      <br>
+     Description: {{getRoomById(3).description}}
+     <br>
+     Doctor:{{getRoomById(3).doctor.name + ' ' + getRoomById(3).doctor.surname}} 
+     <br>
+     Working Hours: {{getRoomById(3).workHour}}
+     <br>
+     <br>
+     Equipments:
+     <table *ngFor='let equipment of getEquipmentByRoomId(3)' >
+      <tr>
+        <td>{{equipment.name}}</td>
+        <td>{{equipment.amount}}</td>
+        <td><button>Change</button></td>
+      </tr>
+  
+      
+    </table>
+    </div>
+    <div *ngIf="isShown4"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(4).name}}
+      <br>
+      <br>
+     Description: {{getRoomById(4).description}}
+    
+    </div>
+    <div *ngIf="isShown5"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(5).name}}
+     
+    </div>
+    <div *ngIf="isShown6"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(6).name}}
+      
+    
+    </div>
+    <div *ngIf="isShown7"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
+    
+      {{getRoomById(7).name}}
+      
+    
+  </div>
+    
 
     
