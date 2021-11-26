@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-firstfloor',
@@ -6,127 +7,127 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./firstfloor.component.css']
 })
 export class FirstfloorComponent implements OnInit {
-  additionalInformation = true;
-  constructor() { }
-  Rooms={
-    'SurgeryRoom': 1,
-    'Radiology': 2,
-    'X-Ray room': 3,
-    'Stockroom' : 4,
-    'ToiletStaff' : 5,
-    'ToiletWomen' : 6,
-    'ToiletMen' : 7
+  
+  rooms : any;
+  doctors : any;
+  equipments: any;
 
-  }
-  name='';
-  description = '';
-  doctor = '';
-  nurse = '';
-  workingHours = '';
+  constructor(private apiService: ApiService) { }
+  
   ngOnInit(): void {
-  }
-
-  viewAdditionalInformation(){
-    this.additionalInformation = true;
-  }
-  isViewingAdditionalInfo(): boolean{
-    return this.additionalInformation;
-  }
-
-  isShown0: boolean = false ; // hidden by default
-  isShown1: boolean = false ; // hidden by default
-  isShown2: boolean = false ; // hidden by default
-  isShown3: boolean = false ; // hidden by default
-  isShown4: boolean = false ; // hidden by default
-  isShown5: boolean = false ; // hidden by default
-  isShown6: boolean = false ; // hidden by default
-
-  showRoom(room: any){
-
-    this.additionalInformation = true;
-    switch(room){
-      case this.Rooms.SurgeryRoom:
-        this.isShown0 = ! this.isShown0;
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'Surgery room'
-        this.description = 'Surgery room for surgical procedures'
-        this.doctor = 'Dr. Goran Lalic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms.Radiology:
-        this.isShown1 = ! this.isShown1;
-        this.isShown0 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'Radiology room'
-        this.description = 'For radiology pourpse'
-        this.doctor = 'Dr. Marina Markovic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms['X-Ray room']:
-        this.isShown2 = ! this.isShown2;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4= false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'X-Ray room'
-        this.description = 'X-Ray room for determining fractures or diseases'
-        this.nurse = 'Branka Stefanovic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms.Stockroom:
-        this.isShown3 = ! this.isShown3;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'Stockroom'
-        this.description = 'Place for medicine supplies'
-        break;
-      case this.Rooms.ToiletStaff:
-        this.isShown4 = ! this.isShown4;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'Toilet Staff'
-        break;
-      case this.Rooms.ToiletWomen:
-        this.isShown5 = ! this.isShown5;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.isShown6 = false ; // hidden by default
-        this.name = 'Toilet Women'
-        break;
-      case this.Rooms.ToiletMen:
-        this.isShown6 = ! this.isShown6;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.isShown5 = false ; // hidden by default
-        this.name = 'Toilet Men'
-        break;
-    }
     
+    this.apiService.getRooms().subscribe((response : any) => {
+      this.rooms = response;
+      
+    });
+
+
+    this.apiService.getEquipments().subscribe((response : any) => {
+      this.equipments = response;
+
+    });
+
+    this.apiService.getDoctors().subscribe((response : any) => {
+      this.doctors = response;
+
+    });
+    
+
   }
 
+
+
+  getEquipmentByRoomId(id: any){
+    return this.equipments.filter((x: any) => x.room.id === id) ;  //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
+  }
+
+  getDoctorById(id : any)
+  {
+
+  }
+
+  getRoomById(id: any) {
+
+    if(!this.rooms) {
+      return undefined;
+    }
+
+    return this.rooms.find((x: any) => x.id === id);
+  }
+
+  isShown1: boolean = false ;
+  isShown2: boolean = false ;
+  isShown3: boolean = false ;
+  isShown4: boolean = false ;
+  isShown5: boolean = false ;
+  isShown6: boolean = false ;
+  isShown7: boolean = false ;
+
+  showRoom(id: any){
+    if(id == 1){
+      this.isShown1 = ! this.isShown1;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      this.isShown6 = false ; 
+      this.isShown7 = false ; 
+      
+    }
+    else if(id == 2){
+      this.isShown2 = ! this.isShown2;
+      this.isShown1 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      this.isShown6 = false ; 
+      this.isShown7 = false ; 
+    }
+    else if(id == 3){
+      this.isShown3 = ! this.isShown3;
+      this.isShown2 = false ;
+      this.isShown1 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      this.isShown6 = false ; 
+      this.isShown7 = false ; 
+    }
+    else if(id == 4){
+      this.isShown4 = ! this.isShown4;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown1 = false ; 
+      this.isShown5 = false ; 
+      this.isShown6 = false ; 
+      this.isShown7 = false ; 
+    }
+    else if(id == 5){
+      this.isShown5 = ! this.isShown5;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown1 = false ; 
+      this.isShown6 = false ; 
+      this.isShown7 = false ; 
+    }
+    else if(id == 6){
+      this.isShown6 = ! this.isShown6;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      this.isShown1 = false ; 
+      this.isShown7 = false ; 
+    }
+    else if(id == 7){
+      this.isShown7 = ! this.isShown7;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      this.isShown6 = false ; 
+      this.isShown1 = false ; 
+    }
+  
+  }
 }

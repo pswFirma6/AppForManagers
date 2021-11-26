@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-secondfloor',
@@ -6,103 +7,85 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secondfloor.component.css']
 })
 export class SecondfloorComponent implements OnInit {
-  
-  additionalInformation = true;
-  imageUrl: string = "../../assets/images/32356.png"
+
+  rooms : any;
+  equipments: any;
+
+  constructor(private apiService: ApiService) { }
+
   ngOnInit(): void {
-  }
-  Rooms={
-    'Examination room': 1,
-    'Examination room2': 2,
-    'Examination room3': 3,
-    'Cardiology room' : 4,
-    'Laboratory' : 5,
 
+    this.apiService.getRooms().subscribe((response : any) => {
+      this.rooms = response;
 
-  }
-  name='';
-  description = '';
-  lab_technician = '';   
-  doctor = '';
-  nurse = '';
-  workingHours = '';  
- 
+    });
+    this.apiService.getEquipments().subscribe((response : any) => {
+      this.equipments = response;
 
-  viewAdditionalInformation(){
-    this.additionalInformation = true;
+    });
   }
-  isViewingAdditionalInfo(): boolean{
-    return this.additionalInformation;
+  
+  getEquipmentByRoomId(id: any){
+    return this.equipments.filter((x: any) => x.room.id === id)   //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
+  }
+  getRoomById(id: any) {
+
+    if(!this.rooms) {
+      return undefined;
+    }
+
+    return this.rooms.find((x: any) => x.id === id);
   }
 
-  isShown0: boolean = false ; // hidden by default
-  isShown1: boolean = false ; // hidden by default
-  isShown2: boolean = false ; // hidden by default
-  isShown3: boolean = false ; // hidden by default
-  isShown4: boolean = false ; // hidden by default
+  isShown1: boolean = false ;
+  isShown2: boolean = false ;
+  isShown3: boolean = false ;
+  isShown4: boolean = false ;
+  isShown5: boolean = false ;
 
-  showRoom(room: any){
 
-    this.additionalInformation = true;
-    switch(room){
-      case this.Rooms['Examination room']:
-        this.isShown0 = ! this.isShown0;
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.name = 'Examination room'
-        this.description = 'Examining room for patients'
-        this.doctor = 'Dr. Stefan Nikolic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms['Examination room2']:
-        this.isShown1 = ! this.isShown1;
-        this.isShown0 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.name = 'Examination room 2'
-        this.description = 'Examining room for patients'
-        this.doctor = 'Dr. Tamara Lalic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms['Examination room3']:
-        this.isShown2 = ! this.isShown2;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.isShown4= false ; // hidden by default
-        this.name = 'Examination room 3'
-        this.description = 'Examining room for patients'
-        this.doctor = 'Marko Canic'
-        this.workingHours = '10:00-18:00'
-        break;
-      case this.Rooms['Cardiology room']:
-        this.isShown3 = ! this.isShown3;
-        this.isShown0 = false ; // hidden by default
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown4 = false ; // hidden by default
-        this.name = 'Cardiology room'
-        this.description = ' Cardiology room is a room to treat people with serious or acute heart problems'
-        this.doctor = 'Ana Radic'
-        this.workingHours = '8:00-16:00'
-        break;
-      case this.Rooms.Laboratory:
-        this.isShown4 = ! this.isShown4;
-        this.isShown0 = false ; // hidden by defaults
-        this.isShown1 = false ; // hidden by default
-        this.isShown2 = false ; // hidden by default
-        this.isShown3 = false ; // hidden by default
-        this.name = 'Laboratory'
-        this.description = ' Lab room for analyzing blood,urine etc.'
-        this.lab_technician = 'Marija Tatic'
-        this.workingHours = '8:00-16:00'        
-        break;
+  showRoom(id: any){
+    if(id == 8){
+      this.isShown1 = ! this.isShown1;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+     
       
     }
-  
+    else if(id == 9){
+      this.isShown2 = ! this.isShown2;
+      this.isShown1 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
+      
+    }
+    else if(id == 10){
+      this.isShown3 = ! this.isShown3;
+      this.isShown2 = false ;
+      this.isShown1 = false ;
+      this.isShown4 = false ; 
+      this.isShown5 = false ; 
 
-}
+    }
+    else if(id == 11){
+      this.isShown4 = ! this.isShown4;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown1 = false ; 
+      this.isShown5 = false ; 
+    
+    }
+    else if(id == 12){
+      this.isShown5 = ! this.isShown5;
+      this.isShown2 = false ;
+      this.isShown3 = false ;
+      this.isShown4 = false ; 
+      this.isShown1 = false ; 
+    
+    }
+  
+  }
 }

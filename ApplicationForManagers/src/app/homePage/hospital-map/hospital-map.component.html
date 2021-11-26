@@ -5,9 +5,9 @@
       
   <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 350 350" version="1.1">
     <rect x="50" y="20" width="300" height="200" stroke="black" fill="rgb(128,128,128)" stroke-width="6"></rect>
-    <a [routerLink]="['/app-firstfloor']">
+    <a [routerLink]="['/home/app-firstfloor']">
     <rect class="rectClass"  x="153" y="25" width="192" height="112" fill="rgba(100,0,0,100)" stroke="black"  stroke-width="3"/> 
-    <text class="rectClass"  x="215" y="85" font-family="Verdana" font-size="15" fill="rgba(255,255,255,255)" >HOSPITAL
+    <text class="rectClass"  x="215" y="85" font-family="Verdana" font-size="15" fill="rgba(255,255,255,255)" >{{getBuildingById(1).name}}
     </text>
     </a>
     <rect x="243" y="127" width="30" height="8" stroke="black"  stroke-width="2"/>

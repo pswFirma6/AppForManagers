@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-hospital-map',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HospitalMapComponent implements OnInit {
 
-  constructor() { }
+  buildings: any;
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+
+    this.apiService.getBuildings().subscribe((response : any) => {
+      this.buildings = response;
+
+      console.log(response)
+    });
+
+  }
+
+  getBuildingById(id: any) {
+
+    if(!this.buildings) {
+      return undefined;
+    }
+
+    return this.buildings.find((x: any) => x.id === id);
   }
 
 }
