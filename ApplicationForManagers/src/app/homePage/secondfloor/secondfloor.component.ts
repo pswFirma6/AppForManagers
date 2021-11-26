@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 export class SecondfloorComponent implements OnInit {
 
   rooms : any;
+  equipments: any;
 
   constructor(private apiService: ApiService) { }
 
@@ -18,10 +19,15 @@ export class SecondfloorComponent implements OnInit {
       this.rooms = response;
 
     });
+    this.apiService.getEquipments().subscribe((response : any) => {
+      this.equipments = response;
 
+    });
   }
   
-
+  getEquipmentByRoomId(id: any){
+    return this.equipments.filter((x: any) => x.room.id === id)   //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
+  }
   getRoomById(id: any) {
 
     if(!this.rooms) {

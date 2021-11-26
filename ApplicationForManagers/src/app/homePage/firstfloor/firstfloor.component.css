@@ -28,12 +28,21 @@ svg {
     margin-left: 10%;
     }
     
+    .search-container{
+      display: flex;
+      margin-left: 40%;
+    }
   
   .rectClass:hover {
   opacity:0.3;
   cursor: pointer;
   }
-
+  td.Headline {
+    width: 100%;
+   border:1px solid black;
+   font-weight: bold;
+   color : black;
+  }
    td {
      width: 100%;
     border:1px solid black;

@@ -1,5 +1,14 @@
 <div class="allCont">
   <div class="main-container">
+      
+      <form >
+        <div class= "search-container">
+        Search equipment: 
+        <input type="text" >
+        <input type="submit" [routerLink]="['/home/app-search-equipment']"   >
+      </div>
+        </form>
+  
       <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 350 350" version="1.1">
           
           <rect x="50" y="20" width="300" height="200" stroke="black" fill="rgb(230,230,250)" stroke-width="6"></rect> 
@@ -49,11 +58,23 @@
     <br>
    Description: {{getRoomById(8).description}}
    <br>
-   Doctor:{{getRoomById(8).doctor}}
+   Doctor:{{getRoomById(8).doctor.name + ' ' + getRoomById(8).doctor.surname}} 
    <br>
    Working Hours: {{getRoomById(8).workHour}}
    <br>
-
+   <br>
+   Equipments:
+   <table *ngFor='let equipment of getEquipmentByRoomId(8)' >
+    <tr>
+      <td class="Headline">name</td>
+      <td class="Headline">amount</td>
+     </tr>
+    <tr>
+      <td>{{equipment.name}}</td>
+      <td>{{equipment.amount}}</td>
+      <td><button>Change</button></td>
+    </tr>
+   </table>
   </div>
   <div *ngIf="isShown2"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
   
@@ -62,10 +83,25 @@
     <br>
    Description: {{getRoomById(9).description}}
    <br>
-   Doctor:{{getRoomById(9).doctor}}
+   Doctor:{{getRoomById(9).doctor.name + ' ' + getRoomById(9).doctor.surname}} 
    <br>
    Working Hours: {{getRoomById(9).workHour}}
+   <br>
+   <br>
+   Equipments:
+   <table *ngFor='let equipment of getEquipmentByRoomId(9)' >
+    <tr>
+      <td class="Headline">name</td>
+      <td class="Headline">amount</td>
+     </tr>
+    <tr>
+      <td>{{equipment.name}}</td>
+      <td>{{equipment.amount}}</td>
+      <td><button>Change</button></td>
+    </tr>
+   </table>
   </div>
+
   <div *ngIf="isShown3"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
   
     {{getRoomById(10).name}}
@@ -73,10 +109,26 @@
     <br>
    Description: {{getRoomById(10).description}}
    <br>
-   Doctor:{{getRoomById(10).doctor}}
+   Doctor:{{getRoomById(10).doctor.name + ' ' + getRoomById(10).doctor.surname}} 
    <br>
    Working Hours: {{getRoomById(10).workHour}}
+   <br>
+   <br>
+   Equipments:
+    <table *ngFor='let equipment of getEquipmentByRoomId(10)' >
+      <tr >
+        <td class="Headline">name</td>
+        <td class="Headline">amount</td>
+       </tr>
+   
+      <tr>
+       <td>{{equipment.name}}</td>
+       <td>{{equipment.amount}}</td>
+       <td><button>Change</button></td>
+     </tr>
+    </table>
   </div>
+
   <div *ngIf="isShown4"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
   
     {{getRoomById(11).name}}
@@ -84,10 +136,24 @@
     <br>
    Description: {{getRoomById(11).description}}
    <br>
-   Doctor:{{getRoomById(11).doctor}}
+   Doctor:{{getRoomById(11).doctor.name + ' ' + getRoomById(11).doctor.surname}} 
    <br>
    Working Hours: {{getRoomById(11).workHour}}
-  
+   <br>
+   <br>
+   Equipments:
+   <table *ngFor='let equipment of getEquipmentByRoomId(11)' >
+    <tr>
+      <td class="Headline">name</td>
+      <td class="Headline">amount</td>
+     </tr>
+    <tr>
+      <td>{{equipment.name}}</td>
+      <td>{{equipment.amount}}</td>
+      <td><button>Change</button></td>
+    </tr>
+   </table>
+
   </div>
   <div *ngIf="isShown5"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
   
@@ -96,11 +162,23 @@
     <br>
    Description: {{getRoomById(12).description}}
    <br>
-   Doctor:{{getRoomById(12).doctor}}
+   Doctor:{{getRoomById(12).doctor.name + ' ' + getRoomById(12).doctor.surname}} 
    <br>
    Working Hours: {{getRoomById(12).workHour}}
-  
-   
+   <br>
+   <br>
+   Equipments:
+   <table *ngFor='let equipment of getEquipmentByRoomId(12)' >
+     <tr>
+      <td class="Headline">name</td>
+      <td class="Headline">amount</td>
+     </tr>
+    <tr>
+      <td>{{equipment.name}}</td>
+      <td>{{equipment.amount}}</td>
+      <td><button>Change</button></td>
+    </tr>
+   </table>
   </div>
  
 

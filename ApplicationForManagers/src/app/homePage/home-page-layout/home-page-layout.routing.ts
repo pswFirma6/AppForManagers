@@ -8,6 +8,7 @@ import { MedicationSpecificationFormComponent } from "../medication-specificatio
 import { PatientFeedbacksComponent } from "../patient-feedbacks/patient-feedbacks.component";
 import { PharmacyOffersComponent } from "../pharmacy-offers/pharmacy-offers.component";
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
+import { SearchEquipmentComponent } from "../search-equipment/search-equipment.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 
@@ -21,6 +22,8 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyOffers', component: PharmacyOffersComponent },
     { path: 'medicationConsumptionReport', component: MedicationConsumptionReportComponent },
     { path: 'urgentProcurement', component: UrgentProcurementComponent },
-    { path: 'medicationAvailability', component: MedicationAvailabilityComponent }
+    { path: 'medicationAvailability', component: MedicationAvailabilityComponent },
+    { path: 'app-search-equipment', component: SearchEquipmentComponent }
+
 
 ]
