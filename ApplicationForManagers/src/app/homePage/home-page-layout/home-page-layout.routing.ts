@@ -10,6 +10,7 @@ import { PharmacyOffersComponent } from "../pharmacy-offers/pharmacy-offers.comp
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { SearchEquipmentComponent } from "../search-equipment/search-equipment.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
+import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 
 export const HomePageLayoutRoutes: Routes = [
@@ -21,6 +22,7 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'medicationSpecification', component: MedicationSpecificationFormComponent },
     { path: 'pharmacyOffers', component: PharmacyOffersComponent },
     { path: 'medicationConsumptionReport', component: MedicationConsumptionReportComponent },
+    { path: 'surveyStats', component: SurveyStatsComponent },
     { path: 'urgentProcurement', component: UrgentProcurementComponent },
     { path: 'medicationAvailability', component: MedicationAvailabilityComponent },
     { path: 'app-search-equipment', component: SearchEquipmentComponent }

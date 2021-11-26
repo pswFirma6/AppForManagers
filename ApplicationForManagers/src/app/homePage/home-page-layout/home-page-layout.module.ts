@@ -17,6 +17,7 @@ import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.
 import { PharmacyFeedbackFormComponent } from "../pharmacyFeedbackForm/pharmacyFeedbackForm.component";
 import { PharmacyFeedbacksComponent } from "../pharmacyFeedbacks/pharmacyFeedbacks.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
+import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
 
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
@@ -43,6 +44,7 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
         MedicationSpecificationFormComponent,
         PharmacyOffersComponent,
         MedicationConsumptionReportComponent,
+        SurveyStatsComponent,
         UrgentProcurementComponent,
         MedicationsNavbarComponent,
         MedicationAvailabilityComponent
