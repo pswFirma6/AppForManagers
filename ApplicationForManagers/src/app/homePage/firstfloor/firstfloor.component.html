@@ -80,16 +80,19 @@
      <br>
      <br>
      Equipments:
+     <br>
+     
+     <table>
+       <tr>
+         <td >name</td>
+         <td >amount</td>
+        </tr>
+     </table>
      <table *ngFor='let equipment of getEquipmentByRoomId(1)' >
 
-      <tr>
-        <td class="Headline">name</td>
-        <td class="Headline">amount</td>
-       </tr>
         <tr>
           <td>{{equipment.name}}</td>
-          <td>{{equipment.amount}}</td>
-          <td><button>Change</button></td>
+          <td >{{equipment.amount}}</td>
         </tr>
     
         
@@ -109,15 +112,17 @@
      <br>
      <br>
      Equipments:
-     <table *ngFor='let equipment of getEquipmentByRoomId(2)' >
+     <table>
       <tr>
         <td class="Headline">name</td>
         <td class="Headline">amount</td>
        </tr>
+     </table>
+     <table *ngFor='let equipment of getEquipmentByRoomId(2)' >
+     
       <tr>
         <td>{{equipment.name}}</td>
         <td>{{equipment.amount}}</td>
-        <td><button>Change</button></td>
       </tr>
   
       
@@ -138,15 +143,17 @@
      <br>
      <br>
      Equipments:
-     <table *ngFor='let equipment of getEquipmentByRoomId(3)' >
+     <table>
       <tr>
         <td class="Headline">name</td>
         <td class="Headline">amount</td>
        </tr>
+     </table>
+     <table *ngFor='let equipment of getEquipmentByRoomId(3)' >
+      
       <tr>
         <td>{{equipment.name}}</td>
         <td>{{equipment.amount}}</td>
-        <td><button>Change</button></td>
       </tr>
   
       
@@ -162,15 +169,17 @@
     <br>
 
     Equipments:
-    <table *ngFor='let equipment of getEquipmentByRoomId(4)' >
+    <table>
       <tr>
         <td class="Headline">name</td>
         <td class="Headline">amount</td>
        </tr>
+     </table>
+    <table *ngFor='let equipment of getEquipmentByRoomId(4)' >
+   
      <tr>
        <td>{{equipment.name}}</td>
        <td>{{equipment.amount}}</td>
-       <td><button>Change</button></td>
      </tr>
     </table>
 
