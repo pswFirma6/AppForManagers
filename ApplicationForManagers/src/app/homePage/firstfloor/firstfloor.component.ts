@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { analytics_v3 } from 'googleapis';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class FirstfloorComponent implements OnInit {
   rooms : any;
   doctors : any;
   equipments: any;
-  constructor(private apiService: ApiService) { }
+  equipmentName: any;
+  constructor(private apiService: ApiService) { 
+  }
 
   ngOnInit(): void {
 
@@ -29,13 +32,23 @@ export class FirstfloorComponent implements OnInit {
       this.doctors = response;
 
     });
-    
 
   }
+
+  
 
   getEquipmentByRoomId(id: any){
-    return this.equipments.filter((x: any) => x.room.id === id)   //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
+    return this.equipments.filter((x: any) => x.room.id === id);
   }
+
+  // getSearchedEquipment(id: any){
+  //   this.roomEquipment = this.getEquipmentByRoomId(id);
+  //   if(this.searchName === ''){
+  //     return this.roomEquipment;
+  //   }
+  //   return this.roomEquipment.filter((x: any) => x.room.name === this.searchName);
+    
+  // }
 
   getDoctorById(id : any)
   {

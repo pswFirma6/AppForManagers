@@ -2,7 +2,6 @@
     <div class="allCont">
     
       <div class="main-container">
-        <button class="button"  [routerLink]="['/home/app-equipmentlist']">Equipment list</button>
     
         
         <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 350 350" version="1.1">                
@@ -74,18 +73,21 @@
      <br>
      <br>
      Equipments:
-     <table *ngFor='let equipment of getEquipmentByRoomId(1)' >
+     <br>
+      Search: 
+     <input type="text" id="equipmentName" name="equipmentName" [(ngModel)]=equipmentName >
 
-      
+
+     <table *ngFor='let equipment of getEquipmentByRoomId(1) | equipmentFilter:equipmentName' >
+
         <tr>
           <td>{{equipment.name}}</td>
           <td>{{equipment.amount}}</td>
-          <td><button>Change</button></td>
+          <td><button [routerLink]="['/HospitalChangeEquipment']"  [state]="{ data : {id:1} }">Change</button></td>
         </tr>
     
         
       </table>
-      <p *ngFor='let equipment of getEquipmentByRoomId(1)'>{{equipment.name}} - {{equipment.amount}}</p>
     
     </div>
     <div *ngIf="isShown2"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">

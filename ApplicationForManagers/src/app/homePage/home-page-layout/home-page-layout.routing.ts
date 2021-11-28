@@ -10,6 +10,7 @@ import { PharmacyOffersComponent } from "../pharmacy-offers/pharmacy-offers.comp
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -21,6 +22,7 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyOffers', component: PharmacyOffersComponent },
     { path: 'medicationConsumptionReport', component: MedicationConsumptionReportComponent },
     { path: 'urgentProcurement', component: UrgentProcurementComponent },
-    { path: 'medicationAvailability', component: MedicationAvailabilityComponent }
+    { path: 'medicationAvailability', component: MedicationAvailabilityComponent },
+    { path: 'equipmentTransfer', component: EquipmentTransferComponent}
 
 ]

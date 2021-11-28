@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from "ngx-toastr";
 import { SidebarComponent } from "../component/sidebar/sidebar.component";
 import { FirstfloorComponent } from "../firstfloor/firstfloor.component";
@@ -20,6 +21,8 @@ import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
 
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+import { EquipmentFilterPipe } from '../equipment-filter.pipe';
+import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 
 
 @NgModule ({
@@ -28,7 +31,8 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(HomePageLayoutRoutes),
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        Ng2SearchPipeModule
     ],
     declarations: [
         HomePageComponent,
@@ -45,7 +49,9 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
         MedicationConsumptionReportComponent,
         UrgentProcurementComponent,
         MedicationsNavbarComponent,
-        MedicationAvailabilityComponent
+        MedicationAvailabilityComponent,
+        EquipmentFilterPipe,
+        EquipmentTransferComponent
 
     ],
     exports: [

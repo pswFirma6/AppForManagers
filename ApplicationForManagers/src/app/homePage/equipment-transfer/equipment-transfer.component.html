@@ -1,0 +1,103 @@
+<div class="stepsContainer">
+
+
+    <div class="stepCircle" [ngStyle]="{'background': stepOne ? 'green':'lightgrey'}">
+      1
+    </div>
+    
+    <div class="stepConectorPiece" [ngStyle]="{'background': stepOne ? 'green':'lightgrey'}"></div>
+    
+    <div class="stepCircle" [ngStyle]="{'background': stepTwo ? 'green' : 'lightgrey'}">
+      2
+    </div>
+    
+    <div class="stepConectorPiece" [ngStyle]="{'background': stepTwo ? 'green' : 'lightgrey'}"></div>
+    
+    
+    <div class="stepCircle" [ngStyle]="{'background': stepThree ? 'green':'lightgrey'}">
+      3
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="container" *ngIf="personalInfoComplete">
+        <p class='selectEquipment' *ngFor="let equipment of allEquipment " >
+            {{equipment.name}} 
+        </p>
+        
+        
+        <div class="four">
+          <button class="submit" (click)="addressSubmit()">Submit</button>
+       </div>
+    </div>
+    <!--
+    
+    <div class="container" *ngIf="addressComplete">
+        <div class="one">
+        <input type="text" 
+               class="input"
+               placeholder="Address">
+      </div>
+      <div class="two">
+        <input type="text" 
+               class="input"
+               placeholder="Zip Code">
+      </div>
+      <div class="three">
+        <input type="text" 
+               class="input"
+               placeholder="City / State">
+      </div>
+      <div class="four">
+         <button class="submit" (click)="addressSubmit()">Submit</button>
+      </div>
+    </div>
+    
+    
+    <div class="container" *ngIf="creditCardComplete">
+      <div class="one">
+        <input type="text" 
+               class="input"
+               placeholder="Name on Card">
+      </div>
+      <div class="two">
+        <input type="text" 
+               class="input"
+               placeholder="Credit Card Number">
+      </div>
+      <div class="three">
+        <input type="text" 
+               class="input"
+               placeholder="Experation Date">
+      </div>
+      <div class="four">
+         <button class="submit" (click)="creditCardSubmit()">Submit</button>
+      </div>
+    </div>
+    
+    <div class="thankYou" *ngIf="completedOrder">Thank You!<br>Your Order is Complete</div>
+    
+    
+    
+    
+    <div class="customerContactContainer">
+      <div class="nameTitle">Name</div>
+      <div class="emailTitle">Email</div>
+    </div>
+    
+    
+    <div *ngIf="customer">
+        <div class="customerListItemsContainer">
+        <div class="name">{{name}}</div>
+        <div class="email">{{email}}</div>
+      </div>
+    </div>
+    
+-->    
+    
+    
