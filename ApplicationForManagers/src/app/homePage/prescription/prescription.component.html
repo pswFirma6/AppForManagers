@@ -1,0 +1,67 @@
+<div class="card text-center">
+    <div class="card-header">
+        <b>Prescription</b>
+    </div>
+    <div class="card-body">
+        <form>
+            <input type="hidden">
+            <div class="form-group">
+                <label>Patient health card number:</label>
+                <input class="form-control" type="text"/>
+            </div>
+            <div class="form-group">
+                <label>Patient name:</label>
+                <input class="form-control" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Diagnosis:</label>
+                <textarea minlength="1" class="form-control" id="feedbackText" rows="5" placeholder="Diagnosis..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Pharmacy:</label>
+                <select class="form-control" id="pharmacyName"  name="pharmacyName" required >
+                    <option>
+                        Pharmacy1
+                    </option>
+                    <option>
+                        Pharmacy2
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Medicine:</label>
+                <select class="form-control" id="pharmacyName"  name="pharmacyName" required >
+                    <option>
+                        Medicine1
+                    </option>
+                    <option>
+                        Medicine2
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Dose:</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Therapy start:</label>
+                <input class="form-control" type="date" />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Therapy end:</label>
+                <input class="form-control" type="date" />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Quantity (maximum package number):</label>
+                <input class="form-control" type="number" min="1" step="1"/>
+            </div>
+            <div class="form-group">
+                <label>Doctor name:</label>
+                <input class="form-control" type="text" />
+            </div><br/>
+            <button type="submit" class="btn">
+                Submit
+            </button>
+        </form>
+    </div>
+</div>  
