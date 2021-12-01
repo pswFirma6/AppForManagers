@@ -23,9 +23,10 @@ export class PrescriptionComponent implements OnInit {
   }
 
   checkAvailability(prescription: PrescriptionModel){
+    var quantity: number = +prescription.Quantity;
     var medicine : Medicine = {
-      name: prescription.medicineName,
-      quantity: prescription.quantity
+      name: prescription.MedicineName,
+      quantity: quantity
     }
     this.medicineService.checkMedicine(medicine);
     this.isAvailable = true;
@@ -33,9 +34,10 @@ export class PrescriptionComponent implements OnInit {
 
   sendPrescription(prescription: PrescriptionModel){
     var sending: SendingPrescriptionModel = {
-      prescriptionId: prescription.prescriptionId,
-      method: this.method
+      Prescription: prescription,
+      Method: this.method
     }
+    console.log(sending)
     this.service.sendPrescription(sending);
   }
 

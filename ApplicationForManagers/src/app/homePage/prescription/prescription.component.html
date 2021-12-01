@@ -70,18 +70,18 @@
 
     <div class="card" *ngFor='let prescription of prescriptions'>
         <div class="card-header">
-            <b>Prescription: {{prescription.prescriptionId}}</b>
+            <b>Prescription: {{prescription.Id}}</b>
         </div>
         <div class="card-body">
             <div>
                 <label><b>Date:</b></label><br/>
-                {{prescription.prescriptionDate}}<br/><br/>
+                {{prescription.PrescriptionDate}}<br/><br/>
                 <label><b>Pharmacy:</b></label><br/>
-                {{prescription.pharmacyName}}<br/> <br/>
+                Pharmacy1<br/> <br/>
                 <label><b>Medicine:</b></label><br/>
-                {{prescription.medicineName}}<br/> <br/>
+                {{prescription.MedicineName}}<br/> <br/>
                 <label><b>Quantity:</b></label><br/>
-                {{prescription.quantity}}<br/> <br/>
+                {{prescription.Quantity}}<br/> <br/>
                 <button type="submit" class="btn" (click)="checkAvailability(prescription)">
                     Check availability
                 </button><br/><br/>

@@ -1,4 +1,6 @@
+import { PrescriptionModel } from "./prescription.model";
+
 export class SendingPrescriptionModel {
-    prescriptionId: string = "";
-    method: string = "";
+    Prescription: PrescriptionModel;
+    Method: string = "";
 }

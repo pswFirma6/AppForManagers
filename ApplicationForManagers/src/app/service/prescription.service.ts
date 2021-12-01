@@ -12,18 +12,32 @@ export class PrescriptionService{
 
   prescriptions: PrescriptionModel[] = [
     {
-        prescriptionId : "1",
-        prescriptionDate: "22.11.2021.",
-        pharmacyName: "Pharmacy1",
-        medicineName: "Medicine1",
-        quantity: 3
+      Id: "2",
+      MedicineName: "Brufen",
+      Quantity: "5",
+      Description: "",
+      RecommendedDose: "",
+      PrescriptionDate: "22.11.2021.",
+      DoctorName: "",
+      PatientName: "",
+      PatientId: "",
+      TherapyStart : "",
+      TherapyEnd: "",
+      Diagnosis: "",
     },
     {
-        prescriptionId : "2",
-        prescriptionDate: "22.11.2021.",
-        pharmacyName: "Pharmacy2",
-        medicineName: "Medicine2",
-        quantity: 6
+      Id: "1",
+      MedicineName: "Andol",
+      Quantity: "5",
+      Description: "",
+      RecommendedDose: "",
+      PrescriptionDate: "22.11.2021.",
+      DoctorName: "",
+      PatientName: "",
+      PatientId: "",
+      TherapyStart : "",
+      TherapyEnd: "",
+      Diagnosis: "",
     }
   ];
 
@@ -32,6 +46,7 @@ export class PrescriptionService{
   constructor(private http: HttpClient) { }
 
   sendPrescription(prescription: SendingPrescriptionModel){
+    console.log(prescription)
     return this.http.post(this.sendPrescriptionUrl, prescription);
   }
 
