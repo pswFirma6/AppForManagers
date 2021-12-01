@@ -38,7 +38,15 @@ export class PrescriptionComponent implements OnInit {
       Method: this.method
     }
     console.log(sending)
-    this.service.sendPrescription(sending);
+    this.service.sendPrescription(sending).subscribe(
+     (
+        (res) => {
+          window.location.reload();
+        }
+      )
+
+    )
   }
+
 
 }
