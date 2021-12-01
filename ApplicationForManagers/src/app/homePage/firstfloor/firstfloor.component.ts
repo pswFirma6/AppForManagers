@@ -8,37 +8,45 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./firstfloor.component.css']
 })
 export class FirstfloorComponent implements OnInit {
-
+  
   rooms : any;
   doctors : any;
   equipments: any;
-  equipmentName: any;
-  constructor(private apiService: ApiService) { 
-  }
+  equipmentName: any
 
+
+
+  
+
+  constructor(private apiService: ApiService) { }
+  
   ngOnInit(): void {
-
+    
     this.apiService.getRooms().subscribe((response : any) => {
       this.rooms = response;
-
+      
     });
-
+    
+    
     this.apiService.getEquipments().subscribe((response : any) => {
       this.equipments = response;
 
     });
-
+    
     this.apiService.getDoctors().subscribe((response : any) => {
       this.doctors = response;
-
+      
     });
-
+    
+    
   }
-
+  
+  
+  
   
 
   getEquipmentByRoomId(id: any){
-    return this.equipments.filter((x: any) => x.room.id === id);
+    return this.equipments.filter((x: any) => x.room.id === id) ;  //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
   }
 
   // getSearchedEquipment(id: any){

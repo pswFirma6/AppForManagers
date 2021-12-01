@@ -22,6 +22,9 @@
     line-height:40px;
     color:#ffffff;
     font-family:helvetica;
+    cursor:pointer;
+    opacity: .85;
+    transition: .15s;
   }
   
   
@@ -81,11 +84,7 @@
     cursor:pointer;
   }
   
-  .thankYou {
-    text-align:center;
-    font-family:helvetica;
-    font-weight:800;
-  }
+  
   
   .customerContactContainer {
     display:flex;

@@ -1,33 +1,55 @@
 <div class="stepsContainer">
 
 
-    <div class="stepCircle" [ngStyle]="{'background': stepOne ? 'green':'lightgrey'}">
+    <div class="stepCircle" [ngStyle]="{'background': getBoja(1)}"  (click)="setSteps(0)">
       1
     </div>
     
-    <div class="stepConectorPiece" [ngStyle]="{'background': stepOne ? 'green':'lightgrey'}"></div>
+    <div class="stepConectorPiece" [ngStyle]="{'background': getBoja(1)}"></div>
     
-    <div class="stepCircle" [ngStyle]="{'background': stepTwo ? 'green' : 'lightgrey'}">
+    <div class="stepCircle" [ngStyle]="{'background':  getBoja(2)}" (click)="setSteps(1)">
       2
     </div>
     
-    <div class="stepConectorPiece" [ngStyle]="{'background': stepTwo ? 'green' : 'lightgrey'}"></div>
+    <div class="stepConectorPiece" [ngStyle]="{'background':  getBoja(2)}"></div>
     
     
-    <div class="stepCircle" [ngStyle]="{'background': stepThree ? 'green':'lightgrey'}">
+    <div class="stepCircle" [ngStyle]="{'background': getBoja(3)}"  (click)="setSteps(2)">
       3
     </div>
+
+    <div class="stepConectorPiece" [ngStyle]="{'background':  getBoja(3)}"></div>
+    
+    
+    <div class="stepCircle" [ngStyle]="{'background': getBoja(4)}" (click)="setSteps(3)">
+      4
     </div>
+
+    <div class="stepConectorPiece" [ngStyle]="{'background': getBoja(4)}"></div>
+    
+    
+    <div class="stepCircle" [ngStyle]="{'background': getBoja(5)}" (click)="setSteps(4)">
+      5
+    </div>
+
+    <div class="stepConectorPiece" [ngStyle]="{'background': getBoja(5)}"></div>
+    
+    
+    <div class="stepCircle" [ngStyle]="{'background': getBoja(6)}" (click)="setSteps(5)">
+      6
+    </div>
+</div>
     
     
     
     
     
     
-    
-    <div class="container" *ngIf="personalInfoComplete">
-        <p class='selectEquipment' *ngFor="let equipment of allEquipment " >
-            {{equipment.name}} 
+     
+    <div class="container" *ngIf="checkStep(Steps.equipmentSelection)">
+      <p>Select the equipment:</p>
+        <p class='selectEquipment' *ngFor="let equipment of getDistinctEquipment() " (click)="finishedEquipmentSelection(equipment)">
+            {{equipment}}
         </p>
         
         
@@ -35,52 +57,68 @@
           <button class="submit" (click)="addressSubmit()">Submit</button>
        </div>
     </div>
-    <!--
+  
     
-    <div class="container" *ngIf="addressComplete">
-        <div class="one">
-        <input type="text" 
-               class="input"
-               placeholder="Address">
+    <div class="container" *ngIf="checkStep(Steps.startRoomSelection)">
+      <p>Select the starting Room:</p>
+      <p class='selectEquipment' *ngFor="let equipment of getRoomsByEquipment() " (click)="finishedStartRoomSelection(equipment.room.name)">
+        {{equipment.room.name}} 
+      </p>
+      
+      <div class="four">
+        <button class="submit" (click)="addressSubmit()">Submit</button>
       </div>
-      <div class="two">
-        <input type="text" 
-               class="input"
-               placeholder="Zip Code">
-      </div>
-      <div class="three">
-        <input type="text" 
-               class="input"
-               placeholder="City / State">
-      </div>
+    </div>
+    
+    
+    <div class="container" *ngIf="checkStep(Steps.amountSelection)">
+      <p>Select the amount of the Equipment:</p>
+      <input type="number" id="quantity" name="quantity" min="1" max='{{getMaxAmount().amount}}'>
       <div class="four">
          <button class="submit" (click)="addressSubmit()">Submit</button>
       </div>
     </div>
-    
-    
-    <div class="container" *ngIf="creditCardComplete">
-      <div class="one">
-        <input type="text" 
-               class="input"
-               placeholder="Name on Card">
-      </div>
-      <div class="two">
-        <input type="text" 
-               class="input"
-               placeholder="Credit Card Number">
-      </div>
-      <div class="three">
-        <input type="text" 
-               class="input"
-               placeholder="Experation Date">
-      </div>
+
+
+
+    <div class="container" *ngIf="checkStep(Steps.destionationRoomSelection)">
+      <p>Select the destionation Room:</p>
+      <p class='selectEquipment' *ngFor="let room of allRooms " (click)="finishedDestionationRoomSelection(room.name)">
+        {{room.name}}           <!-- provera dal prebacujemo u istu sobu iz koje smo izabrali-->
+      </p>
+      
       <div class="four">
-         <button class="submit" (click)="creditCardSubmit()">Submit</button>
+         <button class="submit" (click)="addressSubmit()">Submit</button>
       </div>
     </div>
+
+    <div class="container" *ngIf="checkStep(Steps.timeIntervalEnter)">
+      <p>Select the time interval:</p>
+      <p>Start of interval:</p>
+      <input type="datetime-local" >
+
+      <p>End of interval:</p>
+      <input type="datetime-local" >
+      
+
+
+      {{ dateObj | date:'short' }} 
+      
+      <div class="four">
+         <button class="submit" (click)="addressSubmit()">Submit</button>
+      </div>
+    </div>
+
+
+    <div class="container" *ngIf="checkStep(Steps.durationEnter)">
+      <p>Select the duration of reallocation:</p>
+      <input type="number" id="quantity" name="quantity" min="30" step="30" max='300'>
+      <div class="four">
+         <button class="submit" (click)="addressSubmit()">Submit</button>
+      </div>
+    </div>
+
     
-    <div class="thankYou" *ngIf="completedOrder">Thank You!<br>Your Order is Complete</div>
     
     
     
@@ -89,15 +127,8 @@
       <div class="nameTitle">Name</div>
       <div class="emailTitle">Email</div>
     </div>
+ 
     
-    
-    <div *ngIf="customer">
-        <div class="customerListItemsContainer">
-        <div class="name">{{name}}</div>
-        <div class="email">{{email}}</div>
-      </div>
-    </div>
-    
--->    
+   
     
     

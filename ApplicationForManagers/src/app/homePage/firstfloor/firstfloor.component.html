@@ -1,6 +1,6 @@
 
     <div class="allCont">
-    
+      
       <div class="main-container">
     
         
@@ -74,16 +74,18 @@
      <br>
      Equipments:
      <br>
-      Search: 
-     <input type="text" id="equipmentName" name="equipmentName" [(ngModel)]=equipmentName >
-
-
-     <table *ngFor='let equipment of getEquipmentByRoomId(1) | equipmentFilter:equipmentName' >
+     
+     <table>
+       <tr>
+         <td >name</td>
+         <td >amount</td>
+        </tr>
+     </table>
+     <table *ngFor='let equipment of getEquipmentByRoomId(1)' >
 
         <tr>
           <td>{{equipment.name}}</td>
-          <td>{{equipment.amount}}</td>
-          <td><button [routerLink]="['/HospitalChangeEquipment']"  [state]="{ data : {id:1} }">Change</button></td>
+          <td >{{equipment.amount}}</td>
         </tr>
     
         
@@ -103,12 +105,17 @@
      <br>
      <br>
      Equipments:
+     <table>
+      <tr>
+        <td class="Headline">name</td>
+        <td class="Headline">amount</td>
+       </tr>
+     </table>
      <table *ngFor='let equipment of getEquipmentByRoomId(2)' >
      
       <tr>
         <td>{{equipment.name}}</td>
         <td>{{equipment.amount}}</td>
-        <td><button>Change</button></td>
       </tr>
   
       
@@ -129,11 +136,17 @@
      <br>
      <br>
      Equipments:
+     <table>
+      <tr>
+        <td class="Headline">name</td>
+        <td class="Headline">amount</td>
+       </tr>
+     </table>
      <table *ngFor='let equipment of getEquipmentByRoomId(3)' >
+      
       <tr>
         <td>{{equipment.name}}</td>
         <td>{{equipment.amount}}</td>
-        <td><button>Change</button></td>
       </tr>
   
       
@@ -145,7 +158,24 @@
       <br>
       <br>
      Description: {{getRoomById(4).description}}
-    
+    <br>
+    <br>
+
+    Equipments:
+    <table>
+      <tr>
+        <td class="Headline">name</td>
+        <td class="Headline">amount</td>
+       </tr>
+     </table>
+    <table *ngFor='let equipment of getEquipmentByRoomId(4)' >
+   
+     <tr>
+       <td>{{equipment.name}}</td>
+       <td>{{equipment.amount}}</td>
+     </tr>
+    </table>
+
     </div>
     <div *ngIf="isShown5"  style="width:500px;height: 50px;border:5px solid #000;"  class="side-container">
     
