@@ -1,5 +1,5 @@
 export class PrescriptionModel {
-    prescriptionId: number = 0;
+    prescriptionId: string = "";
     pharmacyName: string = "";
     prescriptionDate: string = "";
     medicineName: string = "";
