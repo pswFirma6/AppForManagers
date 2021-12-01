@@ -1,4 +1,4 @@
-<div class="card text-center">
+<!--<div class="card text-center">
     <div class="card-header">
         <b>Prescription</b>
     </div>
@@ -64,4 +64,44 @@
             </button>
         </form>
     </div>
-</div>  
+</div> --> 
+
+<div class="cards">
+
+    <div class="card">
+        <div class="card-header">
+            <b>Prescription: ID</b>
+        </div>
+        <div class="card-body">
+            <div>
+                <label><b>Date:</b></label><br/>
+                PrescriptionDate<br/><br/>
+                <label><b>Pharmacy:</b></label><br/>
+                PharmacyName<br/> <br/>
+                <label><b>Medicine:</b></label><br/>
+                MedicineName<br/> <br/>
+                <label><b>Quantity:</b></label><br/>
+                QuantityNumber<br/> <br/>
+                <button type="submit" class="btn">
+                    Check availability
+                </button><br/><br/>
+                <div class="form-group">
+                    <label>Choose method:</label>
+                    <select class="form-control" required >
+                        <option>
+                            SFTP
+                        </option>
+                        <option>
+                            HTTP
+                        </option>
+                    </select>
+                </div><br/>
+                <button type="submit" class="btn" >
+                    Send to pharmacy
+                </button>
+            </div>
+        </div> 
+
+    </div>
+    
+</div>

@@ -13,9 +13,10 @@
 
 
 .card{
-    width: 70%;
+    width: 50%;
     margin-top: 50px;
-    margin-left: 350px;
+    margin-left: 450px;
+    height: 100%;
 }
 
 .card-header{
@@ -32,13 +33,13 @@
 .form-control{
     width: 40rem; 
     margin-top: 2px;
-    margin: 0 auto;
+    text-align: left;
 }
 
 .btn{
     background-color: lightskyblue; 
     color: black;
-    font-size: x-large;
+    font-size: large;
     font-weight: bold;
     opacity: 70%;
 }
