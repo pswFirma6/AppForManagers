@@ -68,26 +68,26 @@
 
 <div class="cards">
 
-    <div class="card">
+    <div class="card" *ngFor='let prescription of prescriptions'>
         <div class="card-header">
-            <b>Prescription: ID</b>
+            <b>Prescription: {{prescription.prescriptionId}}</b>
         </div>
         <div class="card-body">
             <div>
                 <label><b>Date:</b></label><br/>
-                PrescriptionDate<br/><br/>
+                {{prescription.prescriptionDate}}<br/><br/>
                 <label><b>Pharmacy:</b></label><br/>
-                PharmacyName<br/> <br/>
+                {{prescription.pharmacyName}}<br/> <br/>
                 <label><b>Medicine:</b></label><br/>
-                MedicineName<br/> <br/>
+                {{prescription.medicineName}}<br/> <br/>
                 <label><b>Quantity:</b></label><br/>
-                QuantityNumber<br/> <br/>
+                {{prescription.quantity}}<br/> <br/>
                 <button type="submit" class="btn">
                     Check availability
                 </button><br/><br/>
-                <div class="form-group">
+                <div class="form-group" >
                     <label>Choose method:</label>
-                    <select class="form-control" required >
+                    <select class="form-control" required [disabled]="!isAvailable">
                         <option>
                             SFTP
                         </option>
@@ -96,7 +96,7 @@
                         </option>
                     </select>
                 </div><br/>
-                <button type="submit" class="btn" >
+                <button type="submit" class="btn" [disabled]="!isAvailable">
                     Send to pharmacy
                 </button>
             </div>
