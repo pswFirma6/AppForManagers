@@ -14,10 +14,6 @@ export class FirstfloorComponent implements OnInit {
   equipments: any;
   equipmentName: any
 
-
-
-  
-
   constructor(private apiService: ApiService) { }
   
   ngOnInit(): void {
@@ -40,9 +36,6 @@ export class FirstfloorComponent implements OnInit {
     
     
   }
-  
-  
-  
   
 
   getEquipmentByRoomId(id: any){
