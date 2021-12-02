@@ -40,22 +40,13 @@
     </div>
 </div>
     
-    
-    
-    
-    
-    
      
     <div class="container" *ngIf="checkStep(Steps.equipmentSelection)">
       <p>Select the equipment:</p>
         <p class='selectEquipment' *ngFor="let equipment of getDistinctEquipment() " (click)="finishedEquipmentSelection(equipment)">
             {{equipment}}
         </p>
-        
-        
-        <div class="four">
-          <button class="submit" (click)="addressSubmit()">Submit</button>
-       </div>
+    
     </div>
   
     
@@ -65,9 +56,7 @@
         {{equipment.room.name}} 
       </p>
       
-      <div class="four">
-        <button class="submit" (click)="addressSubmit()">Submit</button>
-      </div>
+      
     </div>
     
     
@@ -87,9 +76,7 @@
         {{room.name}}           <!-- provera dal prebacujemo u istu sobu iz koje smo izabrali-->
       </p>
       
-      <div class="four">
-         <button class="submit" (click)="addressSubmit()">Submit</button>
-      </div>
+      
     </div>
 
     <div class="container" *ngIf="checkStep(Steps.timeIntervalEnter)">
@@ -121,13 +108,7 @@
     
     
     
-    
-    
-    <div class="customerContactContainer">
-      <div class="nameTitle">Name</div>
-      <div class="emailTitle">Email</div>
-    </div>
- 
+
     
    
     

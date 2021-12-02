@@ -1,13 +1,13 @@
 .stepsContainer {
     display:flex;
-    width:300px;
+    width:1000px;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:20px;
   }
   
   .stepConectorPiece {
-    height:3px;
+    height:8px;
     background:lightgrey;
     flex:1;
     margin-top:19px;
@@ -74,11 +74,11 @@
     right:14px;
     background:darkblue;
     color:#ffffff;
-    height:26px;
+    height:28px;
     padding-left:10px;
     padding-right:10px;
     border:none;
-    font-size:10px;
+    font-size:18px;
     font-weight:600;
     text-transform:uppercase;
     cursor:pointer;
@@ -97,20 +97,6 @@
     margin-left:auto;
     margin-right:auto;
   
-  }
-  
-  .nameTitle {
-    width:100px;
-    background:#f6f6f6;
-    padding-left:10px;
-    font-size:12px;
-  }
-  
-  .emailTitle {
-    flex:1;
-    background:#f6f6f6;
-    padding-left:10px;
-    font-size:12px;
   }
   
   .customerListItemsContainer {
