@@ -20,10 +20,10 @@ import { PharmacyFeedbacksComponent } from "../pharmacyFeedbacks/pharmacyFeedbac
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
-
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 import { EquipmentFilterPipe } from '../equipment-filter.pipe';
 import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
+import { PrescriptionComponent } from "../prescription/prescription.component";
 
 
 @NgModule ({
@@ -53,7 +53,8 @@ import { EquipmentTransferComponent } from '../equipment-transfer/equipment-tran
         MedicationsNavbarComponent,
         MedicationAvailabilityComponent,
         EquipmentFilterPipe,
-        EquipmentTransferComponent
+        EquipmentTransferComponent,
+        PrescriptionComponent
 
     ],
     exports: [
