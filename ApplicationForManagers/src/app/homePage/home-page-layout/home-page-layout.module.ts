@@ -21,6 +21,7 @@ import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
 
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+import { PrescriptionComponent } from "../prescription/prescription.component";
 
 
 @NgModule ({
@@ -47,7 +48,8 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
         SurveyStatsComponent,
         UrgentProcurementComponent,
         MedicationsNavbarComponent,
-        MedicationAvailabilityComponent
+        MedicationAvailabilityComponent,
+        PrescriptionComponent
 
     ],
     exports: [
