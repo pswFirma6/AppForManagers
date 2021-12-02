@@ -12,7 +12,6 @@ export class FirstfloorComponent implements OnInit {
   rooms : any;
   doctors : any;
   equipments: any;
-  equipmentName: any
 
   constructor(private apiService: ApiService) { }
   
