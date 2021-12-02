@@ -22,6 +22,8 @@ import { HomePageLayoutRoutes } from "./home-page-layout.routing";
 
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 import { PrescriptionComponent } from "../prescription/prescription.component";
+import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.component";
+import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component";
 
 
 @NgModule ({
@@ -49,7 +51,9 @@ import { PrescriptionComponent } from "../prescription/prescription.component";
         UrgentProcurementComponent,
         MedicationsNavbarComponent,
         MedicationAvailabilityComponent,
-        PrescriptionComponent
+        PrescriptionComponent,
+        PharmacyProfileComponent,
+        PharmacyProfComponent
 
     ],
     exports: [
