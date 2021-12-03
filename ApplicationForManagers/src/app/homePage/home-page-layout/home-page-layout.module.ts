@@ -24,6 +24,8 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
 import { EquipmentFilterPipe } from '../equipment-filter.pipe';
 import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 import { PrescriptionComponent } from "../prescription/prescription.component";
+import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.component";
+import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component";
 
 
 @NgModule ({
@@ -54,7 +56,10 @@ import { PrescriptionComponent } from "../prescription/prescription.component";
         MedicationAvailabilityComponent,
         EquipmentFilterPipe,
         EquipmentTransferComponent,
-        PrescriptionComponent
+        PrescriptionComponent,
+        PrescriptionComponent,
+        PharmacyProfileComponent,
+        PharmacyProfComponent
 
     ],
     exports: [
