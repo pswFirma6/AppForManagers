@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FeedbackModel } from "src/app/shared/feedback.model";
-import { FeedbackService } from "src/app/shared/feedback.service";
+import { FeedbackService } from "src/app/service/feedback.service";
 import { FeedbackResponseModel } from "src/app/shared/feedbackResponse.model";
 
 @Component({
@@ -25,7 +25,7 @@ export class PharmacyFeedbacksComponent implements OnInit{
             response = false;
         }
         this.service.getFeedbackResponses()
-            .subscribe(res => this.responses = res);
+            .subscribe((res:any) => this.responses = res);
     }
 
     changeVisibility(feedbackId: number, responseId:number): void {

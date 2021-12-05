@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Medicine } from 'src/app/shared/medicine.model';
-import { MedicineService } from 'src/app/shared/medicine.service';
+import { MedicineService } from 'src/app/service/medicine.service';
 import { PharmacyMedicineAvailabilityModel } from 'src/app/shared/pharmacyMedicineAvailability.model';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pharmacy } from 'src/app/shared/pharmacy';
-import { PharmacyService } from 'src/app/shared/pharmacy.service';
-import { UrgentProcurementService } from 'src/app/shared/urgent-procurement.service';
+import { PharmacyService } from 'src/app/service/pharmacy.service';
+import { UrgentProcurementService } from 'src/app/service/urgent-procurement.service';
 
 @Component({
   selector: 'app-pharmacy-profile',
@@ -15,7 +15,7 @@ export class PharmacyProfileComponent implements OnInit {
   constructor(public service: UrgentProcurementService) { }
   ngOnInit(): void {
     this.service.getPharmacies()
-      .subscribe(res => this.pharmacies = res);
+      .subscribe((res:any) => this.pharmacies = res);
   }
 
 }
