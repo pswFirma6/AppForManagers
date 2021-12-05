@@ -1,1 +1,51 @@
-<p>pharmacy-prof works!</p>
+
+<div class="cards">
+
+    <div *ngIf=" !commentModeOn" class="card text-center" >
+        <div class="card-header2">
+            <b>Pharmacy "{{pharmacy.pharmacyName}}"</b>
+        </div>
+        <div class="card-body">
+            <label *ngIf="!editModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
+            <div *ngIf="editModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
+            <label *ngIf="!editModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
+            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
+            <img [src]="pharmacy.pharmacyPicture">
+            <input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)">
+            <button class="upload-btn" *ngIf="editModeOn" (click)="onUpload()">Upload</button>
+        </div>
+        <div  *ngIf="!editModeOn">
+            <button class="btn" (click) = "changeEditMode()">EDIT</button>
+        </div>
+        <div  *ngIf="editModeOn">
+            <button class="btn" (click) = "editPharmacy()">SAVE</button> <br/> <br/> 
+            <button class="btn" (click) = "changeEditMode()">CANCEL</button>
+        </div>
+    </div>
+
+    <div *ngIf="!editModeOn && !commentModeOn" class="card text-center">
+        <div class="card-header2">
+            <b>Comments</b>
+        </div>
+        <div> <br>
+            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button>
+        </div>
+        <div class="card-body2" *ngFor='let comment of comments; let i = index'>
+            <label><b>***</b> {{comment.content}}</label> 
+        </div>
+    </div>
+    <div *ngIf="commentModeOn" class="card text-center">
+        <div class="card-header2">
+            <b>Add Comment</b>
+        </div>
+        <div class="card-body">
+            <label><b>Content:</b></label>
+            <textarea [(ngModel)]="commentContent" class="form-control" required></textarea>
+        </div>
+        <div> <br>
+            <button class="btn" (click) = "addComment()">ADD</button> <br/> <br/>
+            <button class="btn" (click) = "changeCommentMode()">CANCEL</button>
+        </div>
+    </div>
+</div>
+

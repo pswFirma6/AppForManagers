@@ -1,0 +1,118 @@
+.btnCreate{
+    background-color: lightskyblue; 
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+    opacity: 70%;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 0px;
+    width: 300px;
+    height: 50px;
+}
+
+.btnSearch {
+    background-color: lightskyblue;
+    color: black;
+    opacity: 70%;
+    border-radius: 10px;
+    border: 0px;
+    width: 130px;
+    height: 35px;
+    margin-left: 40px;
+}
+
+.card{
+    width: 60%;
+    margin-top: 50px;
+    margin-left: 20%;
+}
+
+.filter {
+    width: 40rem; 
+    margin: 0 auto;
+}
+
+.card-header{
+    background-color: lightskyblue; 
+    color: black;
+    font-size: x-large;
+    opacity: 70%;
+}
+
+.card-header3{
+    background-color: rgb(180, 238, 211); 
+    color: black;
+    font-size: x-large;
+    opacity: 70%;
+}
+
+.card-header2{
+    background-color: lightgrey; 
+    color: black;
+    font-size: x-large;
+    opacity: 70%;
+}
+
+.card-body{
+    font-size: large;
+}
+
+.card-body2{
+    font-size: large;
+    text-align: left;
+}
+
+.form-control{
+    width: 40rem; 
+    margin: 0 auto;
+}
+
+.form-group{
+    margin-left: 80px;
+}
+
+.card-body-filter{
+    display: inline-flex;
+}
+
+.form-control-filter{
+    width: 10rem; 
+    border-radius: 5px;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+.btn{
+    background-color: lightskyblue; 
+    color: black;
+    font-weight: bold;
+    opacity: 70%;
+    width: 60%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.upload-btn {
+    background-color: lightskyblue; 
+    color: black;
+    font-weight: bold;
+    opacity: 70%;
+    width: 10%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+
+.btnCheck {
+    background-color: lightskyblue;
+    font-weight: bold;
+    color: black;
+    opacity: 70%;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 0px;
+    height: 50px;
+}
+
+
