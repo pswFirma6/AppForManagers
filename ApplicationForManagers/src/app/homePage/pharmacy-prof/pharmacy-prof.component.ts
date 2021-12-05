@@ -25,6 +25,7 @@ export class PharmacyProfComponent implements OnInit {
   pharmacyAddress: string = "";
   pharmacyCity: string = "";
   selectedFile: string = "";
+  uploadModeOn: boolean = false;
 
   constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, private toastr: ToastrService) { }
 
@@ -105,8 +106,12 @@ export class PharmacyProfComponent implements OnInit {
   
   }
 
-  onUpload() {
-
+  changeUploadMode() {
+    if(this.uploadModeOn) {
+      this.uploadModeOn = false;
+    } else {
+      this.uploadModeOn = true;
+    }
   }
 
 }

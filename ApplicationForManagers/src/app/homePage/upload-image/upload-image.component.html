@@ -1,0 +1,11 @@
+<div class="card-body">
+    <div class="row">
+        <form #imageForm = ngForm>
+            <input type="text" #Caption ngModel name="Caption" id=Caption>
+            <label for="Caption">Caption</label>
+            <img [src]="imageUrl" style="width: 250px; height:200px;">
+            <input type="file" #Image accept="image/*">
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
