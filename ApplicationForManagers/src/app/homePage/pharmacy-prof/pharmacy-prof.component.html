@@ -8,8 +8,10 @@
             <label *ngIf="!editModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
             <div *ngIf="editModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
             <label *ngIf="!editModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
-            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div>
+            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
             <img [src]="pharmacy.pharmacyPicture">
+            <input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)">
+            <button class="upload-btn" *ngIf="editModeOn" (click)="onUpload()">Upload</button>
         </div>
         <div  *ngIf="!editModeOn">
             <button class="btn" (click) = "changeEditMode()">EDIT</button>

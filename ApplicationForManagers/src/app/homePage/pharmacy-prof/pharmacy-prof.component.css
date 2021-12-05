@@ -93,6 +93,16 @@
     margin: 0 auto;
 }
 
+.upload-btn {
+    background-color: lightskyblue; 
+    color: black;
+    font-weight: bold;
+    opacity: 70%;
+    width: 10%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
 
 .btnCheck {
     background-color: lightskyblue;

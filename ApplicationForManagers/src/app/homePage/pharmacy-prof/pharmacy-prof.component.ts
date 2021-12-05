@@ -24,6 +24,7 @@ export class PharmacyProfComponent implements OnInit {
   comment: PharmacyComment = new PharmacyComment();
   pharmacyAddress: string = "";
   pharmacyCity: string = "";
+  selectedFile: string = "";
 
   constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, private toastr: ToastrService) { }
 
@@ -82,6 +83,10 @@ export class PharmacyProfComponent implements OnInit {
   }
 
   editPharmacy() {
+    if(this.pharmacy.address == '' || this.pharmacy.city == '') {
+      this.toastr.error('You have to fill all fields!', 'Feedback register');
+      return;
+    }
     this.changeEditMode();
     this.service.editPharmacy(this.pharmacy).subscribe(
       (res) => {
@@ -93,6 +98,15 @@ export class PharmacyProfComponent implements OnInit {
         this.toastr.error('You haven\'t updated pharmacy!', 'Pharmacy Update');
       }
     );
+  }
+
+  onFileSelected(event: Event) {
+    console.log(event)
+  
+  }
+
+  onUpload() {
+
   }
 
 }

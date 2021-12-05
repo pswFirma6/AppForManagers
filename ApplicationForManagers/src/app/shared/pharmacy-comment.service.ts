@@ -21,4 +21,5 @@ export class PharmacyCommentService {
   addPharmacyComment(comment: PharmacyComment) {
     return this.http.post(this.baseUrl, comment);
   }
+
 }
