@@ -22,6 +22,8 @@ export class PharmacyProfComponent implements OnInit {
   commentContent: string = "";
   id: number = 0;
   comment: PharmacyComment = new PharmacyComment();
+  pharmacyAddress: string = "";
+  pharmacyCity: string = "";
 
   constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, private toastr: ToastrService) { }
 
@@ -69,14 +71,28 @@ export class PharmacyProfComponent implements OnInit {
       this.service2.addPharmacyComment(this.comment).subscribe(
         (res) => {
           console.log("Successfuly registered to database");
-          this.toastr.success('Your feedback is submitted successfully!', 'Feedback register');
+          this.toastr.success('Yourcomment is submitted successfully!', 'Comment register');
         },
         err => {
           console.log(err);
-          this.toastr.error('Your feedback is not submitted successfully!', 'Feedback register');
+          this.toastr.error('Your comment is not submitted successfully!', 'Comment register');
         }
       );
       location.reload();
+  }
+
+  editPharmacy() {
+    this.changeEditMode();
+    this.service.editPharmacy(this.pharmacy).subscribe(
+      (res) => {
+        console.log("Successfuly registered to database");
+        this.toastr.success('You successfully updated pharmacy!', 'Pharmacy Update');
+      },
+      err => {
+        console.log(err);
+        this.toastr.error('You haven\'t updated pharmacy!', 'Pharmacy Update');
+      }
+    );
   }
 
 }

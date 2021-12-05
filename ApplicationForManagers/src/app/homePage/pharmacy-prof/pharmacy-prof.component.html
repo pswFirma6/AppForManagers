@@ -6,16 +6,16 @@
         </div>
         <div class="card-body">
             <label *ngIf="!editModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
-            <div *ngIf="editModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}"></div>
+            <div *ngIf="editModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
             <label *ngIf="!editModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
-            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}"></div>
+            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div>
             <img [src]="pharmacy.pharmacyPicture">
         </div>
         <div  *ngIf="!editModeOn">
             <button class="btn" (click) = "changeEditMode()">EDIT</button>
         </div>
         <div  *ngIf="editModeOn">
-            <button class="btn" (click) = "changeEditMode()">SAVE</button> <br/> <br/> 
+            <button class="btn" (click) = "editPharmacy()">SAVE</button> <br/> <br/> 
             <button class="btn" (click) = "changeEditMode()">CANCEL</button>
         </div>
     </div>
