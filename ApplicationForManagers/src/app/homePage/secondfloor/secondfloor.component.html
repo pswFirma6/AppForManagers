@@ -1,12 +1,7 @@
 <div class="allCont">
   <div class="main-container">
       
-    <div class= "search-container">
-      <form action="api/equipment/Search" method="get">
-        <input type="text" id="iDEquipment" name="term" placeholder="Search Equipment " >
-        <input type="submit">
-      </form>
-    </div>
+  
   
       <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 350 350" version="1.1">
           
@@ -63,15 +58,16 @@
    <br>
    <br>
    Equipments:
-   <table *ngFor='let equipment of getEquipmentByRoomId(8)' >
+   <table>
     <tr>
       <td class="Headline">name</td>
       <td class="Headline">amount</td>
      </tr>
+   </table>
+   <table *ngFor='let equipment of getEquipmentByRoomId(8)' >
     <tr>
       <td>{{equipment.name}}</td>
       <td>{{equipment.amount}}</td>
-      <td><button>Change</button></td>
     </tr>
    </table>
   </div>
@@ -88,15 +84,16 @@
    <br>
    <br>
    Equipments:
-   <table *ngFor='let equipment of getEquipmentByRoomId(9)' >
+   <table>
     <tr>
       <td class="Headline">name</td>
       <td class="Headline">amount</td>
      </tr>
+   </table>
+   <table *ngFor='let equipment of getEquipmentByRoomId(9)' >
     <tr>
       <td>{{equipment.name}}</td>
       <td>{{equipment.amount}}</td>
-      <td><button>Change</button></td>
     </tr>
    </table>
   </div>
@@ -114,16 +111,16 @@
    <br>
    <br>
    Equipments:
+   <table>
+    <tr>
+      <td class="Headline">name</td>
+      <td class="Headline">amount</td>
+     </tr>
+   </table>
     <table *ngFor='let equipment of getEquipmentByRoomId(10)' >
-      <tr >
-        <td class="Headline">name</td>
-        <td class="Headline">amount</td>
-       </tr>
-   
       <tr>
        <td>{{equipment.name}}</td>
        <td>{{equipment.amount}}</td>
-       <td><button>Change</button></td>
      </tr>
     </table>
   </div>
@@ -146,10 +143,12 @@
       <td class="Headline">name</td>
       <td class="Headline">amount</td>
      </tr>
+   </table>
+   <table *ngFor='let equipment of getEquipmentByRoomId(11)' >
+    
     <tr>
       <td>{{equipment.name}}</td>
       <td>{{equipment.amount}}</td>
-      <td><button>Change</button></td>
     </tr>
    </table>
 
@@ -167,15 +166,17 @@
    <br>
    <br>
    Equipments:
-   <table *ngFor='let equipment of getEquipmentByRoomId(12)' >
-     <tr>
+   <table>
+    <tr>
       <td class="Headline">name</td>
       <td class="Headline">amount</td>
      </tr>
+   </table>
+   <table *ngFor='let equipment of getEquipmentByRoomId(12)' >
+     
     <tr>
       <td>{{equipment.name}}</td>
       <td>{{equipment.amount}}</td>
-      <td><button>Change</button></td>
     </tr>
    </table>
   </div>

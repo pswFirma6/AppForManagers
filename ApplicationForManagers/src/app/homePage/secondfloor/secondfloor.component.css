@@ -40,20 +40,13 @@ svg {
   }
   
   td {
-    width: 100%;
+    width: 25%;
    border:1px solid black;
  }
- td.Headline {
-  width: 100%;
- border:1px solid black;
- font-weight: bold;
- color : black;
-}
 
  table {
    width: 100%;
    margin: 0 auto;
-   display: block;
    overflow-x: auto;
    border-spacing: 0;
    border:1px solid black;
