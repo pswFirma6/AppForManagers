@@ -6,6 +6,7 @@ import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
 import { PharmacyService } from 'src/app/shared/pharmacy.service';
 
+
 @Component({
   selector: 'app-pharmacy-prof',
   templateUrl: './pharmacy-prof.component.html',
