@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Pharmacy } from 'src/app/shared/pharmacy';
 import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
-import { PharmacyService } from 'src/app/shared/pharmacy.service';
+
 
 @Component({
   selector: 'app-pharmacy-prof',
@@ -106,6 +106,13 @@ export class PharmacyProfComponent implements OnInit {
   }
 
   onUpload() {
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.pharmacyName = params['name'];
+    });
 
   }
 
