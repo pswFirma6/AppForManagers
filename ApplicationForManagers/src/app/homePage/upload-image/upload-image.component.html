@@ -1,7 +1,9 @@
-<div class="card-body">
-    <div class="row">
-        <img [src]="imageUrl" style="width: 250px; height:200px;">
-        <input type="file" #file placeholder="Choose file" (change) = "uploadFile(file.files)" style="display: none;" >
-        <button type="button" class="btn-upload" (click)="file.click()">Submit</button>
+<div class="card text-center">
+    <div class="card-body">
+        <div class="row">
+            <img [src]="imageUrl" style="width: 250px; height:200px;">
+            <input type="file" #file placeholder="Choose file" (change) = "uploadFile(file.files, $event)" style="display: none;" >
+            <button type="button" class="upload-btn" (click)="file.click()">Submit</button>
+        </div>
     </div>
 </div>

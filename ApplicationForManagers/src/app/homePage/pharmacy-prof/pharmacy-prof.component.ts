@@ -5,6 +5,7 @@ import { Pharmacy } from 'src/app/shared/pharmacy';
 import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
 import { PharmacyService } from 'src/app/shared/pharmacy.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -27,13 +28,17 @@ export class PharmacyProfComponent implements OnInit {
   pharmacyCity: string = "";
   selectedFile: string = "";
   uploadModeOn: boolean = false;
+  currentPharmacyImage: SafeResourceUrl = "";
 
-  constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, private toastr: ToastrService) { }
+  constructor(private router: Router, private service: PharmacyService,
+     private service2: PharmacyCommentService,
+     private toastr: ToastrService,
+     private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.pharmacyName = this.extractPharmacyName(this.router.url)
     this.service.getPharmacy(this.extractPharmacyName(this.pharmacyName))
-      .subscribe(res => this.pharmacy = res);
+      .subscribe(res => { this.pharmacy = res; this.loadCurrentPharmacyImage(this.pharmacy.pharmacyPicture);});
     this.service2.getPharmacyComments(this.extractPharmacyName(this.pharmacyName))
     .subscribe(res => this.comments = res);
   }
@@ -113,6 +118,18 @@ export class PharmacyProfComponent implements OnInit {
     } else {
       this.uploadModeOn = true;
     }
+  }
+
+  loadCurrentPharmacyImage(pharmacyImage: string): void {
+    this.service.getCurrentPharmacyImage(pharmacyImage).subscribe(
+      res => {
+        this.currentPharmacyImage = this.domSanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + res);
+        console.log(this.currentPharmacyImage);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

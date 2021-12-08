@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { healthcare } from "googleapis/build/src/apis/healthcare";
 import { Observable } from "rxjs";
 import { Pharmacy } from "./pharmacy";
 
@@ -34,5 +35,11 @@ export class PharmacyService{
       }
     editPharmacy(pharmacy: Pharmacy) {
       return this.http.put(this.pharmacyUrl3, pharmacy);
+    }
+
+    getCurrentPharmacyImage(imageName: string): Observable<any> {
+      let headers = new HttpHeaders();
+      headers  = headers.append('responseType', 'json');
+      return this.http.get<any>(`https://localhost:44317/getImage/${imageName}`, {headers: headers});
     }
 }

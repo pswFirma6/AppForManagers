@@ -4,4 +4,5 @@ export class Pharmacy {
     city: string = '';
     apiKey: string = '';
     pharmacyPicture: string = '';
+    fileProtocol: string = '';
 }

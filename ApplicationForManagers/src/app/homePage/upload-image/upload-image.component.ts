@@ -10,13 +10,14 @@ import { UploadImageService } from 'src/app/shared/upload-image.service';
 })
 export class UploadImageComponent implements OnInit {
   imageUrl: string = "../../assets/pharmacyImages/default-image.jpg";
+  fileToUpload: File = new File([], '');
 
   constructor(private service: UploadImageService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  uploadFile(files: FileList | null) {
+  uploadFile(files: FileList | null, event: Event) {
     if(files != null) {
       if (files.length == 0) {
         return;
@@ -26,6 +27,7 @@ export class UploadImageComponent implements OnInit {
       formData.append('Image', fileToUpload, fileToUpload.name);
 
       this.service.uploadImage(formData, this.extractPharmacyName(this.router.url));
+      this.handleFileInput(event);
     }
   }
 
@@ -35,7 +37,7 @@ export class UploadImageComponent implements OnInit {
     return name;
   }
 
-  /*handleFileInput(event : Event) {
+  handleFileInput(event : Event) {
     if((event.target as HTMLInputElement).files != null) {
       this.fileToUpload = <File>(event.target as HTMLInputElement).files!.item(0);
       //show image preview
@@ -47,7 +49,7 @@ export class UploadImageComponent implements OnInit {
       reader.readAsDataURL(this.fileToUpload);
     }
   }
-
+/*
   onSubmit(value: string) {
     console.log(value)
   }*/

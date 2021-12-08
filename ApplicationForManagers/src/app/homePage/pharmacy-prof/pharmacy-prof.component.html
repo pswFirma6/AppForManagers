@@ -10,7 +10,7 @@
             <div *ngIf="editModeOn && !uploadModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
             <label *ngIf="!editModeOn && !uploadModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
             <div *ngIf="editModeOn && !uploadModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
-            <img [src]="pharmacy.pharmacyPicture">
+            <img *ngIf="!editModeOn" [src]="currentPharmacyImage">
             <!--input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)"-->
             <button class="upload-btn" *ngIf="editModeOn && !uploadModeOn" (click)="changeUploadMode()">Upload new image</button>
             <app-upload-image *ngIf="uploadModeOn"></app-upload-image>
@@ -29,10 +29,10 @@
             <b>Comments</b>
         </div>
         <div> <br>
-            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button>
+            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button> <br> <br>
         </div>
         <div class="card-body2" *ngFor='let comment of comments; let i = index'>
-            <label><b>***</b> {{comment.content}}</label> 
+            <label><b>Date: </b>{{comment.commentDate | date:'short'}} <b>Content: </b>{{comment.content}}</label> 
         </div>
     </div>
     <div *ngIf="commentModeOn" class="card text-center">
