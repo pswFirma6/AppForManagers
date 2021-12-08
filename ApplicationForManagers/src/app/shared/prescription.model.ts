@@ -1,7 +1,7 @@
 export class PrescriptionModel {
-    Id: string = "";
+    Id: number = 0;
     MedicineName: string = "";
-    Quantity: string = "";
+    Quantity: number = 0;
     Description: string = "";
     RecommendedDose: string = "";
     PrescriptionDate: string = "";
@@ -11,4 +11,5 @@ export class PrescriptionModel {
     TherapyStart : string = "";
     TherapyEnd: string = "";
     Diagnosis: string = "";
+    PharmacyName: string = "";
 }
