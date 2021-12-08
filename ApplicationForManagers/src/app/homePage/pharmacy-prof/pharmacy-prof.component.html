@@ -6,32 +6,33 @@
             <b>Pharmacy "{{pharmacy.pharmacyName}}"</b>
         </div>
         <div class="card-body">
-            <label *ngIf="!editModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
-            <div *ngIf="editModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
-            <label *ngIf="!editModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
-            <div *ngIf="editModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
-            <img [src]="pharmacy.pharmacyPicture">
-            <input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)">
-            <button class="upload-btn" *ngIf="editModeOn" (click)="onUpload()">Upload</button>
+            <label *ngIf="!editModeOn && !uploadModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
+            <div *ngIf="editModeOn && !uploadModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
+            <label *ngIf="!editModeOn && !uploadModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
+            <div *ngIf="editModeOn && !uploadModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
+            <img *ngIf="!editModeOn" [src]="currentPharmacyImage">
+            <!--input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)"-->
+            <button class="upload-btn" *ngIf="editModeOn && !uploadModeOn" (click)="changeUploadMode()">Upload new image</button>
+            <app-upload-image *ngIf="uploadModeOn"></app-upload-image>
         </div>
-        <div  *ngIf="!editModeOn">
+        <div  *ngIf="!editModeOn && !uploadModeOn">
             <button class="btn" (click) = "changeEditMode()">EDIT</button>
         </div>
-        <div  *ngIf="editModeOn">
-            <button class="btn" (click) = "editPharmacy()">SAVE</button> <br/> <br/> 
+        <div  *ngIf="editModeOn && !uploadModeOn">
+            <button class="btn" (click) = "editPharmacy()">SAVE</button> <br/> <br/>
             <button class="btn" (click) = "changeEditMode()">CANCEL</button>
         </div>
     </div>
 
-    <div *ngIf="!editModeOn && !commentModeOn" class="card text-center">
+    <div *ngIf="!editModeOn && !commentModeOn && !uploadModeOn" class="card text-center">
         <div class="card-header2">
             <b>Comments</b>
         </div>
         <div> <br>
-            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button>
+            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button> <br> <br>
         </div>
         <div class="card-body2" *ngFor='let comment of comments; let i = index'>
-            <label><b>***</b> {{comment.content}}</label> 
+            <label><b>Date: </b>{{comment.commentDate | date:'short'}} <b>Content: </b>{{comment.content}}</label> 
         </div>
     </div>
     <div *ngIf="commentModeOn" class="card text-center">
