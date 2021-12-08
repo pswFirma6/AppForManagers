@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { PharmacyService } from 'src/app/service/pharmacy.service';
 import { Pharmacy } from 'src/app/shared/pharmacy';
 import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
@@ -26,7 +27,8 @@ export class PharmacyProfComponent implements OnInit {
   pharmacyCity: string = "";
   selectedFile: string = "";
 
-  constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, private toastr: ToastrService) { }
+  constructor(private router: Router, private service: PharmacyService, private service2: PharmacyCommentService, 
+    private toastr: ToastrService) { } 
 
   ngOnInit(): void {
     this.pharmacyName = this.extractPharmacyName(this.router.url)
@@ -34,6 +36,7 @@ export class PharmacyProfComponent implements OnInit {
       .subscribe(res => this.pharmacy = res);
     this.service2.getPharmacyComments(this.extractPharmacyName(this.pharmacyName))
     .subscribe(res => this.comments = res);
+    
   }
 
   extractPharmacyName(url: string): string {
@@ -105,15 +108,7 @@ export class PharmacyProfComponent implements OnInit {
   
   }
 
-  onUpload() {
+  onUpload() {}
 
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.pharmacyName = params['name'];
-    });
-
-  }
 
 }
