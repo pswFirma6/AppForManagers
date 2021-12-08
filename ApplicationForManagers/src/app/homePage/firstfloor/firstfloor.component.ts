@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { analytics_v3 } from 'googleapis';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -20,26 +21,34 @@ export class FirstfloorComponent implements OnInit {
       this.rooms = response;
       
     });
-
-
+    
+    
     this.apiService.getEquipments().subscribe((response : any) => {
       this.equipments = response;
 
     });
-
+    
     this.apiService.getDoctors().subscribe((response : any) => {
       this.doctors = response;
-
+      
     });
     
-
+    
   }
-
-
+  
 
   getEquipmentByRoomId(id: any){
     return this.equipments.filter((x: any) => x.room.id === id) ;  //find pronalazi jedan sa osobinom, filter pronalazi sve sa osobinom
   }
+
+  // getSearchedEquipment(id: any){
+  //   this.roomEquipment = this.getEquipmentByRoomId(id);
+  //   if(this.searchName === ''){
+  //     return this.roomEquipment;
+  //   }
+  //   return this.roomEquipment.filter((x: any) => x.room.name === this.searchName);
+    
+  // }
 
   getDoctorById(id : any)
   {

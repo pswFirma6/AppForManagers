@@ -132,4 +132,9 @@ export class PharmacyProfComponent implements OnInit {
     );
   }
 
+  
+
+  onUpload() {}
+
+
 }

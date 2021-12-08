@@ -11,10 +11,10 @@ import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component"
 import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.component";
 import { PharmacyFeedbackComponent } from "../pharmacyFeedback/pharmacyFeedback.component";
 import { PrescriptionComponent } from "../prescription/prescription.component";
-import { SearchEquipmentComponent } from "../search-equipment/search-equipment.component";
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -28,7 +28,7 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'surveyStats', component: SurveyStatsComponent },
     { path: 'urgentProcurement', component: UrgentProcurementComponent },
     { path: 'medicationAvailability', component: MedicationAvailabilityComponent },
-    { path: 'app-search-equipment', component: SearchEquipmentComponent },
+    { path: 'equipmentTransfer', component: EquipmentTransferComponent},
     { path: 'prescription', component: PrescriptionComponent },
     { path: 'pharmacies', component: PharmacyProfileComponent },
     { path: 'pharmacies/pharmacy/:pharmacyName' , component: PharmacyProfComponent}

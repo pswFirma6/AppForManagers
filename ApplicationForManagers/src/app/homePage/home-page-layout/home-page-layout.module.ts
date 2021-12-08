@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from "ngx-toastr";
 import { SidebarComponent } from "../component/sidebar/sidebar.component";
 import { FirstfloorComponent } from "../firstfloor/firstfloor.component";
@@ -19,8 +20,9 @@ import { PharmacyFeedbacksComponent } from "../pharmacyFeedbacks/pharmacyFeedbac
 import { SecondfloorComponent } from "../secondfloor/secondfloor.component";
 import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { HomePageLayoutRoutes } from "./home-page-layout.routing";
-
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
+import { EquipmentFilterPipe } from '../equipment-filter.pipe';
+import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 import { PrescriptionComponent } from "../prescription/prescription.component";
 import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.component";
 import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component";
@@ -33,7 +35,8 @@ import { UploadImageComponent } from "../upload-image/upload-image.component";
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(HomePageLayoutRoutes),
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        Ng2SearchPipeModule
     ],
     declarations: [
         HomePageComponent,
@@ -52,6 +55,9 @@ import { UploadImageComponent } from "../upload-image/upload-image.component";
         UrgentProcurementComponent,
         MedicationsNavbarComponent,
         MedicationAvailabilityComponent,
+        EquipmentFilterPipe,
+        EquipmentTransferComponent,
+        PrescriptionComponent,
         PrescriptionComponent,
         PharmacyProfileComponent,
         PharmacyProfComponent,

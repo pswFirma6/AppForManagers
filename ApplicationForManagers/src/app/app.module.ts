@@ -14,6 +14,7 @@ import { LandingpageLayoutComponent } from './landingpage/landingpage-layout/lan
 import { LandingpageLayoutModule } from './landingpage/landingpage-layout/landingpage-layout.module';
 import { AppRoutingModule } from './app-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,

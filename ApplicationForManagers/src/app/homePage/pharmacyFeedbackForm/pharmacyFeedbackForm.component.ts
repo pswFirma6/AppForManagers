@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
 import { FeedbackModel } from "src/app/shared/feedback.model";
-import { FeedbackService } from "src/app/shared/feedback.service";
+import { FeedbackService } from "src/app/service/feedback.service";
 
 @Component({
     selector: 'pharmacyFeedbackForm',
@@ -27,8 +27,7 @@ export class PharmacyFeedbackFormComponent  implements OnInit{
           console.log("Successfuly registered to database");
           this.resetForm(form);
           this.toastr.success('Your feedback is submitted successfully!', 'Feedback register');
-        },
-        err => {console.log(err); }
+        }
       );
     }
 

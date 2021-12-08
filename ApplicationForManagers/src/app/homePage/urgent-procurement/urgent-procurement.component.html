@@ -42,7 +42,7 @@
                 <button class="btnCheck" (click)="checkAvailability(pharmacy.pharmacyName)">Check if available</button>
             </div>
             <div *ngIf="hasMedicine && pharmacy.pharmacyName == availability.pharmacyName">
-                <button class="btnCheck" (click) = "orderMedicine()" >Order</button>
+                <button class="btnCheck" (click) = "urgentProcurement()" >Order</button>
             </div>
         </div>
     </div>
