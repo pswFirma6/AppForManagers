@@ -13,13 +13,15 @@ import { HomePageLayoutModule } from './homePage/home-page-layout/home-page-layo
 import { LandingpageLayoutComponent } from './landingpage/landingpage-layout/landingpage-layout.component';
 import { LandingpageLayoutModule } from './landingpage/landingpage-layout/landingpage-layout.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AllPatientsComponent } from './homePage/all-patients/all-patients.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageLayoutComponent,
-    LandingpageLayoutComponent
+    LandingpageLayoutComponent,
+    AllPatientsComponent
   ],
   imports: [
     BrowserModule,
