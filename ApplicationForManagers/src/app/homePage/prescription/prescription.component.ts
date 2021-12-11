@@ -15,7 +15,8 @@ import { SendingPrescriptionModel } from 'src/app/shared/sendingPrescription.mod
 export class PrescriptionComponent implements OnInit {
 
   prescriptions: PrescriptionModel[] = [];
-  medicine: Medicine;
+  medicine: Medicine = new Medicine();
+  prescription: PrescriptionModel = new PrescriptionModel();
   pharmacies : PharmacyMedicineAvailabilityModel[] = [];
   checkPharmacies: boolean = false;
   isAvailable: boolean = true;
@@ -23,39 +24,32 @@ export class PrescriptionComponent implements OnInit {
 
   constructor(public service: PrescriptionService, public medicineService: MedicineService) { }
 
-  ngOnInit(): void {
-    this.prescriptions = this.service.prescriptions;
-  }
-
-  checkAvailability(prescription: PrescriptionModel){
-    var quantity: number = +prescription.Quantity;
-    var medicine : Medicine = {
-      name: prescription.MedicineName,
-      quantity: quantity
-    }
-    this.medicineService.checkMedicine(medicine);
-    this.isAvailable = true;
-  }
+  ngOnInit(): void {}
 
   checkPharmaciesAvailability(form: NgForm){
+    this.medicine.name = this.prescription.MedicineName;
+    this.medicine.quantity = this.prescription.Quantity;
     this.medicineService.checkMedicine(this.medicine)
       .subscribe((res:any) => {
-        this.pharmacies = res;
-        this.checkPharmacies = true;
+        var count = 0;
+        for(let p of res){
+          count = count + 1;
+        }
+        if(count > 0){
+          this.pharmacies = res;
+          this.checkPharmacies = true;
+        } else {
+          window.alert("This medicine is not available in pharmacies");
+        }
       }
       );
   }
 
-  sendPrescription(prescription: PrescriptionModel){
-    var sending: SendingPrescriptionModel = {
-      Prescription: prescription,
-      Method: this.method
-    }
-    console.log(sending)
-    this.service.sendPrescription(sending).subscribe(
-        (res) => {
-          window.location.reload();
-        }
-    )
+  sendPrescription(){
+    this.service.savePrescription(this.prescription).subscribe(
+      (res:any) => {
+        window.alert("Prescription is succesfully saved!");
+      }
+    );
   }
 }
