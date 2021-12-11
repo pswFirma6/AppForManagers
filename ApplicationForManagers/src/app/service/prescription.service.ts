@@ -10,40 +10,14 @@ import { SendingPrescriptionModel } from '../shared/sendingPrescription.model';
 
 export class PrescriptionService{
 
-  prescriptions: PrescriptionModel[] = [
-    {
-      Id: "2",
-      MedicineName: "Brufen",
-      Quantity: "5",
-      Description: "",
-      RecommendedDose: "",
-      PrescriptionDate: "22.11.2021.",
-      DoctorName: "",
-      PatientName: "",
-      PatientId: "",
-      TherapyStart : "",
-      TherapyEnd: "",
-      Diagnosis: "",
-    },
-    {
-      Id: "1",
-      MedicineName: "Andol",
-      Quantity: "5",
-      Description: "",
-      RecommendedDose: "",
-      PrescriptionDate: "22.11.2021.",
-      DoctorName: "",
-      PatientName: "",
-      PatientId: "",
-      TherapyStart : "",
-      TherapyEnd: "",
-      Diagnosis: "",
-    }
-  ];
-
+  readonly savePrescriptionUrl = "https://localhost:44392/savePrescription"
   readonly sendPrescriptionUrl = "https://localhost:44317/postOffer";
   
   constructor(private http: HttpClient) { }
+
+  savePrescription(prescription : PrescriptionModel){
+    return this.http.post(this.savePrescriptionUrl, prescription);
+  }
 
   sendPrescription(prescription: SendingPrescriptionModel){
     console.log(prescription)
