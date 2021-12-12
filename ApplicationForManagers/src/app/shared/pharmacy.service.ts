@@ -9,12 +9,12 @@ import { Pharmacy } from "./pharmacy";
   })
 
 export class PharmacyService{
-    readonly basePharmacy = "https://localhost:44317/api/Feedbacks/pharmacyNames";
+    readonly basePharmacy = "http://localhost:44317/api/Feedbacks/pharmacyNames";
 
     pharmacyNames: string[] = [];
-    pharmacyUrl = "https://localhost:44317/pharmacies";
-    pharmacyUrl2 = "https://localhost:44317/pharmacyByName/";
-    pharmacyUrl3 = "https://localhost:44317/editPharmacy";
+    pharmacyUrl = "http://localhost:44317/pharmacies";
+    pharmacyUrl2 = "http://localhost:44317/pharmacyByName/";
+    pharmacyUrl3 = "http://localhost:44317/editPharmacy";
 
     constructor(private http: HttpClient) { }
 
@@ -31,7 +31,7 @@ export class PharmacyService{
       getPharmacy(pharmacyName: string): Observable<Pharmacy> {
         let headers = new HttpHeaders();
         headers  = headers.append('responseType', 'json');
-        return this.http.get<Pharmacy>(`https://localhost:44317/pharmacyByName/${pharmacyName}`, {headers: headers});
+        return this.http.get<Pharmacy>(`http://localhost:44317/pharmacyByName/${pharmacyName}`, {headers: headers});
       }
     editPharmacy(pharmacy: Pharmacy) {
       return this.http.put(this.pharmacyUrl3, pharmacy);
@@ -40,6 +40,6 @@ export class PharmacyService{
     getCurrentPharmacyImage(imageName: string): Observable<any> {
       let headers = new HttpHeaders();
       headers  = headers.append('responseType', 'json');
-      return this.http.get<any>(`https://localhost:44317/getImage/${imageName}`, {headers: headers});
+      return this.http.get<any>(`http://localhost:44317/getImage/${imageName}`, {headers: headers});
     }
 }

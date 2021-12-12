@@ -10,7 +10,7 @@ import { MedicationConsumptionReportModel } from '../shared/medicationConsumptio
 export class MedicationConsumptionService{
 
   formReport: MedicationConsumptionReportModel = new MedicationConsumptionReportModel();
-  readonly baseUrl = "https://localhost:44317/generateReport";
+  readonly baseUrl = "http://localhost:44317/generateReport";
   
   constructor(private http: HttpClient) { }
 
