@@ -20,5 +20,6 @@ export class AllPatientsComponent implements OnInit {
       console.log(this.patients)
     });
 
+
 }
 }

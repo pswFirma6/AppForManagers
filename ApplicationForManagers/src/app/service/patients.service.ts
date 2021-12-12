@@ -10,12 +10,12 @@ import { Patients } from 'src/app/shared/patients';
 })
 export class PatientsService {
     
-    feedbackUrl = GlobalSettings.baseUrl + "/api/Patient";
+    patientUrl = GlobalSettings.baseUrl + "/api/Patient";
 
     constructor(private http: HttpClient) { }
 
     getMethod(): Observable<Patients[]> {      
-        return this.http.get<Patients[]>(this.feedbackUrl)
+        return this.http.get<Patients[]>(this.patientUrl)
           .pipe(
             catchError(this.handleError)
           );
