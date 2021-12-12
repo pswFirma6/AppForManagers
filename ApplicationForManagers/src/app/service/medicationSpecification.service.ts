@@ -9,9 +9,9 @@ import { MedicationSpecificationModel } from '../shared/medicationSpecification.
 export class MedicationSpecificationService{
 
   formMedicineSpecification: MedicationSpecificationModel= new MedicationSpecificationModel();
-  readonly basePharmacyNames = "https://localhost:44317/pharmacyNames";
-  readonly baseMedicationNames = "https://localhost:44317/medicationNames";
-  readonly baseRequestReport = "https://localhost:44317/requestReport";
+  readonly basePharmacyNames = "http://localhost:44317/pharmacyNames";
+  readonly baseMedicationNames = "http://localhost:44317/medicationNames";
+  readonly baseRequestReport = "http://localhost:44317/requestReport";
   pharmacyNames: string[] = [];
   medicationNames: string[] = [];
   

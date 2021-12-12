@@ -10,9 +10,9 @@ import { Pharmacy } from '../shared/pharmacy';
 })
 export class UrgentProcurementService {
  
-  pharmacyUrl = "https://localhost:44317/pharmacies";
-  checkAvailabilityUrl = "https://localhost:44317/checkPharmacyMedicine";
-  urgentProcurementFromPharmacyUrl = "https://localhost:44317/orderMedicine"
+  pharmacyUrl = "http://localhost:44317/pharmacies";
+  checkAvailabilityUrl = "http://localhost:44317/checkPharmacyMedicine";
+  urgentProcurementFromPharmacyUrl = "http://localhost:44317/orderMedicine"
   urgentProcurementUrl =  "https://localhost:44392/urgentProcurement"
   constructor(private http: HttpClient) { }
 
