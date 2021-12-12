@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PharmacyService } from 'src/app/service/pharmacy.service';
 import { Pharmacy } from 'src/app/shared/pharmacy';
 import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
@@ -122,6 +121,10 @@ export class PharmacyProfComponent implements OnInit {
   }
 
   loadCurrentPharmacyImage(pharmacyImage: string): void {
+    if (pharmacyImage == null) {
+      this.currentPharmacyImage = "../../assets/pharmacyImages/default-image.jpg";
+      return;
+    }
     this.service.getCurrentPharmacyImage(pharmacyImage).subscribe(
       res => {
         this.currentPharmacyImage = this.domSanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + res);
