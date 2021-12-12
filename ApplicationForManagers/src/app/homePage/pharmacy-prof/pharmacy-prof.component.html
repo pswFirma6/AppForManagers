@@ -10,8 +10,7 @@
             <div *ngIf="editModeOn && !uploadModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
             <label *ngIf="!editModeOn && !uploadModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
             <div *ngIf="editModeOn && !uploadModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
-            <img *ngIf="!editModeOn" [src]="currentPharmacyImage">
-            <!--input *ngIf="editModeOn" type="file" (change)="onFileSelected($event)"-->
+            <img *ngIf="!editModeOn" style="width: 250px; height:200px;" [src]="currentPharmacyImage">
             <button class="upload-btn" *ngIf="editModeOn && !uploadModeOn" (click)="changeUploadMode()">Upload new image</button>
             <app-upload-image *ngIf="uploadModeOn"></app-upload-image>
         </div>

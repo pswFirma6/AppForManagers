@@ -121,6 +121,10 @@ export class PharmacyProfComponent implements OnInit {
   }
 
   loadCurrentPharmacyImage(pharmacyImage: string): void {
+    if (pharmacyImage == null) {
+      this.currentPharmacyImage = "../../assets/pharmacyImages/default-image.jpg";
+      return;
+    }
     this.service.getCurrentPharmacyImage(pharmacyImage).subscribe(
       res => {
         this.currentPharmacyImage = this.domSanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + res);

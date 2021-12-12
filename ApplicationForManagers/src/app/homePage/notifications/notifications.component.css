@@ -1,0 +1,19 @@
+body
+{
+  background: #000e29;
+}
+
+.alert>.start-icon {
+    margin-right: 0;
+    min-width: 20px;
+    text-align: center;
+}
+
+.alert>.start-icon {
+    margin-right: 5px;
+}
+
+.row{
+   margin-left: 330px; 
+   width: 1000px;
+}

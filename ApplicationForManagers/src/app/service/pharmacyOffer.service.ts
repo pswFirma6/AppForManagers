@@ -20,8 +20,8 @@ export class PharmacyOfferService{
         posted: false
       }
   ];
-  readonly getOffersUrl = "https://localhost:44317/getOffers";
-  readonly postOfferUrl = "https://localhost:44317/postOffer";
+  readonly getOffersUrl = "http://localhost:44317/getOffers";
+  readonly postOfferUrl = "http://localhost:44317/postOffer";
   
   constructor(private http: HttpClient) { }
 

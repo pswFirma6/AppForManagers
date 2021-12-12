@@ -8,7 +8,7 @@ import { Medicine } from "../shared/medicine.model";
 
 export class MedicineService{
   
-  baseurl = "https://localhost:44317/checkMedicine";
+  baseurl = "http://localhost:44317/checkMedicine";
   constructor(private http: HttpClient) { }
 
   checkMedicine(medicine: Medicine) {

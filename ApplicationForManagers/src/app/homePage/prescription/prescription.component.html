@@ -7,41 +7,41 @@
             <input type="hidden">
             <div class="form-group">
                 <label>Patient health card number:</label>
-                <input class="form-control" type="text"/>
+                <input class="form-control" type="text" [(ngModel)] = "prescription.PatientId" name="patientId" />
             </div>
             <div class="form-group">
                 <label>Patient name:</label>
-                <input class="form-control" type="text"/>
+                <input class="form-control" type="text" [(ngModel)] = "prescription.PatientName" name="patientName"/>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Diagnosis:</label>
-                <textarea minlength="1" class="form-control" id="feedbackText" rows="5" placeholder="Diagnosis..." required></textarea>
+                <textarea minlength="1" class="form-control" id="feedbackText" rows="5" [(ngModel)] = "prescription.Diagnosis" name="diagnosis" required></textarea>
             </div>
             <div class="form-group">
                 <label>Medicine:</label>
-                <input class="form-control" type="text" [(ngModel)] = "medicine.name" name="medicineName"/>
+                 <input class="form-control" type="text" [(ngModel)] = "prescription.MedicineName" name="medicineName"/>
             </div>
             <div class="form-group">
                 <label>Dose:</label>
-                <input class="form-control" type="text" />
+                <input class="form-control" type="text" [(ngModel)] = "prescription.RecommendedDose" name="recommendedDose"/>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Therapy start:</label>
-                <input class="form-control" type="date" />
+                <input class="form-control" type="date" [(ngModel)] = "prescription.TherapyStart" name="therapyStart"/>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Therapy end:</label>
-                <input class="form-control" type="date" />
+                <input class="form-control" type="date" [(ngModel)] = "prescription.TherapyEnd" name="therapyEnd"/>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Quantity (maximum package number):</label>
-                <input class="form-control" type="number" min="1" step="1" [(ngModel)] = "medicine.quantity" name="medicineQuantity" />
+                <label for="exampleFormControlTextarea1">Quantity:</label>
+                <input class="form-control" type="number" min="1" step="1" [(ngModel)] = "prescription.Quantity" name="quantity" />
             </div>
             <div class="form-group">
                 <label>Doctor name:</label>
-                <input class="form-control" type="text" />
+                <input class="form-control" type="text" [(ngModel)] = "prescription.DoctorName" name="doctorName"/>
             </div><br/>
-            <button type="submit" class="btn">
+            <button type="submit" class="btn" >
                 Search in pharmacies
             </button>
         </form>
@@ -53,10 +53,12 @@
         Pharmacies
     </div>
     <div class="card-body">
-        <select class="form-control" *ngFor='let pharmacy of pharmacies'>
-            <option>{{pharmacy.pharmacyName}}</option>
+        <select class="form-control" [(ngModel)] = "prescription.PharmacyName" name="pharmacyName">
+            <option *ngFor='let pharmacy of pharmacies'>
+                {{pharmacy.pharmacyName}}
+            </option>
         </select><br/>
-        <button type="submit" class="btn" >
+        <button type="submit" class="btn" (click)="sendPrescription()">
             Send prescription
         </button>
     </div>

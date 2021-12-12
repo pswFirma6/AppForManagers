@@ -13,7 +13,7 @@ export class UploadImageService {
   constructor(private http: HttpClient) { }
 
   uploadImage(formData : FormData, pharmacyName: string){
-    this.http.post(`https://localhost:44317/uploadImage/${pharmacyName}`, formData, {reportProgress: true, observe: 'events'})
+    this.http.post(`http://localhost:44317/uploadImage/${pharmacyName}`, formData, {reportProgress: true, observe: 'events'})
     .subscribe(event => {
       if(event.type === HttpEventType.UploadProgress) {
         this.progress = Math.round(100 * event.loaded / 1);

@@ -8,14 +8,14 @@ import { PharmacyComment } from './pharmacy-comment';
 })
 export class PharmacyCommentService {
 
-  baseUrl: string = "https://localhost:44317/addComment";
+  baseUrl: string = "http://localhost:44317/addComment";
 
   constructor(private http: HttpClient) { }
 
   getPharmacyComments(pharmacyName: string): Observable<PharmacyComment[]> {
     let headers = new HttpHeaders();
         headers  = headers.append('responseType', 'json');
-        return this.http.get<PharmacyComment[]>(`https://localhost:44317/comments/${pharmacyName}`, {headers: headers});
+        return this.http.get<PharmacyComment[]>(`http://localhost:44317/comments/${pharmacyName}`, {headers: headers});
   }
 
   addPharmacyComment(comment: PharmacyComment) {

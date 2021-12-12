@@ -27,7 +27,7 @@ import { PrescriptionComponent } from "../prescription/prescription.component";
 import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.component";
 import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component";
 import { UploadImageComponent } from "../upload-image/upload-image.component";
-
+import { NotificationComponent } from "../notifications/notifications.component";
 
 @NgModule ({
     imports: [
@@ -61,7 +61,8 @@ import { UploadImageComponent } from "../upload-image/upload-image.component";
         PrescriptionComponent,
         PharmacyProfileComponent,
         PharmacyProfComponent,
-        UploadImageComponent
+        UploadImageComponent,
+        NotificationComponent
 
     ],
     exports: [

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<section>
+  
+   <div *ngFor = 'let notification of this.notifications'>
+    <div class="row" > 
+      <div class="col-sm-12" >
+        <div  class="alert fade alert-simple alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+          <strong class="font__weight-semibold">{{notification.title}} received at {{notification.date|date:'medium'}}</strong>
+          <div>
+            {{notification.content}}, by the name: {{notification.fileName}}
+            <button *ngIf='!notification.read' style="font-size:20px" (click)="readMessage(notification)"> <i class="far fa-bell"></i></button>
+            <button *ngIf='notification.read' style="font-size:20px" disabled> <i class=""></i>Seen</button>
+          </div> 
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+     
+  </section>

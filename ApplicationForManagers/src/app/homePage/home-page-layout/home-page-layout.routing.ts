@@ -16,6 +16,7 @@ import { SurveyStatsComponent } from "../survey-stats/survey-stats.component";
 import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procurement.component";
 import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 import { AllPatientsComponent } from '../all-patients/all-patients.component'
+import { NotificationComponent } from "../notifications/notifications.component";
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -33,6 +34,6 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'prescription', component: PrescriptionComponent },
     { path: 'pharmacies', component: PharmacyProfileComponent },
     { path: 'patients', component: AllPatientsComponent },
-    { path: 'pharmacies/pharmacy/:pharmacyName' , component: PharmacyProfComponent}
-
+    { path: 'pharmacies/pharmacy/:pharmacyName' , component: PharmacyProfComponent},
+    { path: 'notifications', component:NotificationComponent}
 ]

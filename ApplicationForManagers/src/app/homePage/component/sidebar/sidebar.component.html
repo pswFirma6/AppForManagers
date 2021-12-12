@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
 <div class="sidebar-wrapper">
     <div class="logo">
         <a  class="simple-text">
@@ -9,7 +11,9 @@
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a  [routerLink]="[menuItem.path]">
                 <i class="{{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
+                <p *ngIf = 'menuItem.title != "NOTIFICATIONS"'>{{menuItem.title}}</p>
+                <p *ngIf = 'menuItem.title == "NOTIFICATIONS" && !this.exists'>{{menuItem.title}}</p>
+                <p *ngIf = 'menuItem.title == "NOTIFICATIONS" && this.exists'>{{menuItem.title}} <i class="far fa-bell"></i></p>
             </a>
         </li>
     </ul>
