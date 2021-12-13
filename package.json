@@ -26,7 +26,6 @@
   "name": "appformanagers",
   "author": "simin161",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^6.0.4",
     "husky": "^7.0.4",
     "size-limit": "^6.0.4",
     "tsdx": "^0.14.1",
