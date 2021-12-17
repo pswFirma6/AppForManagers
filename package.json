@@ -10,8 +10,6 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
     "semantic-release": "semantic-release"
   },
   "husky": {
@@ -29,6 +27,7 @@
   "author": "simin161",
   "devDependencies": {
     "husky": "^7.0.4",
+    "size-limit": "^6.0.4",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^3.9.10",
@@ -41,10 +40,10 @@
     "type": "git",
     "url": "https://github.com/pswFirma6/AppForManagers.git"
   },
-  "release":{
-    "branches": ["master", "develop"]
+  "release": {
+    "branches": [
+      "master",
+      "develop"
+    ]
   }
 }
-
-
-
