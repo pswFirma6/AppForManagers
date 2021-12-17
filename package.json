@@ -33,6 +33,9 @@
     "typescript": "^3.9.10",
     "semantic-release": "^18.0.0"
   },
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/pswFirma6/AppForManagers.git"
