@@ -1,6 +1,6 @@
 export class Tender {
     startDate: string = '';
-    eEndDate: string = '';
+    endDate: string = '';
     tenderItems: TenderItem[] = [];
 }
 
