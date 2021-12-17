@@ -6,7 +6,7 @@
         <form #form="ngForm">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Start date:</label>
-                <input class="form-control" type="date" name="start" #Name="ngModel" [(ngModel)]="tender.startDate" />
+                <input class="form-control" type="date" name="start" #Name="ngModel" [(ngModel)]="tender.startDate" required/>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">End date (Optional):</label>
@@ -16,34 +16,39 @@
             <div  *ngIf="tenderItems.length>0">
                 <h5>Tender items:</h5><br>
                 <div *ngFor='let item of tenderItems; let i = index'>
-                    <label>Medicine name : </label>{{item.name}}<br>
-                    <label>Requested quantity : </label>{{item.quantity}}<br><br>
+                    <label>Medicine name : </label>{{item.name}}
+                    <label>,    Requested quantity : </label>{{item.quantity}}<br><br>
                 </div>
             </div>
 
-            <button *ngIf="!addingNewItem" class="btn" (click)="AddNewItem()" >
+            <button *ngIf="!addingNewItem" class="btn" (click)="AddNewItem()">
                 Add tender item
             </button>
-            <div *ngIf="addingNewItem">
-                <label>Hallo</label>
-
-                <div class="form-group">
+            <div *ngIf="addingNewItem"  style="border:thick">
+                <br>
+                <br>
+                <div>
+                    
                     <label>Medicine name:</label>
-                    <input class="form-control" type="text" [(ngModel)] = "tempItem.name" name="medicineName"/>
+                    <input class="form-control" type="text" [(ngModel)] = "tempItem.name" name="medicineName" required/>
                 </div><br/>
                 <div class="form-group">
                     <label>Quantity:</label>
-                    <input class="form-control" type="text" [(ngModel)] = "tempItem.quantity" name="quantity"/>
+                    <input class="form-control" type="number" [(ngModel)] = "tempItem.quantity" name="quantity" required/>
                 </div><br/>
                 <button class="btn" (click)="AddNewItemConfirm()" >
                     Add
+                </button>
+                
+                <button class="btn" (click)="CancelAddingItem()" >
+                    Cancel
                 </button>
 
             </div>
             <br>
             <br>
-            <button *ngIf="tenderItems.length>0" type="submit" class="btn" >
-                Create
+            <button *ngIf="tenderItems.length>0 && !addingNewItem" type="submit" class="btn" >
+                Create tender
             </button>
 
         </form>

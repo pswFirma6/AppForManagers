@@ -29,10 +29,19 @@ export class TenderComponent implements OnInit {
   }
 
   AddNewItemConfirm(){
+    if (this.tempItem.name == '' || this.tempItem.quantity == null){
+      alert('input fields should not be empty!')
+      return
+    }
     this.addingNewItem = false;
     this.tenderItems.push(this.tempItem);
+    this.tempItem = new TenderItem();
     console.log(this.tempItem)
 
+  }
+  CancelAddingItem(){
+    this.addingNewItem = false;
+    this.tempItem = new TenderItem();
   }
 
 }
