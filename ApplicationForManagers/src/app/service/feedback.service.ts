@@ -12,7 +12,7 @@ export class FeedbackService{
   formFeedback: FeedbackModel= new FeedbackModel();
   readonly baseUrl = "http://localhost:44317/api/Feedbacks";
   readonly baserUrlResponses = "http://localhost:44317/api/Feedbacks/pharmacy/getFeedbackResponse";
-  readonly basePharmacy = "http://localhost:44317/api/Feedbacks/pharmacyNames";
+  readonly basePharmacy = "http://localhost:44317/pharmacyNames";
   feedbackList: FeedbackModel[] = [];
   feedbackResponses : FeedbackResponseModel[] = [];
   feedbackResponse: FeedbackResponseModel = new FeedbackResponseModel();
