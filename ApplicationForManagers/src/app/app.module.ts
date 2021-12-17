@@ -14,6 +14,7 @@ import { LandingpageLayoutComponent } from './landingpage/landingpage-layout/lan
 import { LandingpageLayoutModule } from './landingpage/landingpage-layout/landingpage-layout.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AllPatientsComponent } from './homePage/all-patients/all-patients.component';
+import { TenderComponent } from './homePage/tender/tender.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AllPatientsComponent } from './homePage/all-patients/all-patients.compo
     AppComponent,
     HomePageLayoutComponent,
     LandingpageLayoutComponent,
-    AllPatientsComponent
+    AllPatientsComponent,
+    TenderComponent
   ],
   imports: [
     BrowserModule,

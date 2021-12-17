@@ -17,6 +17,7 @@ import { UrgentProcurementComponent } from "../urgent-procurement/urgent-procure
 import { EquipmentTransferComponent } from '../equipment-transfer/equipment-transfer.component';
 import { AllPatientsComponent } from '../all-patients/all-patients.component'
 import { NotificationComponent } from "../notifications/notifications.component";
+import { TenderComponent } from "../tender/tender.component";
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -35,5 +36,6 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacies', component: PharmacyProfileComponent },
     { path: 'patients', component: AllPatientsComponent },
     { path: 'pharmacies/pharmacy/:pharmacyName' , component: PharmacyProfComponent},
-    { path: 'notifications', component:NotificationComponent}
+    { path: 'notifications', component:NotificationComponent},
+    { path: 'tenders', component:TenderComponent}
 ]
