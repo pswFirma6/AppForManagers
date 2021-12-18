@@ -8,12 +8,13 @@ import { Tender } from "../shared/tender.model";
 
 export class TenderService{
 
-    url = "http://localhost:44317/createTender";
+    url = "http://localhost:44317/addTender";
     constructor(private http: HttpClient) { }
 
     
     CreateTender(tender: Tender) {
-        this.http.post(this.url,tender);
+        console.log(tender);
+        return this.http.post(this.url, tender);
       }
 
 }

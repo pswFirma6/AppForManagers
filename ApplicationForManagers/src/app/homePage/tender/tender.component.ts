@@ -23,7 +23,11 @@ export class TenderComponent implements OnInit {
   onSubmit(form: NgForm){
     this.tender.tenderItems = this.tenderItems;
     console.log(this.tender)
-    this.service.CreateTender(this.tender);
+    this.service.CreateTender(this.tender).subscribe(
+      (res:any) => {
+        console.log("Successfuly added to database");
+      }
+    );
   }
 
   AddNewItem(){
