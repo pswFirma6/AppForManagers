@@ -1,7 +1,33 @@
 <app-tendering-navabar></app-tendering-navabar>
+
 <div class="cards">
 
+    <div class="card text-center" *ngFor='let tender of tenders; let i = index'>
+        <div class="card-header">
+            <b>{{tender.creationDate | date:'longDate'}}</b>
+        </div>
+        <div class="card-body">
+            <div class="form-control">
+                <label><b>Start date:</b></label>
+                {{tender.startDate | date:'longDate'}}<br/>
+                <label><b>End date:</b></label>
+                {{tender.endDate | date:'longDate'}}
+                <br>
+                <br>
+                <label><b>Tender items:</b></label>
+                <br>
+                <div *ngFor='let item of tender.tenderItems; let i = index'>
 
+                    <label><b>Medicine name:</b></label>
+                    {{item.name}},
+                    <label><b>Requested quantity:</b></label>
+                    {{item.quantity}}
+                    
+                </div>
+            </div>
+        </div> 
+    <div>
     
+
 </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TenderService } from 'src/app/service/tender.service';
+import { Tender } from 'src/app/shared/tender.model';
 
 @Component({
   selector: 'app-tenders',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TendersComponent implements OnInit {
 
-  constructor() { }
+  tenders : Tender[] = [];
+
+
+  constructor(public service: TenderService) { }
 
   ngOnInit(): void {
+    this.service.GetTenders()
+    .subscribe(res => this.tenders = res);
+    console.log(this.tenders)
   }
 
 }

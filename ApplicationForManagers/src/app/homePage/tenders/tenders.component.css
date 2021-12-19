@@ -1,0 +1,50 @@
+
+h1{
+    margin-top: 20px;
+    font-size: x-large;
+    font-weight: bold;
+    color: gray;
+}
+
+.cards{
+    width: 80%;
+    height: 100%;
+}
+
+.card{
+    margin-left: 350px;
+    width: 70%;
+    margin-top: 50px;
+}
+
+.card-header{
+    background-color: lightskyblue; 
+    color: black;
+    font-size: x-large;
+    opacity: 70%;
+}
+
+.card-header1{
+    background-color: rgb(0, 0, 0); 
+    color: lightgray;
+    font-size: x-large;
+    opacity: 70%;
+}
+
+.card-body{
+    font-size: large;
+    text-align: left;
+}
+
+.form-control{
+    font-size: large;
+    height: 100%;
+}
+
+label{
+    font-size: large;
+}
+
+a:hover{
+    cursor: pointer;
+}
