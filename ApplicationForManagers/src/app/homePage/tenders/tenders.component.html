@@ -13,17 +13,37 @@
                 <label><b>End date:</b></label>
                 {{tender.endDate | date:'longDate'}}
                 <br>
+                <ul>
                 <br>
-                <label><b>Tender items:</b></label>
-                <br>
-                <div *ngFor='let item of tender.tenderItems; let i = index'>
-
-                    <label><b>Medicine name:</b></label>
-                    {{item.name}},
-                    <label><b>Requested quantity:</b></label>
-                    {{item.quantity}}
-                    
+                <div *ngFor='let item of tender.tenderItems; let i = index' style="font-size:29px">
+                    <li>
+                    <label>{{item.name}}, {{item.quantity}}</label>
+                    </li>
+                                                      
                 </div>
+                </ul>
+                <button style="font-size:28px" class = "btn" (click)="ShowTenderOffers(tender.id)"><u>Show offers</u></button>  
+                <br>
+                <br>
+                <br>
+                <div *ngIf="showingTenderOffers">
+
+                    <div *ngFor='let offer of selectedTenderOffers; let i = index'>
+
+                        <label style="font-size:30px">Pharmacy : <b>{{offer.pharmacyName}}</b></label>
+                        <br/>
+                        <ul>
+                        <div *ngFor='let it of offer.tenderOfferItems; let i = index'>
+                            
+                            <li>
+                            <label>{{it.name}}: offered {{it.quantity}}, for the price of : {{it.price}} </label>
+
+                            </li>                              
+                        </div>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div> 
     <div>
