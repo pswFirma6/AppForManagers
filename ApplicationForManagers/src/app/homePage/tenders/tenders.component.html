@@ -36,11 +36,14 @@
                         <div *ngFor='let it of offer.tenderOfferItems; let i = index'>
                             
                             <li>
-                            <label>{{it.name}}: offered {{it.quantity}}, for the price of : {{it.price}} </label>
+                            <label>{{it.name}}: offered {{it.quantity}}, for the price of : {{it.price}} .  (Total: {{it.price*it.quantity}}) </label>
 
                             </li>                              
                         </div>
                         </ul>
+                        <label style="font-size:21px">Total offer price is <u>{{TotalOfferPrize(offer)}}</u></label>
+                        <br>
+                        <br>
                     </div>
                 </div>
 

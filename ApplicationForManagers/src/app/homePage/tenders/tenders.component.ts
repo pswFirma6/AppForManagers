@@ -1,6 +1,7 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TenderService } from 'src/app/service/tender.service';
-import { Tender, TenderOffer} from 'src/app/shared/tender.model';
+import { Tender, TenderOffer, TenderOfferItem} from 'src/app/shared/tender.model';
 
 @Component({
   selector: 'app-tenders',
@@ -43,6 +44,15 @@ export class TendersComponent implements OnInit {
     }
     console.log(this.selectedTenderOffers)
     this.showingTenderOffers = true;
+  }
+
+  TotalOfferPrize(offer: TenderOffer){
+
+    let ret = 0
+    for(var item of offer.tenderOfferItems){
+      ret += item.quantity * item.price;
+    }
+    return ret;
   }
 
 
