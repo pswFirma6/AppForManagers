@@ -22,7 +22,7 @@
                                                       
                 </div>
                 </ul>
-                <button style="font-size:28px" class = "btn" (click)="ShowTenderOffers(tender.id)"><u>Show offers</u></button>  
+                <button style="font-size:28px" class="btn" (click)="ShowTenderOffers(tender.id)"><u>Show offers</u></button>  
                 <br>
                 <br>
                 <br>
@@ -30,8 +30,9 @@
 
                     <div *ngFor='let offer of selectedTenderOffers; let i = index'>
 
-                        <label style="font-size:30px">Pharmacy : <b>{{offer.pharmacyName}}</b></label>
-                        <br/>
+                        <label *ngIf="!closingTender" style="font-size:30px">Pharmacy : <b>{{offer.pharmacyName}}</b></label>
+                        <button class="btn" *ngIf="closingTender"  style="font-size:30px" (click)="CloseTender(offer)"><b>{{offer.pharmacyName}}</b></button>
+                        
                         <ul>
                         <div *ngFor='let it of offer.tenderOfferItems; let i = index'>
                             
@@ -45,6 +46,16 @@
                         <br>
                         <br>
                     </div>
+                
+                    <button style="
+                    background-color: lightskyblue; 
+                    color: black;
+                    font-size: x-large;
+                    font-weight: bold;
+                    opacity: 70%;" class = "btn" (click)="ClosingTender()" *ngIf="!closingTender">Close tender</button>  
+                 <label *ngIf="closingTender">Click on pharmacy name that you want to choose! Or </label>
+                 <button class = "btn" (click)="CancelClosingTender()" *ngIf="closingTender" style="font-size:22px">Cancel</button>  
+                   
                 </div>
 
             </div>

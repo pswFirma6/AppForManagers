@@ -10,8 +10,10 @@ import { Tender, TenderOffer, TenderOfferItem } from "../shared/tender.model";
 export class TenderService{
 
 
+
     url = "http://localhost:44317/addTender";
     urlget = "http://localhost:44317/getTenders";
+    urlclose= "http://localhost:44317/closeTender";
     urloffers = "http://localhost:44317/getTenderOffers";
 
     constructor(private http: HttpClient) { }
@@ -30,5 +32,10 @@ export class TenderService{
         console.log(tender);
         return this.http.post(this.url, tender);
       }
+    
+    CloseTender(offer: TenderOffer) {
+      console.log('Tender should be closed')
+      return this.http.post(this.urlclose,offer)
+    }
 
 }

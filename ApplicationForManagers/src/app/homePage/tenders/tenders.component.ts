@@ -14,6 +14,7 @@ export class TendersComponent implements OnInit {
   tenderOffers: TenderOffer[] =[];
   selectedTenderOffers: TenderOffer[] =[];
   showingTenderOffers: boolean =false;
+  closingTender: boolean=false;
 
   constructor(public service: TenderService) { }
 
@@ -53,6 +54,17 @@ export class TendersComponent implements OnInit {
       ret += item.quantity * item.price;
     }
     return ret;
+  }
+
+  ClosingTender(){
+    this.closingTender = true;
+  }
+  CancelClosingTender(){
+    this.closingTender = false;
+  }
+  CloseTender(offer: TenderOffer){
+    this.service.CloseTender(offer)
+    .subscribe(res => this.ngOnInit());
   }
 
 
