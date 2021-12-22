@@ -2,6 +2,7 @@ import { isNgTemplate } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TenderService } from 'src/app/service/tender.service';
 import { Tender, TenderOffer, TenderOfferItem} from 'src/app/shared/tender.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tenders',
@@ -64,7 +65,10 @@ export class TendersComponent implements OnInit {
   }
   CloseTender(offer: TenderOffer){
     this.service.CloseTender(offer)
-    .subscribe(res => this.ngOnInit());
+    .subscribe(res => {Swal.fire('Tender closed','You have chosen the winner', 'success').then((result)=>
+      location.reload()
+    )
+    });
   }
 
 
