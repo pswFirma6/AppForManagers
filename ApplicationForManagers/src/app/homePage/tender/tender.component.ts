@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Tender,TenderItem } from 'src/app/shared/tender.model';
 import { TenderService } from 'src/app/service/tender.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tender',
@@ -26,6 +27,9 @@ export class TenderComponent implements OnInit {
     this.service.CreateTender(this.tender).subscribe(
       (res:any) => {
         console.log("Successfuly added to database");
+        Swal.fire('Tender successfully added!','','success').then((result)=>{
+          location.reload();
+        })
       }
     );
   }
