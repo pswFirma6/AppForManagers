@@ -10,7 +10,7 @@ import { SendingPrescriptionModel } from '../shared/sendingPrescription.model';
 
 export class PrescriptionService{
 
-  readonly savePrescriptionUrl = "https://localhost:44392/savePrescription"
+  readonly savePrescriptionUrl = "http://localhost:44392/savePrescription"
   readonly sendPrescriptionUrl = "http://localhost:44317/postOffer";
   
   constructor(private http: HttpClient) { }
