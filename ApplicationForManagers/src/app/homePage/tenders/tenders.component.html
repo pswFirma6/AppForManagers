@@ -10,8 +10,11 @@
             <div class="form-control">
                 <label><b>Start date:</b></label>
                 {{tender.startDate | date:'longDate'}}<br/>
+                <div *ngIf='tender.endDate != this.oldDate'>
+
                 <label><b>End date:</b></label>
                 {{tender.endDate | date:'longDate'}}
+                </div>
                 <br>
                 <ul>
                 <br>
@@ -26,7 +29,7 @@
                 <br>
                 <br>
                 <br>
-                <div *ngIf="showingTenderOffers">
+                <div *ngIf="showingTenderOffers &&  this.currentTenderId == tender.id">
 
                     <div *ngFor='let offer of selectedTenderOffers; let i = index'>
 

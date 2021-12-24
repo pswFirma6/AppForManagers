@@ -12,11 +12,12 @@ import Swal from 'sweetalert2';
 export class TendersComponent implements OnInit {
 
   tenders : Tender[] = [];
+  currentTenderId: number;
   tenderOffers: TenderOffer[] =[];
   selectedTenderOffers: TenderOffer[] =[];
   showingTenderOffers: boolean =false;
   closingTender: boolean=false;
-
+  oldDate: string = '1/1/2050 12:00:00 AM'
   constructor(public service: TenderService) { }
 
   ngOnInit(): void {
@@ -34,18 +35,23 @@ export class TendersComponent implements OnInit {
 
   ShowTenderOffers(tenderId: number){
 
-    if(this.showingTenderOffers == true){
+    this.selectedTenderOffers = [];
+    if(this.showingTenderOffers == true && this.currentTenderId == tenderId){
       this.showingTenderOffers = false;
-      this.selectedTenderOffers = [];
+      this.currentTenderId = 0;
       return;
     }
-    for(var offer of this.tenderOffers){
-      if(offer.tenderId == tenderId){
-        this.selectedTenderOffers.push(offer)
+    else{
+      for(var offer of this.tenderOffers){
+        if(offer.tenderId == tenderId){
+          this.selectedTenderOffers.push(offer)
+        }
       }
+      console.log(this.selectedTenderOffers)
+      this.currentTenderId = tenderId;
+      this.showingTenderOffers = true;
     }
-    console.log(this.selectedTenderOffers)
-    this.showingTenderOffers = true;
+    
   }
 
   TotalOfferPrize(offer: TenderOffer){
