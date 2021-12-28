@@ -28,7 +28,7 @@ import { PharmacyProfileComponent } from "../pharmacy-profile/pharmacy-profile.c
 import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component";
 import { UploadImageComponent } from "../upload-image/upload-image.component";
 import { NotificationComponent } from "../notifications/notifications.component";
-
+import { ChartsModule } from "ng2-charts";
 
 @NgModule ({
     imports: [
@@ -38,6 +38,7 @@ import { NotificationComponent } from "../notifications/notifications.component"
         RouterModule.forChild(HomePageLayoutRoutes),
         ToastrModule.forRoot(),
         Ng2SearchPipeModule,
+        ChartsModule
     ],
     declarations: [
         HomePageComponent,

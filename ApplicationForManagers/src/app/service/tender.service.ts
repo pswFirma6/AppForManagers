@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Medicine } from "../shared/medicine.model";
 import { Tender, TenderOffer, TenderOfferItem } from "../shared/tender.model";
 import { TenderEarning } from "../shared/tenderEarnings.model";
 import { TenderParticipants } from "../shared/tenderParticipants.model";
@@ -18,6 +19,11 @@ export class TenderService{
     urlWins = "http://localhost:44317/getTenderWinners";
     urlEarning = "http://localhost:44317/getTendersWinningOffersPrices"
     urlPharmacyEarning = "http://localhost:44317/getPharmaciesEarnings"
+    urlPharmacyWinningOffer = "http://localhost:44317/pharmacyWinningOffers/"
+    urlPharmacyOffers = "http://localhost:44317/pharmacyOffers/"
+    urlPharmacyParticipation = "http://localhost:44317/pharmacyParticipations/"
+    urlPharmacyWins = "http://localhost:44317/pharmacyWins/"
+    urlPharmacyMedicineConsumption = "http://localhost:44317/pharmacyMedicineConsumption/"
 
 
     constructor(private http: HttpClient) { }
@@ -57,6 +63,31 @@ export class TenderService{
 
     GetPharmacyEarnings(): Observable<TenderEarning[]>{
       return this.http.get<TenderEarning[]>(this.urlPharmacyEarning)
+    }
+
+    GetPharmacyOffers(pharmacyName:string):Observable<TenderEarning[]>{
+      let url = this.urlPharmacyOffers + pharmacyName
+      return this.http.get<TenderEarning[]>(url)
+    }
+
+    GetPharmacyWinningOffer(pharmacyName:string): Observable<TenderEarning[]>{
+      let url = this.urlPharmacyWinningOffer + pharmacyName
+      return this.http.get<TenderEarning[]>(url)
+    }
+
+    GetPharmacyParticipations(pharmacyName:string): Observable<number[]>{
+      let url = this.urlPharmacyParticipation + pharmacyName
+      return this.http.get<number[]>(url)
+    }
+
+    GetPharmacyWins(pharmacyName:string): Observable<number[]>{
+      let url = this.urlPharmacyWins + pharmacyName
+      return this.http.get<number[]>(url)
+    }
+
+    GetPharmacyMedicineConsumption(pharmacyName:string): Observable<Medicine[]>{
+      let url = this.urlPharmacyMedicineConsumption + pharmacyName
+      return this.http.get<Medicine[]>(url)
     }
 
 }

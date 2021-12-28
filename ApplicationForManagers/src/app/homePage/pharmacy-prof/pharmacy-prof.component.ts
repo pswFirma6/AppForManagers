@@ -6,6 +6,12 @@ import { PharmacyComment } from 'src/app/shared/pharmacy-comment';
 import { PharmacyCommentService } from 'src/app/shared/pharmacy-comment.service';
 import { PharmacyService } from 'src/app/shared/pharmacy.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Color, Label, MultiDataSet } from 'ng2-charts';
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { ChartsModule } from 'ng2-charts';
+import { TenderService } from 'src/app/service/tender.service';
+import { TenderEarning } from 'src/app/shared/tenderEarnings.model';
+import { Medicine } from 'src/app/shared/medicine.model';
 
 
 @Component({
@@ -30,10 +36,24 @@ export class PharmacyProfComponent implements OnInit {
   uploadModeOn: boolean = false;
   currentPharmacyImage: SafeResourceUrl = "";
 
+  pharmacyOffers: TenderEarning[] = []
+  tenders: Label[] = []
+  winningTenders: Label[] = []
+  moneyOffers: number[] = []
+  winningMoneyOffers: number[] = []
+  pharmacyWinningOffers: TenderEarning[] = []
+  pharmacyParticipations: number = 0
+  pharmacyWins:number = 0
+  pharmacyWinRatio: number[] = []
+  medicines:Medicine[] = []
+  medicineNames:Label[] = []
+  medicineQuantity: number[] = []
+
   constructor(private router: Router, private service: PharmacyService,
      private service2: PharmacyCommentService,
      private toastr: ToastrService,
-     private domSanitizer: DomSanitizer) { }
+     private domSanitizer: DomSanitizer,
+     private tenderService: TenderService) { }
 
   ngOnInit(): void {
     this.pharmacyName = this.extractPharmacyName(this.router.url)
@@ -41,6 +61,62 @@ export class PharmacyProfComponent implements OnInit {
       .subscribe(res => { this.pharmacy = res; this.loadCurrentPharmacyImage(this.pharmacy.pharmacyPicture);});
     this.service2.getPharmacyComments(this.extractPharmacyName(this.pharmacyName))
     .subscribe(res => this.comments = res);
+    this.tenderService.GetPharmacyOffers(this.pharmacyName).subscribe(
+      res => {
+        this.pharmacyOffers = res
+        this.setPharmacyOffers(this.pharmacyOffers)
+      }
+    )
+    this.tenderService.GetPharmacyWinningOffer(this.pharmacyName).subscribe(
+      res =>{
+        this.pharmacyWinningOffers = res
+        this.setPharmacyWinningOffers(this.pharmacyWinningOffers)
+      }
+    )
+    this.tenderService.GetPharmacyWins(this.pharmacyName).subscribe(
+      res=>{
+        this.pharmacyWins = res[0]
+        this.tenderService.GetPharmacyParticipations(this.pharmacyName).subscribe(
+          res=>{
+            this.pharmacyParticipations = res[0]
+            this.setWinRatio();
+          }
+        )
+      }
+    )
+
+    this.tenderService.GetPharmacyMedicineConsumption(this.pharmacyName).subscribe(
+      res=>{
+        this.medicines = res
+        this.setMedicines();
+      }
+    )
+  }
+
+  setMedicines(){
+    for(var i = 0; i < this.medicines.length; i++){
+      this.medicineNames.push(this.medicines[i].name)
+      this.medicineQuantity.push(this.medicines[i].quantity)
+    }
+  }
+
+  setWinRatio(){
+    this.pharmacyWinRatio.push(this.pharmacyWins)
+    this.pharmacyWinRatio.push(this.pharmacyParticipations - this.pharmacyWins)
+  }
+
+  setPharmacyWinningOffers(winningOffers: TenderEarning[]){
+    for(var i = 0; i< winningOffers.length; i++){
+      this.winningTenders.push('Tender ' + winningOffers[i].name)
+      this.winningMoneyOffers.push(winningOffers[i].earning)
+    }
+  }
+
+  setPharmacyOffers(offers: TenderEarning[]){
+    for(var i = 0; i< offers.length; i++){
+      this.tenders.push('Tender ' + offers[i].name)
+      this.moneyOffers.push(offers[i].earning)
+    }
   }
 
   extractPharmacyName(url: string): string {
@@ -136,9 +212,57 @@ export class PharmacyProfComponent implements OnInit {
     );
   }
 
-  
-
   onUpload() {}
 
+  barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
+  };
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  
+  barChartPlugins = [];
 
+  barChartLabels1: Label[] = ['10.12.2020.','13.12.2020.', '14.12.2020.', '15.12.2020.', '18.12.2020.'];
+  barChartData1: ChartDataSets[] = [
+    { data: this.moneyOffers, label: 'Ponuda' },
+  ];
+
+  barChartLabels2: Label[] = ['Tender1', 'Tender3','Tender6'];
+  barChartData2: ChartDataSets[] = [
+    { data: this.winningMoneyOffers, label: 'Pobednicka ponuda' },
+  ];
+
+  barChartColors: Color[] = [
+    {
+      backgroundColor: 'rgba(0,255,0,0.28)',
+    }
+  ]
+
+  doughnutChartType: ChartType = 'doughnut';
+
+  doughnutChartLabels: Label[] = ['Pobeda', 'Učestvovanje'];
+  doughnutChartColors: Color[] =[
+    {
+      backgroundColor: ['lightpink','lightgreen','yellow','lightblue','lightred']
+    }
+  ]
+  doughnutChartData: MultiDataSet = [
+    this.pharmacyWinRatio
+  ];
+
+  doughnutChartLabels1: Label[] = this.medicineNames
+  doughnutChartData1: MultiDataSet = [
+    this.medicineQuantity
+  ];
+
+  
 }

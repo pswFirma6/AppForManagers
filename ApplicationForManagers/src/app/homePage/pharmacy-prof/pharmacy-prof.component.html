@@ -1,51 +1,145 @@
-
 <div class="cards">
+  <div *ngIf="!commentModeOn" class="card text-center">
+    <div class="card-header2">
+      <b>Pharmacy "{{ pharmacy.pharmacyName }}"</b>
+    </div>
+    <div class="card-body">
+      <label *ngIf="!editModeOn && !uploadModeOn"
+        ><b>Address:</b> {{ pharmacy.address }}</label
+      >
+      <br />
+      <div *ngIf="editModeOn && !uploadModeOn">
+        <b>Address:</b
+        ><input
+          type="text"
+          class="form-control"
+          value="{{ pharmacy.address }}"
+          [(ngModel)]="pharmacy.address"
+        />
+      </div>
+      <label *ngIf="!editModeOn && !uploadModeOn"
+        ><b>City:</b> {{ pharmacy.city }}</label
+      >
+      <br />
+      <div *ngIf="editModeOn && !uploadModeOn">
+        <b>City:</b
+        ><input
+          type="text"
+          class="form-control"
+          value="{{ pharmacy.city }}"
+          [(ngModel)]="pharmacy.city"
+        />
+      </div>
+      <br />
+      <img
+        *ngIf="!editModeOn"
+        style="width: 250px; height: 200px"
+        [src]="currentPharmacyImage"
+      />
+      <button
+        class="upload-btn"
+        *ngIf="editModeOn && !uploadModeOn"
+        (click)="changeUploadMode()"
+      >
+        Upload new image
+      </button>
+      <app-upload-image *ngIf="uploadModeOn"></app-upload-image>
+    </div>
+    <div *ngIf="!editModeOn && !uploadModeOn">
+      <button class="btn" (click)="changeEditMode()">EDIT</button>
+    </div>
+    <div *ngIf="editModeOn && !uploadModeOn">
+      <button class="btn" (click)="editPharmacy()">SAVE</button> <br />
+      <br />
+      <button class="btn" (click)="changeEditMode()">CANCEL</button>
+    </div>
+  </div>
 
-    <div *ngIf=" !commentModeOn" class="card text-center" >
-        <div class="card-header2">
-            <b>Pharmacy "{{pharmacy.pharmacyName}}"</b>
-        </div>
-        <div class="card-body">
-            <label *ngIf="!editModeOn && !uploadModeOn"><b>Address:</b> {{pharmacy.address}}</label> <br/>
-            <div *ngIf="editModeOn && !uploadModeOn"><b>Address:</b><input type="text" class="form-control" value="{{pharmacy.address}}" [(ngModel)]="pharmacy.address"></div>
-            <label *ngIf="!editModeOn && !uploadModeOn"><b>City:</b> {{pharmacy.city}}</label> <br/>
-            <div *ngIf="editModeOn && !uploadModeOn"><b>City:</b><input type="text" class="form-control" value="{{pharmacy.city}}" [(ngModel)]="pharmacy.city"></div> <br>
-            <img *ngIf="!editModeOn" style="width: 250px; height:200px;" [src]="currentPharmacyImage">
-            <button class="upload-btn" *ngIf="editModeOn && !uploadModeOn" (click)="changeUploadMode()">Upload new image</button>
-            <app-upload-image *ngIf="uploadModeOn"></app-upload-image>
-        </div>
-        <div  *ngIf="!editModeOn && !uploadModeOn">
-            <button class="btn" (click) = "changeEditMode()">EDIT</button>
-        </div>
-        <div  *ngIf="editModeOn && !uploadModeOn">
-            <button class="btn" (click) = "editPharmacy()">SAVE</button> <br/> <br/>
-            <button class="btn" (click) = "changeEditMode()">CANCEL</button>
-        </div>
+  <div
+    *ngIf="!editModeOn && !commentModeOn && !uploadModeOn"
+    class="card text-center"
+  >
+    <div class="card-header2">
+      <b>Comments</b>
     </div>
-
-    <div *ngIf="!editModeOn && !commentModeOn && !uploadModeOn" class="card text-center">
-        <div class="card-header2">
-            <b>Comments</b>
-        </div>
-        <div> <br>
-            <button class="btn" (click) = "changeCommentMode()">ADD COMMENT</button> <br> <br>
-        </div>
-        <div class="card-body2" *ngFor='let comment of comments; let i = index'>
-            <label><b>Date: </b>{{comment.commentDate | date:'short'}} <b>Content: </b>{{comment.content}}</label> 
-        </div>
+    <div>
+      <br />
+      <button class="btn" (click)="changeCommentMode()">ADD COMMENT</button>
+      <br />
+      <br />
     </div>
-    <div *ngIf="commentModeOn" class="card text-center">
-        <div class="card-header2">
-            <b>Add Comment</b>
-        </div>
-        <div class="card-body">
-            <label><b>Content:</b></label>
-            <textarea [(ngModel)]="commentContent" class="form-control" required></textarea>
-        </div>
-        <div> <br>
-            <button class="btn" (click) = "addComment()">ADD</button> <br/> <br/>
-            <button class="btn" (click) = "changeCommentMode()">CANCEL</button>
-        </div>
+    <div class="card-body2" *ngFor="let comment of comments; let i = index">
+      <label
+        ><b>Date: </b>{{ comment.commentDate | date: 'short' }} <b>Content: </b
+        >{{ comment.content }}</label
+      >
     </div>
+  </div>
+  <div *ngIf="commentModeOn" class="card text-center">
+    <div class="card-header2">
+      <b>Add Comment</b>
+    </div>
+    <div class="card-body">
+      <label><b>Content:</b></label>
+      <textarea
+        [(ngModel)]="commentContent"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+    <div>
+      <br />
+      <button class="btn" (click)="addComment()">ADD</button> <br />
+      <br />
+      <button class="btn" (click)="changeCommentMode()">CANCEL</button>
+    </div>
+  </div>
+  <div class="card text-center">
+    <div class="card-header2">
+      <b>Tender statistics</b>
+    </div>
+    <div class="chart-wrapper">
+        <h2>Ponude tokom tendera</h2>
+        <canvas
+          baseChart
+          [datasets]="barChartData1"
+          [labels]="tenders"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="barChartColors"
+        >
+        </canvas>
+        <h2>Pobedničke ponude apoteke</h2>
+        <canvas
+          baseChart
+          [datasets]="barChartData2"
+          [labels]="winningTenders"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+        >
+        </canvas>
+        <h2>Uspešnost učestvovanja na tenderu</h2>
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          [colors]="doughnutChartColors"
+        >
+        </canvas>
+        <h2>Potrošene kutije lekova</h2>
+        <canvas
+          baseChart
+          [data]="doughnutChartData1"
+          [labels]="doughnutChartLabels1"
+          [chartType]="doughnutChartType"
+          [colors]="doughnutChartColors"
+        >
+        </canvas>
+      </div>
+  </div>
 </div>
-
