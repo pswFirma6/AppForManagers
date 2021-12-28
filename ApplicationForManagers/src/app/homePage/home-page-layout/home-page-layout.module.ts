@@ -37,7 +37,7 @@ import { NotificationComponent } from "../notifications/notifications.component"
         ReactiveFormsModule,
         RouterModule.forChild(HomePageLayoutRoutes),
         ToastrModule.forRoot(),
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
     ],
     declarations: [
         HomePageComponent,

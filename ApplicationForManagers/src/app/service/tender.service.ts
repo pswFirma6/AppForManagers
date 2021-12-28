@@ -2,19 +2,23 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Tender, TenderOffer, TenderOfferItem } from "../shared/tender.model";
+import { TenderEarning } from "../shared/tenderEarnings.model";
+import { TenderParticipants } from "../shared/tenderParticipants.model";
 
 @Injectable({
     providedIn: 'root'
   })
 
 export class TenderService{
-
-
-
     url = "http://localhost:44317/addTender";
     urlget = "http://localhost:44317/getTenders";
     urlclose= "http://localhost:44317/closeTender";
     urloffers = "http://localhost:44317/getTenderOffers";
+    urlParticipants = "http://localhost:44317/getTenderParticipants";
+    urlWins = "http://localhost:44317/getTenderWinners";
+    urlEarning = "http://localhost:44317/getTendersWinningOffersPrices"
+    urlPharmacyEarning = "http://localhost:44317/getPharmaciesEarnings"
+
 
     constructor(private http: HttpClient) { }
   
@@ -36,6 +40,23 @@ export class TenderService{
     CloseTender(offer: TenderOffer) {
       console.log('Tender should be closed')
       return this.http.post(this.urlclose,offer)
+    }
+
+    GetTenderParticipants(): Observable<TenderParticipants[]>{
+      console.log('Evo me')
+      return this.http.get<TenderParticipants[]>(this.urlParticipants)
+    }
+
+    GetTenderWins(): Observable<TenderParticipants[]>{
+      return this.http.get<TenderParticipants[]>(this.urlWins)
+    }
+
+    GetTenderWinningsPrices(): Observable<TenderEarning[]>{
+      return this.http.get<TenderEarning[]>(this.urlEarning)
+    }
+
+    GetPharmacyEarnings(): Observable<TenderEarning[]>{
+      return this.http.get<TenderEarning[]>(this.urlPharmacyEarning)
     }
 
 }
