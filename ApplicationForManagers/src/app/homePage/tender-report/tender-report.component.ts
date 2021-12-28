@@ -134,8 +134,12 @@ export class TenderReportComponent implements OnInit {
 
   doughnutChartColor1: Color[] = [
     {
-      backgroundColor: ['red','orange','blue','green']
+      backgroundColor: ['lightpink','yellow','lightblue','lightgreen']
     },
   ];
   doughnutChartData1: MultiDataSet = [this.tenderPercentageWins];
+
+  openPdf(){
+    this.service.displayPdf();
+  }
 }

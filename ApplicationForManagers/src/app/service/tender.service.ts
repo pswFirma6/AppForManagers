@@ -24,7 +24,7 @@ export class TenderService{
     urlPharmacyParticipation = "http://localhost:44317/pharmacyParticipations/"
     urlPharmacyWins = "http://localhost:44317/pharmacyWins/"
     urlPharmacyMedicineConsumption = "http://localhost:44317/pharmacyMedicineConsumption/"
-
+    urlPdfReport = "http://localhost:44317/getPdf"
 
     constructor(private http: HttpClient) { }
   
@@ -90,4 +90,14 @@ export class TenderService{
       return this.http.get<Medicine[]>(url)
     }
 
-}
+    displayPdf(){
+      return this.http.get(this.urlPdfReport, {responseType:'blob'})
+      .subscribe((result: Blob) =>{
+          const blob = new Blob([result],{type: "application/pdf"});
+          const pdfurl = window.URL.createObjectURL(blob)
+          window.open(pdfurl)
+          console.log("success")
+  
+      });
+    }
+  }
