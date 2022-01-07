@@ -17,7 +17,8 @@ import { AllPatientsComponent } from './homePage/all-patients/all-patients.compo
 import { TenderComponent } from './homePage/tender/tender.component';
 import { TenderingNavabarComponent } from './homePage/tendering-navabar/tendering-navabar.component';
 import { TendersComponent } from './homePage/tenders/tenders.component';
-
+import { TenderReportComponent } from './homePage/tender-report/tender-report.component';
+import {ChartsModule} from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TendersComponent } from './homePage/tenders/tenders.component';
     AllPatientsComponent,
     TenderComponent,
     TenderingNavabarComponent,
-    TendersComponent
+    TendersComponent,
+    TenderReportComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { TendersComponent } from './homePage/tenders/tenders.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     HomePageLayoutModule,
-    LandingpageLayoutModule
+    LandingpageLayoutModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

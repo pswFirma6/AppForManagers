@@ -19,6 +19,7 @@ import { AllPatientsComponent } from '../all-patients/all-patients.component'
 import { NotificationComponent } from "../notifications/notifications.component";
 import { TenderComponent } from "../tender/tender.component";
 import { TendersComponent } from "../tenders/tenders.component";
+import { TenderReportComponent } from "../tender-report/tender-report.component";
 
 export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacyFeedback', component: PharmacyFeedbackComponent },
@@ -39,5 +40,6 @@ export const HomePageLayoutRoutes: Routes = [
     { path: 'pharmacies/pharmacy/:pharmacyName' , component: PharmacyProfComponent},
     { path: 'notifications', component:NotificationComponent},
     { path: 'tender', component:TenderComponent},
-    { path: 'tenders', component:TendersComponent}
+    { path: 'tenders', component:TendersComponent},
+    { path: 'tenderStatistics', component:TenderReportComponent}
 ]
