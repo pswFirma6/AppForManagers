@@ -1,0 +1,14 @@
+<div class="cards">
+
+    <div  class="card text-center" *ngFor='let pharmacy of pharmacies; let i = index'>
+        <div class="card-header2">
+            <b>Pharmacy "{{pharmacy.pharmacyName}}"</b>
+        </div>
+        <div class="card-body">
+            <label><b>Address:</b> {{pharmacy.address}}</label> <br/>
+            <label><b>City:</b> {{pharmacy.city}}</label> <br/>
+            <button [routerLink]="['pharmacy', pharmacy.pharmacyName]" class="btnCheck">Profile overview</button>
+        </div>
+    </div>
+    
+</div>

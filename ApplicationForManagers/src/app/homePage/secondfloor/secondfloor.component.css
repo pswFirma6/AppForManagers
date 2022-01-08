@@ -1,0 +1,53 @@
+svg {
+    display: block;
+  }
+
+  .room{
+    cursor: pointer;
+    opacity: .85;
+    transition: .15s;
+    }
+    
+    .allCont{
+    min-height: 100vh;
+    display: flex;
+    
+    }
+    .main-container {
+    width: 60%;
+    min-height: 100vh;
+    
+    }
+    
+    .side-container{
+    width: 40%;
+    min-height: 100vh;
+    line-height: 35px;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 10%;
+    }
+    .search-container{
+      display: flex;
+      margin-left: 40%;
+    }
+  
+  
+  
+  .rectClass:hover {
+  opacity:0.3;
+  cursor: pointer;
+  }
+  
+  td {
+    width: 25%;
+   border:1px solid black;
+ }
+
+ table {
+   width: 100%;
+   margin: 0 auto;
+   overflow-x: auto;
+   border-spacing: 0;
+   border:1px solid black;
+}

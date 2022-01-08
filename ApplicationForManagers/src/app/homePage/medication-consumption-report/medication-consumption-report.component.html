@@ -1,0 +1,30 @@
+<div>
+    <app-medications-navbar></app-medications-navbar> <br/>
+<div class="registration">
+  
+    <div class="card text-center">
+        <div class="card-header">
+            <b>Medication Consumption Report</b>
+        </div>
+        <div class="card-body"><br/>
+            <form #form = "ngForm" (submit) = "onSubmit(form)" ngNativeValidate>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Start date:</label>
+                    <input class="form-control" type="date" name="start" #Name="ngModel" [(ngModel)]="service.formReport.startDate" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">End date:</label>
+                    <input class="form-control" type="date" name="end" #Name="ngModel" [(ngModel)]="service.formReport.endDate"/>
+                </div>
+                <br/><br/>
+                <button type="submit" class="btn">
+                    Submit
+                </button>
+              </form>
+        </div>
+    </div>  
+  
+</div>
+</div>
+  
+
