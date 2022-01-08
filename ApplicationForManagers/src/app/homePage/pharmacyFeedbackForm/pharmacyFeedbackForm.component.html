@@ -7,7 +7,7 @@
           <input type="hidden" name="Id" [value]="service.formFeedback.id">
             <div class="form-group">
                 <label>Pharmacy:</label>
-                <select class="form-control" id="pharmacyName"  name="pharmacyName" #Name="ngModel" [(ngModel)] = "service.formFeedback.pharmacyName" required >
+                <select class="form-control" id="pharmacyName1"  name="pharmacyName" #Name="ngModel" [(ngModel)] = "service.formFeedback.pharmacyName" required >
                   <option *ngFor='let pharmacy of pharmacies' >
                     {{pharmacy}}
                   </option>
