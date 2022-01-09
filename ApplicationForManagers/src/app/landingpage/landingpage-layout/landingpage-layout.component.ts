@@ -10,6 +10,11 @@ export class LandingpageLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.logOut();
+  }
+
+  logOut() {
+    localStorage.removeItem("jwt");
   }
 
 }

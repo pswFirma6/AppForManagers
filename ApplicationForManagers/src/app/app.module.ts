@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomePageLayoutComponent } from './homePage/home-page-layout/home-page-layout.component';
@@ -18,7 +15,15 @@ import { TenderComponent } from './homePage/tender/tender.component';
 import { TenderingNavabarComponent } from './homePage/tendering-navabar/tendering-navabar.component';
 import { TendersComponent } from './homePage/tenders/tenders.component';
 import { TenderReportComponent } from './homePage/tender-report/tender-report.component';
-import {ChartsModule} from 'ng2-charts'
+import {ChartsModule} from 'ng2-charts';
+import { LoginComponent } from './login/login.component'
+import { AuthGuard } from './service/guards/auth-guard.service';
+import { JwtModule } from '@auth0/angular-jwt';
+
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import {ChartsModule} from 'ng2-charts'
     TenderComponent,
     TenderingNavabarComponent,
     TendersComponent,
-    TenderReportComponent
+    TenderReportComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +47,17 @@ import {ChartsModule} from 'ng2-charts'
     ReactiveFormsModule,
     HomePageLayoutModule,
     LandingpageLayoutModule,
-    ChartsModule
+    ChartsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44392"],
+        disallowedRoutes: []
+      }
+    })
   ],
-  providers: [],
+
+  providers: [ AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
