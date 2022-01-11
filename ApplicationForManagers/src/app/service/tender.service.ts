@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import jsPDF from "jspdf";
 import { Observable } from "rxjs";
+import { DateRangeModel } from "../shared/dateRange.model";
 import { Medicine } from "../shared/medicine.model";
 import { Tender, TenderOffer, TenderOfferItem } from "../shared/tender.model";
 import { TenderEarning } from "../shared/tenderEarnings.model";
@@ -48,21 +50,36 @@ export class TenderService{
       return this.http.post(this.urlclose,offer)
     }
 
-    GetTenderParticipants(): Observable<TenderParticipants[]>{
-      console.log('Evo me')
-      return this.http.get<TenderParticipants[]>(this.urlParticipants)
+    GetTenderParticipants(startDate:Date, endDate:Date): Observable<TenderParticipants[]>{
+      var dateRange : DateRangeModel = {
+        startDate: startDate,
+        endDate: endDate
+      }
+      return this.http.post<TenderParticipants[]>(this.urlParticipants, dateRange);
     }
 
-    GetTenderWins(): Observable<TenderParticipants[]>{
-      return this.http.get<TenderParticipants[]>(this.urlWins)
+    GetTenderWins(startDate:Date, endDate:Date): Observable<TenderParticipants[]>{
+      var dateRange : DateRangeModel = {
+        startDate: startDate,
+        endDate: endDate
+      }
+      return this.http.post<TenderParticipants[]>(this.urlWins, dateRange);
     }
 
-    GetTenderWinningsPrices(): Observable<TenderEarning[]>{
-      return this.http.get<TenderEarning[]>(this.urlEarning)
+    GetTenderWinningsPrices(startDate:Date, endDate:Date): Observable<TenderEarning[]>{
+      var dateRange : DateRangeModel = {
+        startDate: startDate,
+        endDate: endDate
+      }
+      return this.http.post<TenderEarning[]>(this.urlEarning, dateRange);
     }
 
-    GetPharmacyEarnings(): Observable<TenderEarning[]>{
-      return this.http.get<TenderEarning[]>(this.urlPharmacyEarning)
+    GetPharmacyEarnings(startDate:Date, endDate:Date): Observable<TenderEarning[]>{
+      var dateRange : DateRangeModel = {
+        startDate: startDate,
+        endDate: endDate
+      }
+      return this.http.post<TenderEarning[]>(this.urlPharmacyEarning, dateRange);
     }
 
     GetPharmacyOffers(pharmacyName:string):Observable<TenderEarning[]>{
@@ -90,8 +107,13 @@ export class TenderService{
       return this.http.get<Medicine[]>(url)
     }
 
-    displayPdf(){
-      return this.http.get(this.urlPdfReport, {responseType:'blob'})
+    displayPdf(pdf: jsPDF){
+      return this.http.post(this.urlPdfReport, pdf,{
+        responseType:'blob',
+        headers:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      })
       .subscribe((result: Blob) =>{
           const blob = new Blob([result],{type: "application/pdf"});
           const pdfurl = window.URL.createObjectURL(blob)

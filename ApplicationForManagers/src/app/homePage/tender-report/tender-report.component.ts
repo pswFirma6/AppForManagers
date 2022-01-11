@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import jsPDF from 'jspdf';
 import { Color, Label, MultiDataSet } from 'ng2-charts';
 import { TenderService } from 'src/app/service/tender.service';
 import { TenderEarning } from 'src/app/shared/tenderEarnings.model';
@@ -10,7 +11,10 @@ import { TenderParticipants } from 'src/app/shared/tenderParticipants.model';
   templateUrl: './tender-report.component.html',
   styleUrls: ['./tender-report.component.css'],
 })
-export class TenderReportComponent implements OnInit {
+export class TenderReportComponent {
+  showCharts: boolean = false;
+  startDate: Date;
+  endDate: Date;
   tenderParticipants: TenderParticipants[] = [];
   tenderWinners:TenderParticipants[] = [];
   tenderEarnings:TenderEarning[] = [];
@@ -25,28 +29,7 @@ export class TenderReportComponent implements OnInit {
 
   constructor(public service: TenderService) {}
 
-  ngOnInit(): void {
-    this.service
-      .GetTenderParticipants()
-      .subscribe((res) => {(this.tenderParticipants = res)
-        this.service.GetTenderWins().subscribe
-      ((res)=>{(this.tenderWinners = res)
-        this.setTender(this.tenderParticipants);
-      }) 
-    });
-
-    this.service.GetTenderWinningsPrices()
-    .subscribe((res) => {
-      this.tenderEarnings = res
-      this.setTenderEarnings(res)
-    })
-   
-    this.service.GetPharmacyEarnings().subscribe
-    ((res)=>{
-      this.pharmacyTenderEarnings = res
-      this.setPharmacyTenderEarnings(res)
-    })
-  }
+  
 
   setPharmacyTenderEarnings(tenderEarnings: TenderEarning[]){
     for(var i = 0; i < this.tenderParticipants.length; i++){
@@ -139,7 +122,59 @@ export class TenderReportComponent implements OnInit {
   ];
   doughnutChartData1: MultiDataSet = [this.tenderPercentageWins];
 
-  openPdf(){
-    this.service.displayPdf();
+  showAllCharts(){
+ 
+    this.service
+      .GetTenderParticipants(this.startDate, this.endDate)
+      .subscribe((res) => {(this.tenderParticipants = res)
+        this.service.GetTenderWins(this.startDate, this.endDate).subscribe
+      ((res)=>{(this.tenderWinners = res)
+        this.setTender(this.tenderParticipants);
+      }) 
+    });
+
+    this.service.GetTenderWinningsPrices(this.startDate, this.endDate)
+    .subscribe((res) => {
+      this.tenderEarnings = res
+      this.setTenderEarnings(res)
+    })
+   
+    this.service.GetPharmacyEarnings(this.startDate, this.endDate).subscribe
+    ((res)=>{
+      this.pharmacyTenderEarnings = res
+      this.setPharmacyTenderEarnings(res)
+    })
+
+   
   }
+  openPdf(){
+   
+    const canvas1 = document.getElementById('charts1') as HTMLCanvasElement
+    const canvasImage1 = canvas1.toDataURL('image/jpeg1',1.0)
+    const canvas2 = document.getElementById('charts2') as HTMLCanvasElement
+    const canvasImage2 = canvas2.toDataURL('image/jpeg2',1.0)
+    const canvas3 = document.getElementById('charts3') as HTMLCanvasElement
+    const canvasImage3 = canvas3.toDataURL('image/jpeg3',1.0)
+    const canvas4 = document.getElementById('charts4') as HTMLCanvasElement
+    const canvasImage4 = canvas4.toDataURL('image/jpeg4',1.0)
+    
+    let pdf = new jsPDF()
+    pdf.addImage(canvasImage1, 'JPEG', 0, 15, 100, 80);
+    pdf.setFontSize(16)
+    pdf.text('Pobednici tendera',30,10);
+    pdf.addImage(canvasImage2, 'JPEG', 105, 15, 100, 80);
+    pdf.text('Pobednicke ponude',135,10);
+    pdf.addImage(canvasImage3, 'JPEG', -5, 105, 120, 80);
+    pdf.text('Zarada',45,100);
+    pdf.addImage(canvasImage4, 'JPEG', 95, 105, 120, 80);
+    pdf.text('Procenat uspesnosti',133,100);
+    pdf.save('TenderReport.pdf');
+    console.log(this.startDate)
+    console.log(this.endDate)
+
+    window.location.reload()     
+
+    //this.service.displayPdf(pdf)
+  }
+
 }
