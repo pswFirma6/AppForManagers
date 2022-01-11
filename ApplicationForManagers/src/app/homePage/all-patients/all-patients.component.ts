@@ -19,7 +19,15 @@ export class AllPatientsComponent implements OnInit {
       this.patients = res;
       console.log(this.patients)
     });
+  }
 
+  onPatinetBlocked(patient: any) {
+   patient.blocked = true;
+   this.patientsService.blockPatient(patient).subscribe();
+  }
 
-}
+  onPatinetUnblocked(patient: any) {
+    patient.blocked = false;
+    this.patientsService.unblockPatient(patient).subscribe();
+   }
 }

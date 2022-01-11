@@ -15,16 +15,16 @@
                     </tr>
                     <tbody>
                         <tr *ngFor="let patient of patients">
-                                <td>{{patient.Id}}</td>
-                                <td>{{patient.Name}}</td>
-                                <td>{{patient.Surname}}</td>                            
-                                <td>{{patient.Malicious}}</td>
-                                <td>{{patient.Blocked}}</td>
-                                <ng-container *ngIf="patient.Malicious == true && patient.Blocked == false; else elseNotMalicious">
-                                    <td><button type="button">Blokiraj</button></td>
+                                <td>{{patient.id}}</td>
+                                <td>{{patient.name}}</td>
+                                <td>{{patient.surname}}</td>                            
+                                <td>{{patient.malicious}}</td>
+                                <td>{{patient.blocked}}</td>
+                                <ng-container *ngIf="patient.malicious == true && patient.blocked == false; else elseNotMalicious">
+                                    <td><button type="button" (click)="onPatinetBlocked(patient)">Blokiraj</button></td>
                                 </ng-container>
                                 <ng-template #elseNotMalicious>
-                                    <td></td>
+                                    <td><button type="button" (click)="onPatinetUnblocked(patient)">Odblokiraj</button></td>
                                 </ng-template>
                         </tr>
                     </tbody>

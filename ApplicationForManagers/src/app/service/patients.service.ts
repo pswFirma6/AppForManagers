@@ -21,6 +21,20 @@ export class PatientsService {
           );
       }
 
+    blockPatient(patient:any): Observable<any>{
+      return this.http.put<any>(this.patientUrl+"/BlockPatient",patient)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
+    unblockPatient(patient:any): Observable<any>{
+      return this.http.put<any>(this.patientUrl+"/UnblockPatient",patient)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
     handleError(error: any) {
 
       let errorMessage = '';

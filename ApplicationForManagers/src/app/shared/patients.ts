@@ -1,7 +1,7 @@
 export class Patients {
-    Id: string;
-    Name: string;
-    Surname: string;
-    Malicious: boolean;
-    Blocked: boolean;
+    id: string;
+    name: string;
+    surname: string;
+    malicious: boolean;
+    blocked: boolean;
 }
