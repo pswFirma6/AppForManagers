@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/home/patients', title: 'ALL PATIENTS', icon:'pe-7s-note2', class: '' },
     { path: '/home/pharmacies', title: 'PHARMACIES', icon:'pe-7s-note2', class: '' },
     { path: '/home/tenders', title: 'TENDERS', icon:'pe-7s-note2', class: '' },
-    { path: '/home/statistics', title: 'STATISTCIS', icon:'pe-7s-note2', class: '' }
+    { path: '/home/statistics', title: 'STATISTICS', icon:'pe-7s-note2', class: '' }
 
   
 ];

@@ -1,70 +1,82 @@
-<div style="width: 800px; margin-left: 400px" id="charts" >
-    <!-- <div class="container">
-      <br>
-    <label>
-      Start date:
-    </label>
-    <input type="date" #Name="ngModel" [(ngModel)]="startDate">
-    <br>
-    <label>
-      End date:
-    </label>
-    <input type="date" #Name="ngModel" [(ngModel)]="endDate">
-    <br>
-    <button (click)="showAllCharts()">Show charts</button>
-    <br>
-    <button (click)="openPdf()">Generate report</button>
-    </div>
-     -->
 
-      <h2>Stats</h2>
-
-      <canvas
-        id="barChart"
-        baseChart
-        [datasets]="barChartData"
-        [labels]="names"
-        [options]="barChartOptions"
-        [plugins]="barChartPlugins"
-        [legend]="barChartLegend"
-        [chartType]="barChartType"
-        [colors]="barChartColors"
-      >
-      </canvas>
-    <!-- <h2>Winning offers($)</h2>
-    <canvas
-      id="charts2"
-      baseChart
-      [datasets]="barChartData1"
-      [labels]="tenderNames"
+<div  style="width: 800px; margin-left: 250px; margin-bottom: 6%;">
+  <h1 style="font-weight: bold; color: rgb(37, 36, 36);">Statistics about adding an appointment</h1>
+</div>
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Graph1</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;" id="charts">
+    <canvas 
+      id="barChart" 
+      baseChart [datasets]="barChartData" 
+      [labels]="names" 
       [options]="barChartOptions"
       [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
-      [chartType]="barChartType"
-    >
+      [legend]="barChartLegend" 
+      [chartType]="barChartType" 
+      [colors]="barChartColors">
     </canvas>
-    <h2>Earning $</h2>
-    <canvas
-      id="charts3"
-      baseChart
-      [data]="doughnutChartData"
-      [labels]="names"
-      [chartType]="doughnutChartType"
-      [colors]="doughnutChartColor1"
-  
-    >
-    </canvas>
-    <h2>Winning percentage (%)</h2>
-    <canvas
-      id="charts4"
-      baseChart
-      [data]="doughnutChartData1"
-      [labels]="names"
-      [chartType]="doughnutChartType"
-      [colors]="doughnutChartColor1"
-    >
-    </canvas> -->
-      
   </div>
-  
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Graph2</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-eventtime></app-line-eventtime>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Graph3</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-event-step-time></app-line-event-step-time>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Graph4</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-event-steps></app-line-event-steps>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Graph5</b>
+  </div>
+  <div class="card-body"style="width: 50%;  margin:0 auto; z-index: 1;">
+    <app-pie-event-doctor></app-pie-event-doctor>
+  </div>
+</div>
+
+<div class="card text-center" style="margin-left: 224px;">
+  <div class="card-header">
+      <h2 class="title">Scheduled appointments by doctor specialization</h2>
+  </div>
+  <div class="content" style="width: 60%; margin:0 auto">
+      <div class="content table-responsive table-full-width">
+          <table class="table">
+            <thead>
+                <tr>
+                  <th class="text-center">Specialization</th>
+                  <th class="text-center">Number of appointments</th>
+                  <th class="text-center">Number of doctors</th>
+                </tr>
+            </thead>
+          <tbody>
+              <ng-container >
+                  
+              </ng-container>
+          </tbody>
+          </table>
+          </div>
+  </div>
+</div>
 

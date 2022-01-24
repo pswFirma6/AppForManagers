@@ -18,7 +18,7 @@ import { TenderReportComponent } from './homePage/tender-report/tender-report.co
 import {ChartsModule} from 'ng2-charts';
 import { LoginComponent } from './login/login.component'
 import { AuthGuard } from './service/guards/auth-guard.service';
-import { JwtModule } from '@auth0/angular-jwt';
+import {JwtModule} from '@auth0/angular-jwt';
 
 
 export function tokenGetter() {
@@ -35,7 +35,8 @@ export function tokenGetter() {
     TenderingNavabarComponent,
     TendersComponent,
     TenderReportComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
