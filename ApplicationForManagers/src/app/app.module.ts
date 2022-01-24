@@ -18,7 +18,7 @@ import { TenderComponent } from './homePage/tender/tender.component';
 import { TenderingNavabarComponent } from './homePage/tendering-navabar/tendering-navabar.component';
 import { TendersComponent } from './homePage/tenders/tenders.component';
 import { TenderReportComponent } from './homePage/tender-report/tender-report.component';
-import {ChartsModule} from 'ng2-charts'
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [

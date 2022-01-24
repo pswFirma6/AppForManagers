@@ -29,6 +29,7 @@ import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component"
 import { UploadImageComponent } from "../upload-image/upload-image.component";
 import { NotificationComponent } from "../notifications/notifications.component";
 import { ChartsModule } from "ng2-charts";
+import { StatisticsComponent } from "../statistics/statistics.component";
 
 @NgModule ({
     imports: [
@@ -64,7 +65,8 @@ import { ChartsModule } from "ng2-charts";
         PharmacyProfileComponent,
         PharmacyProfComponent,
         UploadImageComponent,
-        NotificationComponent
+        NotificationComponent,
+        StatisticsComponent
 
     ],
     exports: [
