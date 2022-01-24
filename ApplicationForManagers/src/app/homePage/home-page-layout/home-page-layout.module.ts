@@ -30,6 +30,7 @@ import { UploadImageComponent } from "../upload-image/upload-image.component";
 import { NotificationComponent } from "../notifications/notifications.component";
 import { ChartsModule } from "ng2-charts";
 import { StatisticsComponent } from "../statistics/statistics.component";
+import { NavbarComponent } from "../component/navbar/navbar.component";
 
 @NgModule ({
     imports: [
@@ -45,6 +46,7 @@ import { StatisticsComponent } from "../statistics/statistics.component";
         HomePageComponent,
         PharmacyFeedbackComponent,
         SidebarComponent,
+        NavbarComponent,
         PharmacyFeedbackFormComponent,
         PharmacyFeedbacksComponent,
         HospitalMapComponent,
@@ -71,6 +73,7 @@ import { StatisticsComponent } from "../statistics/statistics.component";
     ],
     exports: [
         SidebarComponent,
+        NavbarComponent,
         UrgentProcurementComponent
     ]
 })
