@@ -35,6 +35,7 @@ import { LineEventtimeComponent } from "../charts/line-eventtime/line-eventtime.
 import { LineEventStepsComponent } from "src/app/homePage/charts/line-event-steps/line-event-steps.component";
 import { LineEventStepTimeComponent } from "src/app/homePage/charts/line-event-step-time/line-event-step-time.component";
 import { PieEventDoctorComponent } from "../charts/pie-event-doctor/pie-event-doctor.component";
+import { BarEventStepsDateComponent } from "../charts/bar-event-steps-date/bar-event-steps-date.component";
 
 
 @NgModule ({
@@ -78,6 +79,7 @@ import { PieEventDoctorComponent } from "../charts/pie-event-doctor/pie-event-do
         LineEventStepsComponent,
         LineEventStepTimeComponent,
         PieEventDoctorComponent,
+        BarEventStepsDateComponent,
 
     ],
     exports: [

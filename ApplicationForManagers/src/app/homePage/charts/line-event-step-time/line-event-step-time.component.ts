@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'app-line-event-step-time',
@@ -7,18 +8,22 @@ import * as Chart from 'chart.js';
   styleUrls: ['./line-event-step-time.component.css']
 })
 export class LineEventStepTimeComponent implements OnInit {
-
-  constructor() { }
+ public avgTime: number[]=[];
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-    
-    const myChart = new Chart("chart1", {
+    this.eventService.getAverageStepTime().subscribe(res=>{
+      let avgTimeTest = res;
+      console.log(avgTimeTest);
+      this.avgTime = avgTimeTest;
+
+      const myChart = new Chart("chart1", {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['EventDate', 'EventSpecialization', 'EventDoctor', 'EventTerm'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Time in ms',
+                data:this.avgTime,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)'
                     
@@ -51,6 +56,9 @@ export class LineEventStepTimeComponent implements OnInit {
             },
         }
     });
+    });
+   
+  
   }
 
 }

@@ -2,27 +2,18 @@
 <div  style="width: 800px; margin-left: 250px; margin-bottom: 6%;">
   <h1 style="font-weight: bold; color: rgb(37, 36, 36);">Statistics about adding an appointment</h1>
 </div>
-<div class="card text-center">
-  <div class="card-header" style="margin-left: 220px;">
-    <b>Graph1</b>
+  <div class="card text-center">
+    <div class="card-header" style="margin-left: 220px;">
+      <b>Event steps made for completed appointment scheduling each month</b>
+    </div>
+    <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+      <app-bar-event-steps-date></app-bar-event-steps-date>
+    </div>
   </div>
-  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;" id="charts">
-    <canvas 
-      id="barChart" 
-      baseChart [datasets]="barChartData" 
-      [labels]="names" 
-      [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend" 
-      [chartType]="barChartType" 
-      [colors]="barChartColors">
-    </canvas>
-  </div>
-</div>
 
 <div class="card text-center">
   <div class="card-header" style="margin-left: 220px;">
-    <b>Graph2</b>
+    <b>Time needed to complete each AppointmentEvent</b>
   </div>
   <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
     <app-line-eventtime></app-line-eventtime>
@@ -31,7 +22,7 @@
 
 <div class="card text-center">
   <div class="card-header" style="margin-left: 220px;">
-    <b>Graph3</b>
+    <b>Average time taken per each event step</b>
   </div>
   <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
     <app-line-event-step-time></app-line-event-step-time>
@@ -40,7 +31,7 @@
 
 <div class="card text-center">
   <div class="card-header" style="margin-left: 220px;">
-    <b>Graph4</b>
+    <b>Number of steps needed to schedule an appointment</b>
   </div>
   <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
     <app-line-event-steps></app-line-event-steps>
@@ -49,7 +40,7 @@
 
 <div class="card text-center">
   <div class="card-header" style="margin-left: 220px;">
-    <b>Graph5</b>
+    <b>Percentege of successful appointment scheduling</b>
   </div>
   <div class="card-body"style="width: 50%;  margin:0 auto; z-index: 1;">
     <app-pie-event-doctor></app-pie-event-doctor>

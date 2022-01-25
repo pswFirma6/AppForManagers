@@ -26,13 +26,12 @@ export class LineEventtimeComponent implements OnInit {
         this.time.push(this.allEvents[i].timeSpan);
         this.ids.push( this.allEvents[i].id);
     }
-
     const myChart = new Chart("chart", {
       type: 'line',
       data: {
           labels: this.ids,
           datasets: [{
-              label: '# of Votes',
+              label: 'Time in ms',
               data: this.time,
               fill:false,
               lineTension:0,

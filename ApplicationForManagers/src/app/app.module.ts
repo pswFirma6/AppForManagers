@@ -21,6 +21,8 @@ import { AuthGuard } from './service/guards/auth-guard.service';
 import {JwtModule} from '@auth0/angular-jwt';
 
 
+
+
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
@@ -36,6 +38,8 @@ export function tokenGetter() {
     TendersComponent,
     TenderReportComponent,
     LoginComponent,
+    
+    
     
   ],
   imports: [
