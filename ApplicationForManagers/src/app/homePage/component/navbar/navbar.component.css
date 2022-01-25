@@ -1,5 +1,5 @@
 a:link {
-    color: green;
+    color: rgb(38, 140, 199);
     background-color: transparent;
     text-decoration: none;
   }
@@ -9,7 +9,7 @@ a:visited {
     text-decoration: none;
 }
 a:hover {
-    color: rgb(38, 140, 199);
+    color: rgb(174, 204, 221);
     background-color: transparent;
     text-decoration: underline;
 }

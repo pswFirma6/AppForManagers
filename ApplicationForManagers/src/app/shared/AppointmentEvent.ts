@@ -5,5 +5,6 @@ export class AppointmentEvent {
     applicationName:string;
     timeSpan: number;
     doctorId: number;
+    appointmentCreated: boolean;
 
 }

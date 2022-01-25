@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { EventService } from 'src/app/service/event.service';
 
 @Component({
   selector: 'app-statistics',
@@ -13,6 +14,8 @@ export class StatisticsComponent implements OnInit {
   barChart2: any[] = [70];
   barChart3: any[] = [37];
   
+
+ 
   barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -40,9 +43,10 @@ export class StatisticsComponent implements OnInit {
     { data: this.barChart3, label: 'Label 3' }
   ];
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
+
   }
 
 }
