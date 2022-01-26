@@ -31,6 +31,8 @@ export class MedicationSpecificationService{
   }
 
   requestReport(){
+
+    console.log(this.formMedicineSpecification)
     return this.http.post(this.baseRequestReport,this.formMedicineSpecification);
   }
 }

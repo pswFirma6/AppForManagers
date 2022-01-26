@@ -26,7 +26,7 @@ export class MedicationSpecificationFormComponent implements OnInit {
     .subscribe(res => {console.log(res);
     this.notificationService.newNotification.fileName = "specificationMedicineSpecification(" + 
     this.service.formMedicineSpecification.medicationName + ").pdf";
-    Swal.fire('New file', 'You have new specification!', 'info')
+    Swal.fire('New file', 'You have new specification file!', 'info')
       .then((result)=>{
         if(result.isConfirmed){
           this.setNotification();
