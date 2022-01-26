@@ -11,7 +11,7 @@ import { SendingPrescriptionModel } from '../shared/sendingPrescription.model';
 export class PrescriptionService{
 
   readonly savePrescriptionUrl = "http://localhost:44392/savePrescription"
-  readonly sendPrescriptionUrl = "http://localhost:44317/postOffer";
+  readonly sendPrescriptionUrl = "http://localhost:44317/sendPrescription";
   
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class PrescriptionService{
     return this.http.post(this.savePrescriptionUrl, prescription);
   }
 
-  sendPrescription(prescription: SendingPrescriptionModel){
+  sendPrescription(prescription: PrescriptionModel){
     console.log(prescription)
     return this.http.post(this.sendPrescriptionUrl, prescription);
   }

@@ -6,6 +6,7 @@ import { Medicine } from 'src/app/shared/medicine.model';
 import { PharmacyMedicineAvailabilityModel } from 'src/app/shared/pharmacyMedicineAvailability.model';
 import { PrescriptionModel } from 'src/app/shared/prescription.model';
 import { SendingPrescriptionModel } from 'src/app/shared/sendingPrescription.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-prescription',
@@ -14,6 +15,7 @@ import { SendingPrescriptionModel } from 'src/app/shared/sendingPrescription.mod
 })
 export class PrescriptionComponent implements OnInit {
 
+  sendingPrescription: SendingPrescriptionModel = new SendingPrescriptionModel();
   prescriptions: PrescriptionModel[] = [];
   medicine: Medicine = new Medicine();
   prescription: PrescriptionModel = new PrescriptionModel();
@@ -51,5 +53,15 @@ export class PrescriptionComponent implements OnInit {
         window.alert("Prescription is succesfully saved!");
       }
     );
+
+    this.service.sendPrescription(this.prescription).subscribe(
+      (res:any) => {
+        Swal.fire('New file', 'Prescription is sent to pharmacy!', 'info')
+      .then((result)=>{
+        if(result.isConfirmed){
+          location.reload();
+        }
+      })
+    });
   }
 }
