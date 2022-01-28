@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { GlobalSettings } from '../global';
 import { AppointmentEvent } from '../shared/AppointmentEvent';
+import { AppointmentEventUncreated } from '../shared/appointmentEventUncreated';
+import { SpecialitiesStat } from '../shared/statsForSpecialities';
 
 @Injectable({
     providedIn: 'root',
@@ -16,43 +17,23 @@ export class EventService {
 
     getAllEvents(): Observable<AppointmentEvent[]> {
         return this.http.get<AppointmentEvent[]>(this.eventUrl + '/getAllEvents')
-            .pipe(
-                catchError(this.handleError)
-            );
     }
+    
+    getAllUncreatedAppEvents(): Observable<AppointmentEventUncreated[]> {
+        return this.http.get<AppointmentEventUncreated[]>(this.eventUrl + '/allEventsUncreated')
+    }
+ 
+    getAllCreatedEventsDoctor(): Observable<SpecialitiesStat[]> {
+        return this.http.get<SpecialitiesStat[]>(this.eventUrl + '/allEventsCreatedDoctor')
+    }
+
+
     getDates(): Observable<number[]>{
         return this.http.get<number[]>(this.eventUrl + '/getStepsPerDate')
-            .pipe(
-                catchError(this.handleError)
-            );
+    
     }
     getAverageStepTime(): Observable<number[]>{
         return this.http.get<number[]>(this.eventUrl + '/getAverageStepTime')
-            .pipe(
-                catchError(this.handleError)
-            );
     }
-    handleError(error: any) {
-
-        let errorMessage = '';
-
-        if (error.error instanceof ErrorEvent) {
-
-            // client-side error
-
-            errorMessage = `Error: ${error.error.message} `;
-
-        } else {
-
-            // server-side error
-
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-
-        }
-
-        window.alert(errorMessage);
-
-        return throwError(errorMessage);
-
-    }
+    
 }
