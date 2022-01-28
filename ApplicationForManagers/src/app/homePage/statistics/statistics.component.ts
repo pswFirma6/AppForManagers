@@ -12,7 +12,7 @@ export class StatisticsComponent implements OnInit {
   
   
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
 

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
+import { EventService } from 'src/app/service/event.service';
+import { AppointmentEvent } from 'src/app/shared/AppointmentEvent';
+import { AppointmentEventUncreated } from 'src/app/shared/appointmentEventUncreated';
+import { SpecialitiesStat } from 'src/app/shared/statsForSpecialities';
 
 @Component({
   selector: 'app-pie-event-doctor',
@@ -8,40 +12,59 @@ import * as Chart from 'chart.js';
 })
 export class PieEventDoctorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
+  specialitiesStat: AppointmentEvent[] = [];
+  numberFalse: number = 0;
+  numberTrue: number = 0;
 
-  ngOnInit(): void {const myChart = new Chart("chart3", {
-    type: 'pie',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-                
-            ],
-        }]
-    },
-    options: {
-        responsive:true,
-        plugins: [{
-          legend:{
-            position: 'top'
+  ngOnInit(): void {
+    
+    this.eventService.getAllEvents().subscribe(res=>{
+      this.specialitiesStat = res;
+      
+      var l =  this.specialitiesStat.length, i;
+      for( i=0; i<l; i++) {
+        
+        if(this.specialitiesStat[i].appointmentCreated == false){
+          this.numberFalse++;
+          
+        }else {
+          this.numberTrue++;
+        }
+      }
+      console.log(this.numberFalse)
+      console.log(this.numberTrue)
+
+      const myChart = new Chart("chart3", {
+      type: 'pie',
+          data: {
+              labels: [ "Created successfully", "Not created" ],
+              datasets: [{
+                  label: '# Success of creating new appointments! ',
+                  data: [this.numberTrue, this.numberFalse],
+                  backgroundColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)'
+                      
+                  ],
+              }]
           },
-          title:{
-            display: true,
-            text: 'Naslov'
+          options: {
+              responsive:true,
+              plugins: [{
+                legend:{
+                  position: 'top'
+                },
+                title:{
+                  display: true,
+                  text: 'Naslov'
+                }
+              }],
+            
           }
-        }],
-       
-    }
-});
+      });
+    });
+
   }
 
 }
