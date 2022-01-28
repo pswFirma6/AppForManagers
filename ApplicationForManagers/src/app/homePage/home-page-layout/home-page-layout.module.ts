@@ -29,6 +29,14 @@ import { PharmacyProfComponent } from "../pharmacy-prof/pharmacy-prof.component"
 import { UploadImageComponent } from "../upload-image/upload-image.component";
 import { NotificationComponent } from "../notifications/notifications.component";
 import { ChartsModule } from "ng2-charts";
+import { StatisticsComponent } from "../statistics/statistics.component";
+import { NavbarComponent } from "../component/navbar/navbar.component";
+import { LineEventtimeComponent } from "../charts/line-eventtime/line-eventtime.component";
+import { LineEventStepsComponent } from "src/app/homePage/charts/line-event-steps/line-event-steps.component";
+import { LineEventStepTimeComponent } from "src/app/homePage/charts/line-event-step-time/line-event-step-time.component";
+import { PieEventDoctorComponent } from "../charts/pie-event-doctor/pie-event-doctor.component";
+import { BarEventStepsDateComponent } from "../charts/bar-event-steps-date/bar-event-steps-date.component";
+
 
 @NgModule ({
     imports: [
@@ -44,6 +52,7 @@ import { ChartsModule } from "ng2-charts";
         HomePageComponent,
         PharmacyFeedbackComponent,
         SidebarComponent,
+        NavbarComponent,
         PharmacyFeedbackFormComponent,
         PharmacyFeedbacksComponent,
         HospitalMapComponent,
@@ -64,11 +73,18 @@ import { ChartsModule } from "ng2-charts";
         PharmacyProfileComponent,
         PharmacyProfComponent,
         UploadImageComponent,
-        NotificationComponent
+        NotificationComponent,
+        StatisticsComponent,
+        LineEventtimeComponent,
+        LineEventStepsComponent,
+        LineEventStepTimeComponent,
+        PieEventDoctorComponent,
+        BarEventStepsDateComponent,
 
     ],
     exports: [
         SidebarComponent,
+        NavbarComponent,
         UrgentProcurementComponent
     ]
 })

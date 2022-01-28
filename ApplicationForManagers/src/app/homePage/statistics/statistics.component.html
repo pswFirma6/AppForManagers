@@ -1,0 +1,73 @@
+
+<div  style="width: 800px; margin-left: 250px; margin-bottom: 6%;">
+  <h1 style="font-weight: bold; color: rgb(37, 36, 36);">Statistics about adding an appointment</h1>
+</div>
+  <div class="card text-center">
+    <div class="card-header" style="margin-left: 220px;">
+      <b>Event steps made for completed appointment scheduling each month</b>
+    </div>
+    <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+      <app-bar-event-steps-date></app-bar-event-steps-date>
+    </div>
+  </div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Time needed to complete each AppointmentEvent</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-eventtime></app-line-eventtime>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Average time taken per each event step</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-event-step-time></app-line-event-step-time>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Number of steps needed to schedule an appointment</b>
+  </div>
+  <div class="card-body"style="width: 50%; margin:0 auto; z-index: 1;">
+    <app-line-event-steps></app-line-event-steps>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header" style="margin-left: 220px;">
+    <b>Percentege of successful appointment scheduling</b>
+  </div>
+  <div class="card-body"style="width: 70%;  margin:0 auto; z-index: 1;">
+    <app-pie-event-doctor></app-pie-event-doctor>
+  </div>
+</div>
+
+<div class="card text-center" style="margin-left: 224px;">
+  <div class="card-header">
+      <h2 class="title">Scheduled appointments by doctor specialization</h2>
+  </div>
+  <div class="content" style="width: 60%; margin:0 auto">
+      <div class="content table-responsive table-full-width">
+          <table class="table">
+            <thead>
+                <tr>
+                  <th class="text-center">Specialization</th>
+                  <th class="text-center">Number of appointments</th>
+                  <th class="text-center">Number of doctors</th>
+                </tr>
+            </thead>
+          <tbody>
+              <ng-container >
+                  
+              </ng-container>
+          </tbody>
+          </table>
+          </div>
+  </div>
+</div>
+

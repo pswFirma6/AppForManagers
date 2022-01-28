@@ -1,0 +1,20 @@
+a:link {
+    color: rgb(38, 140, 199);
+    background-color: transparent;
+    text-decoration: none;
+  }
+a:visited {
+    color: rgb(9, 71, 107);
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(174, 204, 221);
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: rgb(130, 219, 207);
+    background-color: transparent;
+    text-decoration: underline;
+}
